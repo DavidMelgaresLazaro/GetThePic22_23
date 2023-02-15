@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">GetThePic</string>
+    <string name="LOGO">LOGO</string>
+    <string name="STARTGAME">Començar!</string>
+    <string name="ABOUT">Sobre Nosotros</string>
+    <string name="Description">Aplicació desenvolupada per:</string>
+    <string name="NOMS">Alex Ramon PaulaUber David Melgares Joan Jaume Moll</string>
 </resources>
