@@ -9,7 +9,7 @@
 
 ***Authors***:
 
-- *Alex Ramon: Perfil tècnic, dedicat a la part de desenvolupament d'apps, web i disseny de UX.
+- *Alex Ramon*: Perfil tècnic, dedicat a la part de desenvolupament d'apps, web i disseny de UX.
     
 - *Paula Uber*: Elaboració de prototips, esbossos i disseny de la UI.
     
