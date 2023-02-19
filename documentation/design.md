@@ -3,7 +3,7 @@
 
      
 
- - **Java version:** 17.0.2, perquè la seva mida és dinàmica però no evita fuites de memòria, per el suport per a la creació d'una màquina virtual menor a 3 MB i per el suport als IDE.
+ - **Java version:** 17.0.2, perquè la seva mida és dinàmica però no evita fuites de memòria, per el suport als IDE. Aquesta es gratis per utilizar en producció i per distribuir. Rebrà actualizacions amb aquest termes com a minim Septembre del 2024.
  <img width="955" alt="Captura de pantalla 2022-02-20 a las 18 49 42" src="https://user-images.githubusercontent.com/83337658/154856549-31211416-dfe3-462b-ab5b-953300de60f9.png">
 
  - **UML: Diagrama de classes**
