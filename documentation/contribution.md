@@ -1,4 +1,4 @@
-# Team branches strategy
+# Profiles
 
 El David té el perfil més focalitzan en el frotend. Sera el que s'encarregara en fer els disenys de l'aplicacció.
 
