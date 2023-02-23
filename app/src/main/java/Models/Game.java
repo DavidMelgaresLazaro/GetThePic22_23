@@ -1,6 +1,6 @@
-package com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223;
+package Models;
 
-import com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.Player;
+import Models.Player.Player;
 
 public class Game {
     int maxPoints = -1;

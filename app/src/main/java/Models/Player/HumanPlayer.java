@@ -1,8 +1,6 @@
-package com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223;
+package Models.Player;
 
-import javax.xml.namespace.QName;
-
-public class HumanPlayer extends Player{
+public class HumanPlayer extends Player {
     private String Name;
 
 

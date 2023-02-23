@@ -1,4 +1,4 @@
-package com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223;
+package Models;
 
 public class Board {
     Piece[][] board;
