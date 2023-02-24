@@ -1,8 +1,29 @@
-# Team branches strategy
-La Paula aporta la part més creativa i artística al grup. Serà l’encarregada del disseny de la part visual de l’aplicació, esbossos i gràfics a l’ordinador. Té molta imaginació, per tant, ens pot donar moltes idees de quins prototips de pantalles podem fer i aplicar usabilitat a aquests. La Paula s'encarregará més de la branca local, és a dir, la part visual.
+# Profiles
 
-L’Alex disposa de coneixements tècnics en informática, especialment en programació i desenvolupament d’apps. Acostumat a gestionar grups i dinamitzar gent. Ens pot aportar molt en la tasca de programació així com la de UX. L'Alex s'encarregará més de la branca remote, és a dir, de la part lògica.
+El David té el perfil més focalitzan en el frotend. Sera el que s'encarregara en fer els disenys de l'aplicacció.
 
-El David té el perfil més polivalent. Ens aportarà bones Idees a l’hora del pensament del joc, sobretot a l’hora de fer els disseny de les pantalles i valorar la jugabilitat. Ha provat multitud de jocs android de manera que té experiència en el sector de la jugabilitat. Actualment esta aprenent a dissenyar en 2D i fer modelatges 3D que ens seran de gran utilitat per aportar grafismes a l’aplicació.
+En Joan Jaume té un perfil més focalitzat en el backend. 
 
-En Joan Jaume té un perfil musical i diferent, ens pot aportar molta creativitat i idees. Resoldre problemes en quant al disseny més superficial del projecte, com per exemple la distribució d’elements gràfics i interaccionals. Te grans coneixements musicals que ens serviran per a complementar el joc amb un ambient més personal.
+
+
+# Regles
+
+-Al principi es mostren totes les cartes uns segons i després es giren.
+
+-Has de buscar les lletres d'una paraula que defineix la imatge i si t'equivoques en el progrés d'escriure la paraula es reinicia el que has escrit, i es torna al primer punt.
+
+-Quan completes un nivell et donen monedes.
+
+-Amb les monedes pots comprar comodins dintre d’un nivell per a obtenir una ajuda extra.
+
+-En acabar un nivell la imatge d'aquell nivell es guarda a la galeria com a símbol de trofeu; és a dir, acabes fent l'acció principal del joc, get the pic.
+
+-En el mode contrarellotge, no hi ha comodins, però sí que obtens punts de XP i monedes en completar el nivell.
+
+-Pots pujar de XP completant nivells, però cada vegada costa més pujar de nivells. El XP és un factor de competitivitat entre amics.
+
+-La botiga servirà per fer compres amb diners reals dins del joc (comprar monedes per obtenir comodins)
+
+-En el mode clàssic o aventura, t’apareixen uns mons que es van desbloquejant a mesura que completes nivells. Cada món està ambientat en una temàtica, i els nivells del món estaran directament relacionats amb el món en el qual et trobis.
+Exemple: Món de naturalesa conté nivells amb paraula arbre, planta…
+

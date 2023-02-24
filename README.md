@@ -8,14 +8,10 @@
 ***App name:***: GetThePic
 
 ***Authors***:
+    
+- *Joan Jaume Moll*: Encaregat de la part backend del videojoc.
 
-- *Alex Ramon*: Perfil tècnic, dedicat a la part de desenvolupament d'apps, web i disseny de UX.
-    
-- *Paula Uber*: Elaboració de prototips, esbossos i disseny de la UI.
-    
-- *Joan Jaume Moll*: Perfil musical i d'analisi i centrat en l'especificació d'elements interactius.
-    
-- *David Melgares*: Dedicat a la part de l'analisi de viabilitat empresarial.
+- *David Melgares*: Encarregat de la part frontend del videojoc.
     
 ***Game Idea***: Consistirà en un joc de cartes combinant interpretació d’imatges amb la memòria. L’usuari haurà d'endevinar la paraula de la imatge i seguidament seleccionar les lletres  (cartes) per formar la paraula un cop aquestes ja no estiguin visibles.
    
