@@ -17,3 +17,4 @@ public class Game {
         board = new Board(4);
         board.load(LEVEL);
     }
+}
