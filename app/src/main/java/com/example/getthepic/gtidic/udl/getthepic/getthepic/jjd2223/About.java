@@ -1,8 +1,8 @@
 package com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class About extends AppCompatActivity {
 

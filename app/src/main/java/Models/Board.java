@@ -42,10 +42,16 @@ public class Board {
                 {
                     board[i][j].setValue(possibleValues[randomizer.nextInt(possibleValues.length)]);
                 }
+                cont++;
             }
         }
 
 
+    }
+
+    public Piece getPiece(int row, int col)
+    {
+        return board[row][col];
     }
 
 
