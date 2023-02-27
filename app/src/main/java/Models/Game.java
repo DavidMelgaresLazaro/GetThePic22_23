@@ -7,7 +7,7 @@ import com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.GlobalInfo;
 import Models.Player.Player;
 
 public class Game {
-    int LEVEL = GlobalInfo.LAST_LEVEL;
+    int LEVEL = GlobalInfo.getInstance().getLastLevel();
     Player currentPlayer;
     Player winner;
     Board board;

@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
             setContentView(R.layout.entrada);
         // do heavy load things here
         // example case wait for N seconds and end this activity
-        new Handler().postDelayed(() -> endActivity(), GlobalInfo.SPLASH_SCREEN_TIMEOUT);
+        new Handler().postDelayed(() -> endActivity(), GlobalInfo.getInstance().getSPLASH_SCREEN_TIMEOUT());
     }
 
     private void endActivity(){
