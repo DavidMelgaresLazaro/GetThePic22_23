@@ -3,7 +3,6 @@ package com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,13 +13,14 @@ public class GameActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gaming);
-        Bundle extra = getIntent().getExtras();
+        //define players TODO
+        /*Bundle extra = getIntent().getExtras();
         if (extra != null) {
             String nomJugador1 = extra.getString("nomDelJugador1");
             if (nomJugador1 != null) {
                 Toast.makeText(this, nomJugador1, Toast.LENGTH_LONG).show();
             }
-        }
+        }*/
         //showPopup(); TODO
 
     }
