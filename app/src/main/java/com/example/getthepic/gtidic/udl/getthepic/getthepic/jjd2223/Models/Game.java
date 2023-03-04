@@ -23,11 +23,13 @@ public class Game {
     public void cardClicked(Button button, int row){
         actual += Character.toString(board.getPiece(row).getValue());
         totalCardsReversed++;
+        mirar();
         if(totalCardsReversed == levels.GetLevel(GlobalInfo.getInstance().getLastLevel()).length() )
         {
+            actual = "";
+            totalCardsReversed = 0;
             //TODO de restart la GameActivity
         }
-        mirar();
     }
 
     public int getTotalCardsReversed()
@@ -41,6 +43,7 @@ public class Game {
             GlobalInfo.getInstance().UpdateLastLevel(GlobalInfo.getInstance().getLastLevel() + 1);
             board.load(GlobalInfo.getInstance().getLastLevel());
             actual = "";
+            totalCardsReversed = 0;
         }
     }
 

@@ -2,6 +2,7 @@ package com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,13 +39,13 @@ public class GameActivity extends AppCompatActivity {
         });
         createListenersForButtons();
         showCards();
-        /*Handler handler = new Handler();
+        Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 hideCards();
             }
-        }, 4000);*/
+        }, 4000);
     }
 
     private void showCards() {
