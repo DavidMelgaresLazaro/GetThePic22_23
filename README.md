@@ -8,10 +8,6 @@
 ***App name:***: GetThePic
 
 ***Authors***:
-
-    
-- *Joan Jaume Moll*: Encaregat de la part backend del videojoc.
-    
 - *David Melgares*: Encarregat de la part frontend del videojoc.
     
 ***Game Idea***: Consistirà en un joc de cartes combinant interpretació d’imatges amb la memòria. L’usuari haurà d'endevinar la paraula de la imatge i seguidament seleccionar les lletres  (cartes) per formar la paraula un cop aquestes ja no estiguin visibles.
