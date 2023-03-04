@@ -8,9 +8,10 @@ import Models.Player.Player;
 
 public class Game {
     int LEVEL = GlobalInfo.getInstance().getLastLevel();
+    private int totalCardsReversed = 0;
     Player currentPlayer;
     Player winner;
-    Board board;
+    public Board board;
 
     public void init()
     {
@@ -20,8 +21,16 @@ public class Game {
         board.load(LEVEL);
     }
 
-    public void cardClicked(Button button, int row, int column){
-        Piece p = board.getPiece(row, column);
+    public void cardClicked(Button button, int row){
+        Piece p = board.getPiece(row);
         button.setText(p.getValue());
     }
+
+    public int getTotalCardsReversed()
+    {
+        return totalCardsReversed;
+    }
+
+
+
 }
