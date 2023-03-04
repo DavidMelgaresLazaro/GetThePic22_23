@@ -2,7 +2,6 @@ package com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +15,7 @@ public class GameActivity extends AppCompatActivity {
     private int level = GlobalInfo.getInstance().getLastLevel();
 
     GameActivityViewModel game;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,22 +34,20 @@ public class GameActivity extends AppCompatActivity {
             finish();
         });
         findViewById(R.id.restart).setOnClickListener(view -> {
-            Intent intent = new Intent( GameActivity.this , GameActivity.class);
-            startActivity(intent);
-            finish();
+            restart();
         });
         createListenersForButtons();
         showCards();
-        Handler handler = new Handler();
+        /*Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 hideCards();
             }
-        }, 4000);
+        }, 4000);*/
     }
 
-    private void showCards(){
+    private void showCards() {
         findViewById(R.id.button0).setVisibility(View.VISIBLE);
         findViewById(R.id.button1).setVisibility(View.VISIBLE);
         findViewById(R.id.button2).setVisibility(View.VISIBLE);
@@ -59,7 +57,8 @@ public class GameActivity extends AppCompatActivity {
         findViewById(R.id.button6).setVisibility(View.VISIBLE);
         findViewById(R.id.button7).setVisibility(View.VISIBLE);
     }
-    private void hideCards(){
+
+    private void hideCards() {
         findViewById(R.id.button0).setVisibility(View.GONE);
         findViewById(R.id.button1).setVisibility(View.GONE);
         findViewById(R.id.button2).setVisibility(View.GONE);
@@ -70,7 +69,6 @@ public class GameActivity extends AppCompatActivity {
         findViewById(R.id.button7).setVisibility(View.GONE);
         //Thread.sleep(5000);
     }
-
 
 
     private void createListenersForButtons() {
@@ -90,6 +88,13 @@ public class GameActivity extends AppCompatActivity {
     private void buttonClicked(View view, int row) {
         game.cardClicked(view, row);
     }
+
+    private void restart() {
+        Intent intent = new Intent(GameActivity.this, GameActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
 }
 
 
@@ -131,19 +136,7 @@ public class GameActivity extends AppCompatActivity {
             System.out.println("arribat");
         }*/
 
-
-
-    //VISIBILITAT TODO
-    //findViewById(R.id.button11).setVisibility();
-    /*
-    private void RestartGame() {
-        try {
-            endActivity();
-        } catch (Exception e) {
-            Log.d("ERROR", e.toString());
-        }
-    }
-
+/*
     private void endActivity(){
         Intent i = new Intent(this, GameActivity.class);
         startActivity(i);

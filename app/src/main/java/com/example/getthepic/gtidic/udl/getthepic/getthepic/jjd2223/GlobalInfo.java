@@ -5,11 +5,6 @@ public class GlobalInfo {
 
     private static int LAST_LEVEL = 0;
 
-    public void UpdateLastLevel(int n)
-    {
-        LAST_LEVEL = n;
-    }
-
     private static GlobalInfo instance = new GlobalInfo();
 
     public static GlobalInfo getInstance()
@@ -25,8 +20,9 @@ public class GlobalInfo {
     {
         return LAST_LEVEL;
     }
-    public void setLastLevel(int level)
+
+    public void UpdateLastLevel(int n)
     {
-        LAST_LEVEL = level;
+        LAST_LEVEL = n;
     }
 }

@@ -6,9 +6,8 @@ import com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.GlobalInfo;
 import com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.Models.Player.Player;
 
 public class Game {
-    int LEVEL = GlobalInfo.getInstance().getLastLevel();
     private int totalCardsReversed = 0;
-    private String actual
+    private String actual = "";
     Player currentPlayer;
     Player winner;
     public Board board;
@@ -18,13 +17,16 @@ public class Game {
         int boardSize = 8;
 
         board = new Board(boardSize);
-        board.load(LEVEL);
+        board.load(GlobalInfo.getInstance().getLastLevel());
     }
 
     public void cardClicked(Button button, int row){
-        Piece p = board.getPiece(row);
-        button.setText(Character.toString(p.getValue()));
+        actual += Character.toString(board.getPiece(row).getValue());
         totalCardsReversed++;
+        if(totalCardsReversed == levels.GetLevel(GlobalInfo.getInstance().getLastLevel()).length() )
+        {
+            //TODO de restart la GameActivity
+        }
         mirar();
     }
 
@@ -35,7 +37,11 @@ public class Game {
 
     public void mirar()
     {
-        if
+        if(actual.equals(levels.GetLevel(GlobalInfo.getInstance().getLastLevel()))) {
+            GlobalInfo.getInstance().UpdateLastLevel(GlobalInfo.getInstance().getLastLevel() + 1);
+            board.load(GlobalInfo.getInstance().getLastLevel());
+            actual = "";
+        }
     }
 
 
