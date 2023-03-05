@@ -1,4 +1,4 @@
-package Models;
+package com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.Models;
 
 import java.util.Random;
 

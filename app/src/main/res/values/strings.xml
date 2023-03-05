@@ -6,4 +6,8 @@
     <string name="Description">Aplicació desenvolupada per:</string>
     <string name="NOMS">David Melgares i Joan Jaume Moll</string>
     <string name="MENUPAGE">MENUPAGE</string>
+    <string name="totalCardsReversed">totalCardsReversed</string>
+    <string name="Restart">Restart</string>
+    <string name="FinishGame">FinishGame</string>
+    <string name="fondo1" />
 </resources>
