@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -12,8 +14,6 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.databinding.GamingBinding;
 
 public class GameActivity extends AppCompatActivity {
-
-    private int level = GlobalInfo.getInstance().getLastLevel();
 
     GameActivityViewModel game;
 
@@ -38,6 +38,7 @@ public class GameActivity extends AppCompatActivity {
             restart();
         });
         createListenersForButtons();
+
         showCards();
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
@@ -48,27 +49,26 @@ public class GameActivity extends AppCompatActivity {
         }, 4000);
     }
 
-    private void showCards() {
-        findViewById(R.id.button0).setVisibility(View.VISIBLE);
-        findViewById(R.id.button1).setVisibility(View.VISIBLE);
-        findViewById(R.id.button2).setVisibility(View.VISIBLE);
-        findViewById(R.id.button3).setVisibility(View.VISIBLE);
-        findViewById(R.id.button4).setVisibility(View.VISIBLE);
-        findViewById(R.id.button5).setVisibility(View.VISIBLE);
-        findViewById(R.id.button6).setVisibility(View.VISIBLE);
-        findViewById(R.id.button7).setVisibility(View.VISIBLE);
+    public void showCards() {
+        ((Button) findViewById(R.id.button0)).setTextSize(12);
+        ((Button) findViewById(R.id.button1)).setTextSize(12);
+        ((Button) findViewById(R.id.button2)).setTextSize(12);
+        ((Button) findViewById(R.id.button3)).setTextSize(12);
+        ((Button) findViewById(R.id.button4)).setTextSize(12);
+        ((Button) findViewById(R.id.button5)).setTextSize(12);
+        ((Button) findViewById(R.id.button6)).setTextSize(12);
+        ((Button) findViewById(R.id.button7)).setTextSize(12);
     }
 
-    private void hideCards() {
-        findViewById(R.id.button0).setVisibility(View.GONE);
-        findViewById(R.id.button1).setVisibility(View.GONE);
-        findViewById(R.id.button2).setVisibility(View.GONE);
-        findViewById(R.id.button3).setVisibility(View.GONE);
-        findViewById(R.id.button4).setVisibility(View.GONE);
-        findViewById(R.id.button5).setVisibility(View.GONE);
-        findViewById(R.id.button6).setVisibility(View.GONE);
-        findViewById(R.id.button7).setVisibility(View.GONE);
-        //Thread.sleep(5000);
+    public void hideCards() {
+        ((Button) findViewById(R.id.button0)).setTextSize(0);
+        ((Button) findViewById(R.id.button1)).setTextSize(0);
+        ((Button) findViewById(R.id.button2)).setTextSize(0);
+        ((Button) findViewById(R.id.button3)).setTextSize(0);
+        ((Button) findViewById(R.id.button4)).setTextSize(0);
+        ((Button) findViewById(R.id.button5)).setTextSize(0);
+        ((Button) findViewById(R.id.button6)).setTextSize(0);
+        ((Button) findViewById(R.id.button7)).setTextSize(0);
     }
 
 
@@ -94,6 +94,11 @@ public class GameActivity extends AppCompatActivity {
         Intent intent = new Intent(GameActivity.this, GameActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    public void win(String string)
+    {
+        Toast.makeText(this, string, Toast.LENGTH_LONG).show();
     }
 
 }
