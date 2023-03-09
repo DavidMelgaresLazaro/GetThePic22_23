@@ -3,9 +3,8 @@ package com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -37,9 +36,37 @@ public class GameActivity extends AppCompatActivity {
         findViewById(R.id.restart).setOnClickListener(view -> {
             restart();
         });
-        createListenersForButtons();
+        ((ImageView)findViewById(R.id.fotojoc)).setImageResource(R.drawable.nissan);
 
         showCards();
+
+        game.getGame().observe(this, game -> {
+            if(game.win == true)
+            {
+                showCards();
+            }
+            if(game.viewbutton != null)
+            {
+                showCard(game.viewbutton);
+            }
+        });
+
+    }
+
+    public void showCard(Button button)
+    {
+        button.setTextSize(14);
+    }
+    public void showCards() {
+        ((Button) findViewById(R.id.button0)).setTextSize(14);
+        ((Button) findViewById(R.id.button1)).setTextSize(14);
+        ((Button) findViewById(R.id.button2)).setTextSize(14);
+        ((Button) findViewById(R.id.button3)).setTextSize(14);
+        ((Button) findViewById(R.id.button4)).setTextSize(14);
+        ((Button) findViewById(R.id.button5)).setTextSize(14);
+        ((Button) findViewById(R.id.button6)).setTextSize(14);
+        ((Button) findViewById(R.id.button7)).setTextSize(14);
+        ((Button) findViewById(R.id.button7)).setTextSize(14);
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -47,17 +74,6 @@ public class GameActivity extends AppCompatActivity {
                 hideCards();
             }
         }, 4000);
-    }
-
-    public void showCards() {
-        ((Button) findViewById(R.id.button0)).setTextSize(12);
-        ((Button) findViewById(R.id.button1)).setTextSize(12);
-        ((Button) findViewById(R.id.button2)).setTextSize(12);
-        ((Button) findViewById(R.id.button3)).setTextSize(12);
-        ((Button) findViewById(R.id.button4)).setTextSize(12);
-        ((Button) findViewById(R.id.button5)).setTextSize(12);
-        ((Button) findViewById(R.id.button6)).setTextSize(12);
-        ((Button) findViewById(R.id.button7)).setTextSize(12);
     }
 
     public void hideCards() {
@@ -71,35 +87,12 @@ public class GameActivity extends AppCompatActivity {
         ((Button) findViewById(R.id.button7)).setTextSize(0);
     }
 
-
-    private void createListenersForButtons() {
-//      TODO it have to be improved in the future! -> creating buttons dynamically ;)
-        findViewById(R.id.button0).setOnClickListener(view -> buttonClicked(view, 0));
-        findViewById(R.id.button1).setOnClickListener(view -> buttonClicked(view, 1));
-        findViewById(R.id.button2).setOnClickListener(view -> buttonClicked(view, 2));
-        findViewById(R.id.button3).setOnClickListener(view -> buttonClicked(view, 3));
-
-        findViewById(R.id.button4).setOnClickListener(view -> buttonClicked(view, 4));
-        findViewById(R.id.button5).setOnClickListener(view -> buttonClicked(view, 5));
-        findViewById(R.id.button6).setOnClickListener(view -> buttonClicked(view, 6));
-        findViewById(R.id.button7).setOnClickListener(view -> buttonClicked(view, 7));
-    }
-
-
-    private void buttonClicked(View view, int row) {
-        game.cardClicked(view, row);
-    }
-
     private void restart() {
         Intent intent = new Intent(GameActivity.this, GameActivity.class);
         startActivity(intent);
         finish();
     }
 
-    public void win(String string)
-    {
-        Toast.makeText(this, string, Toast.LENGTH_LONG).show();
-    }
 
 }
 
