@@ -5,11 +5,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.Models.levels;
 import com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.databinding.GamingBinding;
 
 public class GameActivity extends AppCompatActivity {
@@ -36,28 +38,37 @@ public class GameActivity extends AppCompatActivity {
         findViewById(R.id.restart).setOnClickListener(view -> {
             restart();
         });
-        ((ImageView)findViewById(R.id.fotojoc)).setImageResource(R.drawable.nissan);
 
+        nextlevelimage();
         showCards();
 
         game.getGame().observe(this, game -> {
             if(game.win == true)
             {
                 showCards();
+                Toast.makeText(this, "Seguent Nivell!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "+100xp", Toast.LENGTH_SHORT).show();
             }
             if(game.viewbutton != null)
             {
                 showCard(game.viewbutton);
             }
+            nextlevelimage();
         });
 
     }
 
-    public void showCard(Button button)
+    private void showCard(Button button)
     {
         button.setTextSize(14);
     }
-    public void showCards() {
+    private void nextlevelimage()
+    {
+        int imageResource = getResources().getIdentifier(levels.Getimage(GlobalInfo.getInstance().getLastLevel()), null, getPackageName());
+        ((ImageView)findViewById(R.id.fotojoc)).setImageResource(imageResource);
+    }
+
+    private void showCards() {
         ((Button) findViewById(R.id.button0)).setTextSize(14);
         ((Button) findViewById(R.id.button1)).setTextSize(14);
         ((Button) findViewById(R.id.button2)).setTextSize(14);
@@ -76,7 +87,7 @@ public class GameActivity extends AppCompatActivity {
         }, 4000);
     }
 
-    public void hideCards() {
+    private void hideCards() {
         ((Button) findViewById(R.id.button0)).setTextSize(0);
         ((Button) findViewById(R.id.button1)).setTextSize(0);
         ((Button) findViewById(R.id.button2)).setTextSize(0);
