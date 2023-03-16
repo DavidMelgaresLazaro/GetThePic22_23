@@ -1,5 +1,7 @@
 package com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.viewmodels;
 
+import android.os.Handler;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -14,6 +16,7 @@ public class GameActivityViewModel extends ViewModel {
         Game internalGame = new Game();
         internalGame.init();
         game.setValue(internalGame);
+        showCards();
     }
 
     public LiveData<Game> getGame()
@@ -27,6 +30,34 @@ public class GameActivityViewModel extends ViewModel {
         myGame.cardClicked(row);
         game.setValue(myGame);
 
+        if(myGame.win == true)
+        {
+            showCards();
+        }
+        if(myGame.equivocat == true)
+        {
+            showCards();
+        }
+
+    }
+
+    private void showCards()
+    {
+        Game mygame = game.getValue();
+        for(int i = 0; i < 8; i++)
+        {
+            mygame.board.getPiece(i).girada = true;
+        }
+        game.setValue(mygame);
+        new Handler().postDelayed(() -> hideCards(),4000);
+    }
+    private void hideCards() {
+        Game mygame = game.getValue();
+        for(int i = 0; i < 8; i ++ )
+        {
+            mygame.board.getPiece(i).girada = false;
+        }
+        game.setValue(mygame);
     }
 
 

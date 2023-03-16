@@ -3,14 +3,11 @@ package com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.views;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.Models.levels;
 import com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
 import com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.databinding.GamingBinding;
 import com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.viewmodels.GameActivityViewModel;
@@ -40,7 +37,7 @@ public class GameActivity extends AppCompatActivity {
             restart();
         });
 
-        showCards();
+        /*showCards();
 
         game.getGame().observe(this, game -> {
             if(game.win == true)
@@ -54,15 +51,11 @@ public class GameActivity extends AppCompatActivity {
             {
                 showCards();
             }
-        });
+        });*/
+
 
     }
-    private void nextlevelimage()
-    {
-        int imageResource = getResources().getIdentifier(levels.Getimage(GlobalInfo.getInstance().getLastLevel()), null, getPackageName());
-        ((ImageView)findViewById(R.id.fotojoc)).setImageResource(imageResource);
-    }
-        //DAVID
+
     private void showCards(){
         for(int i = 0; i < 8; i ++ )
         {
@@ -72,11 +65,14 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
+
+
     private void hideCards() {
         for(int i = 0; i < 8; i ++ )
         {
             game.getGame().getValue().board.getPiece(i).girada = false;
         }
+
     }
 
     private void restart() {

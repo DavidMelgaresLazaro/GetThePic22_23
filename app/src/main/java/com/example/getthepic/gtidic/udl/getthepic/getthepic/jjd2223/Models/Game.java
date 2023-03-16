@@ -21,6 +21,7 @@ public class Game {
 
         board = new Board(boardSize);
         board.load(GlobalInfo.getInstance().getLastLevel());
+
     }
 
     public void cardClicked(int row){
