@@ -1,4 +1,4 @@
-package com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223;
+package com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.views;
 
 public class GlobalInfo {
     private final int SPLASH_SCREEN_TIMEOUT = 4000;

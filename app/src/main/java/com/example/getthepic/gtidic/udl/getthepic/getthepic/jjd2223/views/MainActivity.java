@@ -1,10 +1,12 @@
-package com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223;
+package com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.views;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
 
 public class MainActivity extends AppCompatActivity {
 

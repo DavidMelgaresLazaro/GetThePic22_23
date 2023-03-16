@@ -1,6 +1,4 @@
-package com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223;
-
-import android.view.View;
+package com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.viewmodels;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -24,9 +22,9 @@ public class GameActivityViewModel extends ViewModel {
     }
 
 
-    public void cardClicked(View button,int row){
+    public void cardClicked(int row){
         Game myGame = game.getValue();
-        myGame.cardClicked(button,row);
+        myGame.cardClicked(row);
         game.setValue(myGame);
 
     }
