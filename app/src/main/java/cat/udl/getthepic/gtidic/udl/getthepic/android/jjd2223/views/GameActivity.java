@@ -8,7 +8,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
-
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.viewmodels.GameActivityViewModel;
 
 
@@ -32,6 +31,8 @@ public class GameActivity extends AppCompatActivity {
         binding.setGameActivityViewModel(game);
         binding.setLifecycleOwner(this);
 
+
+
         findViewById(R.id.finishbutton).setOnClickListener(view -> {
             Intent intent = new Intent();
             setResult(RESULT_OK, intent);
@@ -44,7 +45,7 @@ public class GameActivity extends AppCompatActivity {
         game.getGame().observe(this, game -> {
             if(game.win == true)
             {
-                Toast.makeText(this, "Molt bé! Seguent Nivell", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Molt bé,! Seguent Nivell", Toast.LENGTH_SHORT).show();
             }
             if(game.equivocat == true)
             {
