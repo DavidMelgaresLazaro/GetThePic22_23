@@ -24,6 +24,7 @@ public class GameActivityViewModel extends ViewModel {
         System.out.println("Adalt");
         //drawable = ContextCompat.getDrawable(context, R.drawable.nissan);
         System.out.println("Abaix");
+        //aixo que
     }
 
     public LiveData<Game> getGame()
