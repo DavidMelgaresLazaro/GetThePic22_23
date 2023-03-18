@@ -10,4 +10,6 @@
     <string name="Restart">Restart</string>
     <string name="FinishGame">FinishGame</string>
     <string name="fondo1" />
+    <string name="currentPlayer">Jugador actual:</string>
+    <string name="points">Punts:</string>
 </resources>
