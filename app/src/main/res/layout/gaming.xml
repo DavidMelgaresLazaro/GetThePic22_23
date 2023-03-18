@@ -5,7 +5,7 @@
         <data>
                 <variable
                     name="GameActivityViewModel"
-                    type="com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.GameActivityViewModel" />
+                    type="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.GameActivityViewModel" />
         </data>
 
         <androidx.constraintlayout.widget.ConstraintLayout
