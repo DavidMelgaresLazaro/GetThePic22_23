@@ -1,7 +1,9 @@
 package com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.views;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -14,6 +16,7 @@ import com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.viewmodels.G
 public class GameActivity extends AppCompatActivity {
 
     GameActivityViewModel game;
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,17 @@ public class GameActivity extends AppCompatActivity {
         findViewById(R.id.restart).setOnClickListener(view -> {
             restart();
         });
+        game.getGame().observe(this, game -> {
+              if(game.win == true)
+            {
+                Toast.makeText(this, "Molt bé! Seguent Nivell", Toast.LENGTH_SHORT).show();
+            }
+            if(game.equivocat == true)
+            {
+                Toast.makeText(this, "T'has equivocat, torna a intentar-ho", Toast.LENGTH_SHORT).show();
+            }
+            });
+        game.setContext(this);
     }
 
 

@@ -1,5 +1,8 @@
 package com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.viewmodels;
 
+
+import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Handler;
 
 import androidx.lifecycle.LiveData;
@@ -10,12 +13,17 @@ import com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.Models.Game;
 
 public class GameActivityViewModel extends ViewModel {
     private MutableLiveData<Game> game = new MutableLiveData<>();
+    private Context context;
+    public Drawable drawable;
 
     public GameActivityViewModel(){
         Game internalGame = new Game();
         internalGame.init();
         game.setValue(internalGame);
         showCards();
+        System.out.println("Adalt");
+        //drawable = ContextCompat.getDrawable(context, R.drawable.nissan);
+        System.out.println("Abaix");
     }
 
     public LiveData<Game> getGame()
@@ -60,4 +68,17 @@ public class GameActivityViewModel extends ViewModel {
         }
         game.setValue(mygame);
     }
+
+    public void setContext(Context context) {
+        this.context = context;
+    }
+
+    /*public Drawable getImage()
+    {
+        if(drawable != null)
+        {
+            return drawable;
+        }
+        return  this.context.getResources().getDrawable(R.drawable.logo);
+    }*/
 }
