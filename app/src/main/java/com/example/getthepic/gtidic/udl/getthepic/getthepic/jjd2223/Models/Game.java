@@ -1,7 +1,9 @@
 package com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.Models;
 
+import android.view.View;
 import android.widget.Button;
 
+import com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.GlobalInfo;
 import com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.Models.Player.Player;
 import com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.views.GlobalInfo;
 
