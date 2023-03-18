@@ -35,7 +35,7 @@ public class Game {
             totalCardsReversed = 0;
             equivocat = true;
         }
-        board.getPiece(row).girada = true;
+        board.getPiece(row).setGirada(true);
     }
 
     public int getTotalCardsReversed()

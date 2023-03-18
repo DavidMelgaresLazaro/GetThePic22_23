@@ -11,7 +11,6 @@ import com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.Models.Game;
 public class GameActivityViewModel extends ViewModel {
     private MutableLiveData<Game> game = new MutableLiveData<>();
 
-
     public GameActivityViewModel(){
         Game internalGame = new Game();
         internalGame.init();
@@ -46,7 +45,8 @@ public class GameActivityViewModel extends ViewModel {
         Game mygame = game.getValue();
         for(int i = 0; i < 8; i++)
         {
-            mygame.board.getPiece(i).girada = true;
+            mygame.board.getPiece(i).setGirada(true);
+            mygame.board.getPiece(i).setenabled(false);
         }
         game.setValue(mygame);
         new Handler().postDelayed(() -> hideCards(),4000);
@@ -55,10 +55,9 @@ public class GameActivityViewModel extends ViewModel {
         Game mygame = game.getValue();
         for(int i = 0; i < 8; i ++ )
         {
-            mygame.board.getPiece(i).girada = false;
+            mygame.board.getPiece(i).setGirada(false);
+            mygame.board.getPiece(i).setenabled(true);
         }
         game.setValue(mygame);
     }
-
-
 }
