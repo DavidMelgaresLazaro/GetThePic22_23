@@ -1,5 +1,6 @@
 package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -9,6 +10,8 @@ import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Player.Huma
 
 public class Game {
     private int totalCardsReversed = 0;
+    protected int POINTS_PER_MATCH = 10;
+    protected int maxPoints = -1;
     private String actual = "";
     public Button viewbutton = null;
     private Player player1;
@@ -30,6 +33,10 @@ public class Game {
         player2 = new HumanPlayer("Starlight ⚡️");
         currentPlayer = player1;
     }
+    protected void changeTurn(){
+        currentPlayer = currentPlayer == player1 ? player2 : player1;
+
+    }
 
 
     public Player getCurrentPlayer(){ return currentPlayer; }
@@ -43,10 +50,13 @@ public class Game {
             actual = "";
             totalCardsReversed = 0;
             //TODO de restart la GameActivity
+
         }
+
         viewbutton = (Button) button;
 
-        currentPlayer = currentPlayer == player1 ? player2 : player1;
+
+
     }
 
     public int getTotalCardsReversed()
@@ -64,7 +74,11 @@ public class Game {
             actual = "";
             totalCardsReversed = 0;
             win = true;
+
+
         }
+
+
     }
 
 

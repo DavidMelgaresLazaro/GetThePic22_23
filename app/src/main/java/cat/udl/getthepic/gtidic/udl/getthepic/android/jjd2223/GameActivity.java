@@ -11,7 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 
+import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Player.Player;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.levels;
+import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Game;
+
 
 import com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
 import com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.databinding.GamingBinding;
@@ -19,6 +22,7 @@ import com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.databinding.
 public class GameActivity extends AppCompatActivity {
 
     GameActivityViewModel game;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,12 +54,27 @@ public class GameActivity extends AppCompatActivity {
                 showCards();
                 Toast.makeText(this, "Seguent Nivell!", Toast.LENGTH_SHORT).show();
                 Toast.makeText(this, "+100xp", Toast.LENGTH_SHORT).show();
+
+
             }
+
+
+
+
+
+
+
+
+
             if(game.viewbutton != null)
             {
                 showCard(game.viewbutton);
+
+
+
+
             }
-            nextlevelimage();
+           // nextlevelimage();
         });
 
     }
@@ -85,6 +104,7 @@ public class GameActivity extends AppCompatActivity {
             @Override
             public void run() {
                 hideCards();
+
             }
         }, 4000);
     }
