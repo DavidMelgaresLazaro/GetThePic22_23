@@ -12,6 +12,8 @@
 - *Joan Jaume Moll*:Encarregat del backend.
     
 ***Game Idea***: Consistirà en un joc de cartes combinant interpretació d’imatges amb la memòria. L’usuari haurà d'endevinar la paraula de la imatge i seguidament seleccionar les lletres  (cartes) per formar la paraula un cop aquestes ja no estiguin visibles.
+
+***Game Rules***: Les normes estan explicades en el document ubicat: **documentation/game-rules.md** 
    
 
   
