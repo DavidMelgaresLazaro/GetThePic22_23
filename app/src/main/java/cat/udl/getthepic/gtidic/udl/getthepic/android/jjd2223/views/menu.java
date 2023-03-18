@@ -1,4 +1,4 @@
-package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223;
+package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views;
 
 import android.content.Intent;
 import android.os.Bundle;

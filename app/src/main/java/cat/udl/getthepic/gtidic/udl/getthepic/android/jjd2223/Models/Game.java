@@ -1,10 +1,8 @@
 package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models;
 
-import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 
-import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.GlobalInfo;
+import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.GlobalInfo;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Player.Player;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Player.HumanPlayer;
 
@@ -20,6 +18,7 @@ public class Game {
     Player winner;
     public Board board;
     public boolean win = false;
+    public boolean equivocat = false;
 
     public void init()
     {
@@ -41,7 +40,8 @@ public class Game {
 
     public Player getCurrentPlayer(){ return currentPlayer; }
 
-    public void cardClicked(View button,int row){
+    public void cardClicked(int row){
+        equivocat = false;
         actual += Character.toString(board.getPiece(row).getValue());
         totalCardsReversed++;
         checkifwin();
@@ -49,11 +49,11 @@ public class Game {
         {
             actual = "";
             totalCardsReversed = 0;
-            //TODO de restart la GameActivity
+            equivocat = true;
 
         }
 
-        viewbutton = (Button) button;
+        board.getPiece(row).setGirada(true);
 
 
 
@@ -70,7 +70,7 @@ public class Game {
         win = false;
         if(actual.equals(levels.GetLevel(GlobalInfo.getInstance().getLastLevel()))) {
             GlobalInfo.getInstance().UpdateLastLevel(GlobalInfo.getInstance().getLastLevel() + 1);
-            //board.load(GlobalInfo.getInstance().getLastLevel());
+            board.load(GlobalInfo.getInstance().getLastLevel());
             actual = "";
             totalCardsReversed = 0;
             win = true;

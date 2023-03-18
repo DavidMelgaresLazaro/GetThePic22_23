@@ -12,16 +12,16 @@
         android:theme="@style/Theme.GetThePic"
         tools:targetApi="31">
         <activity
-            android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.About"
+            android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.About"
             android:exported="false" />
         <activity
-            android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.menu"
+            android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.menu"
             android:exported="false" />
         <activity
-            android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.GameActivity"
+            android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.GameActivity"
             android:exported="false" />
         <activity
-            android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.MainActivity"
+            android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
