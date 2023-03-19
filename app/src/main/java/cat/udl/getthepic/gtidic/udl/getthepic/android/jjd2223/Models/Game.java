@@ -1,6 +1,5 @@
 package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models;
 
-import android.widget.Button;
 
 import androidx.room.Entity;
 import androidx.room.Ignore;
@@ -74,6 +73,14 @@ public class Game {
     {
         return totalCardsReversed;
     }
+    public int getPOINTS_PER_MATCH()
+    {
+        return POINTS_PER_MATCH;
+    }
+    public int getMaxPoints()
+    {
+        return maxPoints;
+    }
 
 
     public void checkifwin()
@@ -86,6 +93,10 @@ public class Game {
             totalCardsReversed = 0;
             win = true;
             getCurrentPlayer().addPoints(POINTS_PER_MATCH);
+            if(getCurrentPlayer().getPoints() > maxPoints)
+            {
+                maxPoints = getCurrentPlayer().getPoints();
+            }
         }
 
 

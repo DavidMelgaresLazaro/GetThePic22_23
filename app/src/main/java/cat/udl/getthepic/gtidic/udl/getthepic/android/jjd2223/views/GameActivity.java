@@ -1,6 +1,5 @@
 package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,8 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 
-import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Player.IAPlayer;
-import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.viewmodels.GameActivityViewModel;
+
+import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.viewmodels.GameViewModel;
 
 
 import com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
@@ -19,7 +18,7 @@ import com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.databinding.
 
 public class GameActivity extends AppCompatActivity {
 
-    GameActivityViewModel game;
+    GameViewModel game;
     Context context;
 
 
@@ -29,9 +28,9 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.gaming);
 
 
-        game = new ViewModelProvider(this).get(GameActivityViewModel.class);
+        game = new ViewModelProvider(this).get(GameViewModel.class);
         GamingBinding binding = DataBindingUtil.setContentView(this, R.layout.gaming);
-        binding.setGameActivityViewModel(game);
+        binding.setGameViewModel(game);
         binding.setLifecycleOwner(this);
 
 
@@ -56,6 +55,7 @@ public class GameActivity extends AppCompatActivity {
             }
         });
         game.setContext(this);
+        game.saveGameIntoDB();
     }
 
     private void restart() {

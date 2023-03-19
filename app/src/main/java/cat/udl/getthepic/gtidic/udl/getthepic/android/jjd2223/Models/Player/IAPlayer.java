@@ -3,18 +3,10 @@ package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Player;
 import android.content.Context;
 import android.os.Handler;
 
-import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.ViewModelProvider;
-
-import com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
-import com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.databinding.GamingBinding;
-
 import java.util.Random;
 
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Game;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.levels;
-import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.viewmodels.GameActivityViewModel;
-import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.GlobalInfo;
 
 public class IAPlayer extends Player{
 
