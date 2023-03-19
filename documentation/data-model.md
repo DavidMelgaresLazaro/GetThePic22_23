@@ -8,4 +8,6 @@ existint alhora ens han tirat enrrere en l'ambiciosa idea de persistir HumanPlay
 2. El que persisteix donç es l'objecte Game, amb una clau primària "ID" autogenerada progresivament per cada objecte guardat, i amb ell el nombre màxim de 
 punts fets aquella partida i el nombre de cartes que han necessitat per a aconseguir-ho
 
-3. Link al diagrama en questió de la nostra única taula de moment: https://drive.google.com/file/d/19V3W6HAYu6ajunjLZekxHRGYyq3GDfyv/view?usp=share_link
+3. Link al diagrama en questió de la nostra única taula de moment: https://drive.google.com/file/d/1JbpvIixGVe6FCDvj1e504ljlXHf6nnwZ/view?usp=share_link
+
+4. Link també al que tenim pensat sirà el de Player : https://drive.google.com/file/d/14MRALTPeV0lQziXNBDDG5PZS8HcyH-3G/view?usp=share_link
