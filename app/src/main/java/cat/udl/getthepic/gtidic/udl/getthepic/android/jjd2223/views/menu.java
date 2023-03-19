@@ -70,7 +70,7 @@ public class menu extends AppCompatActivity {
     private void jugalaia(View view)
     {
        IAPlayer iaPlayer = new IAPlayer();
-       iaPlayer.init();
+       iaPlayer.init(this);
        iaPlayer.jugar();
     }
 }

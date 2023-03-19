@@ -3,7 +3,7 @@ package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models;
 
 public class Piece {
     private char value;
-    private boolean girada;
+    public boolean girada;
     private boolean enabled;
     public void setValue(char lletra)
     {
