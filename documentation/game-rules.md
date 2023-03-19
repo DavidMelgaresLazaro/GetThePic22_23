@@ -9,4 +9,6 @@
 
 4- Les paraules a trobar, no seran més llargues que el limit de cartes per nivell(8 cartes).
 
+5-En un principi tampoc disposarem de jugabilitat per torns, ja que no es la dinamica que ha d'adoptar el nostre joc. L'usuari ha de anar jugant fins que completi el nivell o vulgui sortir. De totes formes per a aquest sprint, i per seguir un ritme d'aprenantatge paralel als nostres companys l'incorporarem temporalment.
+
 
