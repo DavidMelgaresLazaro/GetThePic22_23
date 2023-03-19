@@ -1,7 +1,11 @@
 package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Player;
 
+
+
 public class HumanPlayer extends Player {
-    private String name;
+
+
+    protected String name;
 
 
     @Override

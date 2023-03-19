@@ -12,4 +12,7 @@
     <string name="fondo1" />
     <string name="currentPlayer">Jugador actual:</string>
     <string name="points">Punts:</string>
+    <string name="IAPLAYER">IAplayer</string>
+    <string name="BorrarDB">BorrarDB</string>
+    <string name="VeureDB">VeureDB</string>
 </resources>
