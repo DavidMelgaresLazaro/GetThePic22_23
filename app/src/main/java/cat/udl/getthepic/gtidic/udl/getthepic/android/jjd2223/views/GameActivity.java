@@ -3,6 +3,7 @@ package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 
 
+import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.levels;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.viewmodels.GameViewModel;
 
 
@@ -19,13 +21,13 @@ import com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.databinding.
 public class GameActivity extends AppCompatActivity {
 
     GameViewModel game;
-    Context context;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gaming);
+
 
 
         game = new ViewModelProvider(this).get(GameViewModel.class);
@@ -54,7 +56,7 @@ public class GameActivity extends AppCompatActivity {
                 Toast.makeText(this, "T'has equivocat, torna a intentar-ho", Toast.LENGTH_SHORT).show();
             }
         });
-        game.setContext(this);
+        game.setContext(getApplicationContext());
         game.saveGameIntoDB();
     }
 

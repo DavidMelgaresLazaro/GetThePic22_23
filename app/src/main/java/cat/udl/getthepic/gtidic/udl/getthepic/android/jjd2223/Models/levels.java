@@ -1,9 +1,13 @@
 package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models;
 
+import android.graphics.drawable.Drawable;
+
+import com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
+
 public class levels {
 
     public static String[] levels = {"COTXE","CAMISA","ESCOLA"};
-    public static String[] imagesresources = {"R.drawable.nissan.png"};
+    public static int[] imagesresources = {R.drawable.nissan,R.drawable.camiseta};
 
 
 
@@ -11,5 +15,5 @@ public class levels {
     {
         return levels[level];
     }
-    public static String Getimage(int level) {return imagesresources[level];}
+    public static int Getimage(int level) {return imagesresources[level];}
 }
