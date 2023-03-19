@@ -2,23 +2,25 @@ package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Player;
 
 import android.content.Context;
 import android.os.Handler;
+import android.widget.Toast;
 
 import java.util.Random;
 
+import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Board;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Game;
+import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Piece;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.levels;
 
 public class IAPlayer extends Player{
 
     int algorytmType;
-    Random random;
-    int i;
+
     Context context;
-    String actual = "";
     Game game;
 
-    public void init()
+    public void init(Context context)
     {
+        this.context = context;
         game = new Game();
         game.init();
     }
@@ -29,25 +31,28 @@ public class IAPlayer extends Player{
 
     public void jugar()
     {
-        String s;
-        while(actual != levels.GetLevel(game.getCurrentPlayer().getLAST_LEVEL()))
+        Random random = new Random();
+        String actual = "";
+        Piece j;
+        while(!actual.equals(levels.GetLevel(game.getCurrentPlayer().LAST_LEVEL)))
         {
             actual = "";
-            for(int i = 0 ; i < game.getCurrentPlayer().getLAST_LEVEL(); i ++)
+            for(int i = 0; i < 5 ; i++)
             {
-                s = game.board.getPiece(random.nextInt(8)).toString();
-                if(s.contains(game.board.getPiece(random.nextInt(8)).toString()));
-                {
-                    s = "";
-                    s = game.board.getPiece(random.nextInt(8)).toString();
-                }
-                actual = actual + s;
-                s = "";
+               j = game.board.getPiece(random.nextInt(8));
+               if(j.girada)
+               {
+                   while(j.girada){
+                       j = game.board.getPiece(random.nextInt(8));
+                   }
+               }
+               actual = actual + j.getValue();
             }
-            new Handler().postDelayed(() -> res(),40);
-            System.out.println("Actual" + actual);
-            }
-
+            System.out.println(actual);
+        }
+        System.out.println("Resposta es = " + actual);
+        String s = "La paraula del nivell  " + game.getCurrentPlayer().LAST_LEVEL + "  és  :" + actual;
+        Toast.makeText(context, s, Toast.LENGTH_SHORT).show();
     }
 
     public void setContext(Context context)
