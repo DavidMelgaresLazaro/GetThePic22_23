@@ -2,13 +2,19 @@ package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Database;
 import androidx.room.Room;
 
 import com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
+
+import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.DB.DatabaseGTP;
+import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.DB.GameDAO;
+import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Player.IAPlayer;
 
 public class menu extends AppCompatActivity {
     Button about,start;
@@ -34,5 +40,35 @@ public class menu extends AppCompatActivity {
 
             }
         });
+        findViewById(R.id.laiajuga).setOnClickListener((view) -> jugalaia(view));
+        findViewById(R.id.borrarDB).setOnClickListener(view -> clearDB());
+        findViewById(R.id.veureDB).setOnClickListener(view -> getPoints());
+
+    }
+
+    private void clearDB() {
+        String dbName = "GTP.db";
+        DatabaseGTP dbRoom = Room.databaseBuilder(this.getApplicationContext(), DatabaseGTP.class, dbName).allowMainThreadQueries().build();
+        dbRoom.gameDAO().deleteAll();
+        dbRoom.close();
+    }
+
+    private void getPoints() {
+        String dbName = "GTP.db";
+        DatabaseGTP dbRoom = Room.databaseBuilder(this.getApplicationContext(), DatabaseGTP.class, dbName).allowMainThreadQueries().build();
+        int lastPoints = dbRoom.gameDAO().getLastGamePoints();
+        int maxPoints = dbRoom.gameDAO().getMaxPoints();
+        String missatge = String.format("Max punts: %d. Darrer nivell jugat: %d", maxPoints, lastPoints );
+        System.out.println(missatge);
+        dbRoom.close();
+    }
+
+
+
+    private void jugalaia(View view)
+    {
+       IAPlayer iaPlayer = new IAPlayer();
+       iaPlayer.init();
+       iaPlayer.jugar();
     }
 }

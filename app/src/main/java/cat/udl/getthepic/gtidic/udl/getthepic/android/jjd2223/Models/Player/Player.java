@@ -1,9 +1,9 @@
 package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Player;
 
 public abstract class Player {
-    private int points = 0;
+    protected int points = 0;
 
-    private int LAST_LEVEL = 0;
+    protected int LAST_LEVEL = 0;
 
     public abstract String getName();
 
@@ -20,6 +20,15 @@ public abstract class Player {
     }
     public void setLAST_LEVEL(int LAST_LEVEL) {
         this.LAST_LEVEL = LAST_LEVEL;
+    }
+
+    public void cambiarNom(String name)
+    {
+        cambiarNom(name);
+    }
+    public void setPoints(int points)
+    {
+        this.points = points;
     }
 }
 

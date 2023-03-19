@@ -45,7 +45,6 @@ public class GameActivityViewModel extends ViewModel {
         {
             showCards();
         }
-
     }
     private void showCards()
     {
