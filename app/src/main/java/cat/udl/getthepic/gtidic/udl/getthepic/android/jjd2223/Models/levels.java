@@ -2,7 +2,7 @@ package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models;
 
 import android.graphics.drawable.Drawable;
 
-import com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
+import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
 
 public class levels {
 

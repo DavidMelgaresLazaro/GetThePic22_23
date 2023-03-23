@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
 
-import com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
+import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
 
 
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.DB.DatabaseGetThePic;

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "604418138930",
+    "project_id": "getthepic-9cbf4",
+    "storage_bucket": "getthepic-9cbf4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:604418138930:android:19f63ce2fae1c23448ed2b",
+        "android_client_info": {
+          "package_name": "cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "604418138930-udpn7a11jms8rpq3h4vmlirtbk48dd7a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCd8zPpqrna3SYoclZWzF_tPfywlIOkqCI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "604418138930-udpn7a11jms8rpq3h4vmlirtbk48dd7a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
