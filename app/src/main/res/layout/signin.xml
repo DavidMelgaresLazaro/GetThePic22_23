@@ -36,14 +36,14 @@
         android:id="@+id/etEmailSignIn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toStartOf="@+id/guidelineSignInRight"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guidelineSignInLeft"
-        app:layout_constraintTop_toBottomOf="@+id/tvSignInTxt" />
+        app:layout_constraintTop_toBottomOf="@+id/ivImageSignin" />
 
     <Button
         android:id="@+id/btSignUp"
@@ -59,24 +59,25 @@
 
     <ImageView
         android:id="@+id/ivImageSignin"
-        android:layout_width="255dp"
-        android:layout_height="372dp"
-        app:layout_constraintEnd_toStartOf="@+id/guidelineSignInRight"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="@+id/guidelineSignInLeft"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="247dp"
+        android:layout_height="198dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSignInTxt"
         app:srcCompat="@drawable/logo" />
 
     <TextView
         android:id="@+id/tvSignInTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:text="@string/SignUp"
         android:textAllCaps="true"
         android:textSize="34sp"
         app:layout_constraintEnd_toStartOf="@+id/guidelineSignInRight"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="@+id/guidelineSignInLeft"
-        app:layout_constraintTop_toBottomOf="@+id/ivImageSignin" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

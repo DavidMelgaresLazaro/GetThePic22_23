@@ -59,7 +59,7 @@ public class menu extends AppCompatActivity {
             String name = user.getDisplayName();
             String email = user.getEmail();
             Uri photoUrl = user.getPhotoUrl();
-            Toast.makeText(this, "Hola Usuari " + user.getUid() + " " + email, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Hola Usuari " + email, Toast.LENGTH_SHORT).show();
         }
 
     }
