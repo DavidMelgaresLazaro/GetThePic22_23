@@ -6,11 +6,17 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/logo_round"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.GetThePic"
         tools:targetApi="31">
+        <activity
+            android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.SignInActivity"
+            android:exported="false" />
+        <activity
+            android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.SplashScreen"
+            android:exported="false" />
         <activity
             android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.About"
             android:exported="false" />
@@ -21,7 +27,7 @@
             android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.GameActivity"
             android:exported="false" />
         <activity
-            android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.SplashScreen"
+                android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

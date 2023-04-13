@@ -15,4 +15,10 @@
     <string name="IAPLAYER">IAplayer</string>
     <string name="BorrarDB">BorrarDB</string>
     <string name="VeureDB">VeureDB</string>
+    <string name="logout">LogOut</string>
+    <string name="email">Email</string>
+    <string name="Password">Contrasenya</string>
+    <string name="Login">Login</string>
+    <string name="SignUp">SignUp</string>
+    <string name="VerifyEmail">Verifica el teu Email</string>
 </resources>

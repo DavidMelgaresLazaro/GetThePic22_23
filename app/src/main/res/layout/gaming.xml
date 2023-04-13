@@ -29,7 +29,7 @@
                     android:layout_width="59dp"
                     android:layout_height="51dp"
                     android:text="@{Character.toString(GameViewModel.game.board.getPiece(0).getValue)}"
-                    android:onClick="@{() -> GameViewModel.cardClicked(0)}"
+                    android:onClick="@{()-> GameViewModel.cardClicked(0)}"
                     android:textSize="@{GameViewModel.game.board.getPiece(0).getGirada() ? 60 : 0}"
                     android:enabled="@{GameViewModel.game.board.getPiece(0).getenabled()}"
                     app:layout_constraintBottom_toBottomOf="parent"

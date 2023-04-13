@@ -27,6 +27,7 @@ public class GameActivity extends AppCompatActivity {
 
 
 
+
         game = new ViewModelProvider(this).get(GameViewModel.class);
         GamingBinding binding = DataBindingUtil.setContentView(this, R.layout.gaming);
         binding.setGameViewModel(game);
