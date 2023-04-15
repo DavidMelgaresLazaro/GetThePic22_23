@@ -27,7 +27,10 @@
             android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.GameActivity"
             android:exported="false" />
         <activity
-                android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.LoginActivity"
+            android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.ForgotPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

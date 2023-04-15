@@ -21,4 +21,7 @@
     <string name="Login">Login</string>
     <string name="SignUp">SignUp</string>
     <string name="VerifyEmail">Verifica el teu Email</string>
+    <string name="FWPass">FORGOT PASSWORD</string>
+    <string name="Submit">SUBMIT</string>
+    <string name="ExplanationFWPass">Enter your email adress we\' ll send you a email to reset your password</string>
 </resources>

@@ -35,10 +35,16 @@ public class LoginActivity extends AppCompatActivity {
         etPassword = findViewById(R.id.etPasswordLogin);
         findViewById(R.id.btLogin).setOnClickListener(v -> login());
         findViewById(R.id.btLoginToSignUp).setOnClickListener(v -> loginToSignUp());
+        findViewById(R.id.btFWPass).setOnClickListener((v ->  loginToFWPass()));
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
     }
 
+
+    private void loginToFWPass() {
+        Intent i = new Intent(this, ForgotPasswordActivity.class);
+        startActivity(i);
+    }
     private void loginToSignUp() {
         Intent i = new Intent(this, SignInActivity.class);
         startActivity(i);
