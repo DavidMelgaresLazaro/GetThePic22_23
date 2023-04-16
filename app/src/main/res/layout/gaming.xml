@@ -29,7 +29,7 @@
                     android:layout_width="59dp"
                     android:layout_height="51dp"
                     android:text="@{Character.toString(GameViewModel.game.board.getPiece(0).getValue)}"
-                    android:onClick="@{() -> GameViewModel.cardClicked(0)}"
+                    android:onClick="@{()-> GameViewModel.cardClicked(0)}"
                     android:textSize="@{GameViewModel.game.board.getPiece(0).getGirada() ? 60 : 0}"
                     android:enabled="@{GameViewModel.game.board.getPiece(0).getenabled()}"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -144,12 +144,12 @@
                     android:id="@+id/finishbutton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="4dp"
                     android:text="@string/FinishGame"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.579"
+                    app:layout_constraintHorizontal_bias="0.943"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/restart" />
 
                 <TextView
                     android:id="@+id/totalcardsreverser"
@@ -197,7 +197,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:src="@drawable/logo"/>
+                    app:imageResource="@{GameViewModel.drawableXaxi}"/>
                 <TextView
                     android:id="@+id/tvCurrentPlayer"
                     android:layout_width="wrap_content"

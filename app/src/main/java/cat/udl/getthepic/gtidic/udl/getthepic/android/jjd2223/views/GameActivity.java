@@ -1,9 +1,7 @@
 package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,12 +9,11 @@ import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 
 
-import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.levels;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.viewmodels.GameViewModel;
 
 
-import com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
-import com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.databinding.GamingBinding;
+import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
+import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.databinding.GamingBinding;
 
 public class GameActivity extends AppCompatActivity {
 
@@ -30,6 +27,7 @@ public class GameActivity extends AppCompatActivity {
 
 
 
+
         game = new ViewModelProvider(this).get(GameViewModel.class);
         GamingBinding binding = DataBindingUtil.setContentView(this, R.layout.gaming);
         binding.setGameViewModel(game);
@@ -38,9 +36,6 @@ public class GameActivity extends AppCompatActivity {
 
 
         findViewById(R.id.finishbutton).setOnClickListener(view -> {
-            Intent intent = new Intent();
-            setResult(RESULT_OK, intent);
-            // Finish the current activity
             finish();
         });
         findViewById(R.id.restart).setOnClickListener(view -> {
@@ -65,6 +60,13 @@ public class GameActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+    public void finish()
+    {
+        Intent intent = new Intent();
+        setResult(RESULT_OK, intent);
+        // Finish the current activity
+    }
+
 
 
 }

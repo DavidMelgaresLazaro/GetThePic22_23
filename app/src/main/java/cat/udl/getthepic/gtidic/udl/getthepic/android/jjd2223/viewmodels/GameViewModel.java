@@ -1,5 +1,6 @@
 package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.viewmodels;
 
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -11,7 +12,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import androidx.room.Room;
 
-import com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
+import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
 
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.DB.DatabaseGetThePic;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Game;
@@ -19,6 +20,8 @@ import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.levels;
 
 public class GameViewModel extends ViewModel {
     private MutableLiveData<Game> game = new MutableLiveData<>();
+    private MutableLiveData<Integer> d = new MutableLiveData<>();
+
 
 
     private Context context;
@@ -30,27 +33,33 @@ public class GameViewModel extends ViewModel {
         internalGame.init();
         game.setValue(internalGame);
         showCards();
+        d.setValue(levels.Getimage(game.getValue().getCurrentPlayer().getLAST_LEVEL()));
+
     }
 
     public LiveData<Game> getGame()
     {
         return game;
     }
+    public LiveData<Integer> getDrawableXaxi(){
+        return d;
+    }
 
     public void cardClicked(int row){
         Game myGame = game.getValue();
         myGame.cardClicked(row);
         game.setValue(myGame);
-        updateGameInDB();
-
+        d.setValue(levels.Getimage(myGame.getCurrentPlayer().getLAST_LEVEL()));
         if(myGame.win == true)
         {
             showCards();
+            saveFireBaseDB();
         }
         if(myGame.equivocat == true)
         {
             showCards();
         }
+        updateGameInDB();
     }
 
 
@@ -92,6 +101,8 @@ public class GameViewModel extends ViewModel {
         String missatge = String.format("He guardat el meu joc amb id: %d", g.id );
         System.out.println(missatge);
         dbRoom.close();
+
+
     }
 
     public void updateGameInDB(){
@@ -101,6 +112,12 @@ public class GameViewModel extends ViewModel {
         dbRoom.gameDAO().update(g);
         dbRoom.close();
     }
+
+    public void saveFireBaseDB()
+    {
+
+    }
+
 
 
 

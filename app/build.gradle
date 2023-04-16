@@ -1,13 +1,14 @@
 plugins {
     id 'com.android.application'
+    id 'com.google.gms.google-services'
 }
 
 android {
-    namespace 'com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223'
+    namespace 'cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.getthepic.gtidic.udl.getthepic.getthepic.jjd2223"
+        applicationId "cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223"
         minSdk 25
         targetSdk 33
         versionCode 1
@@ -57,4 +58,24 @@ dependencies {
     //    room libraries
     implementation 'androidx.room:room-runtime:2.5.0'
     annotationProcessor 'androidx.room:room-compiler:2.5.0'
+
+    // Import the Firebase BoM
+    implementation platform('com.google.firebase:firebase-bom:31.2.3')
+
+    // TODO: Add the dependencies for Firebase products you want to use
+    // When using the BoM, don't specify versions in Firebase dependencies
+    implementation 'com.google.firebase:firebase-analytics'
+
+    // Add the dependency for the Firebase Authentication library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-auth'
+
+    dependencies {
+        // Import the BoM for the Firebase platform
+        implementation platform('com.google.firebase:firebase-bom:31.4.0')
+
+        // Add the dependency for the Realtime Database library
+        // When using the BoM, you don't specify versions in Firebase library dependencies
+        implementation 'com.google.firebase:firebase-database'
+    }
 }

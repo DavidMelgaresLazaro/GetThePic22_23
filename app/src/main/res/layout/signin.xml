@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.SignInActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineSignInLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="50dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineSignInRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="50dp" />
+
+    <EditText
+        android:id="@+id/etPasswordSignIn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="@string/Password"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineSignInRight"
+        app:layout_constraintStart_toStartOf="@+id/guidelineSignInLeft"
+        app:layout_constraintTop_toBottomOf="@+id/etEmailSignIn" />
+
+    <EditText
+        android:id="@+id/etEmailSignIn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineSignInRight"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guidelineSignInLeft"
+        app:layout_constraintTop_toBottomOf="@+id/ivImageSignin" />
+
+    <Button
+        android:id="@+id/btSignUp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/material_dynamic_primary70"
+        android:text="@string/SignUp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineSignInRight"
+        app:layout_constraintStart_toStartOf="@+id/guidelineSignInLeft"
+        app:layout_constraintTop_toBottomOf="@+id/etPasswordSignIn" />
+
+    <ImageView
+        android:id="@+id/ivImageSignin"
+        android:layout_width="247dp"
+        android:layout_height="198dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSignInTxt"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/tvSignInTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/SignUp"
+        android:textAllCaps="true"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineSignInRight"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="@+id/guidelineSignInLeft"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
