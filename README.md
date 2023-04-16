@@ -7,6 +7,8 @@
 
 ***App name:***: GetThePic
 
+***Version***: 1.0
+
 ***Authors***:
 - *David Melgares*: Encarregat de la part frontend del videojoc.
 - *Joan Jaume Moll*:Encarregat del backend.
