@@ -4,6 +4,10 @@ package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+import androidx.room.Update;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Player.IAPlayer;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.GlobalInfo;
@@ -34,11 +38,16 @@ public class Game {
     public boolean win = false;
     @Ignore
     public boolean equivocat = false;
+    @Ignore
+    private FirebaseAuth mAuth;
+    @Ignore
+    private FirebaseUser user;
 
     public void init()
     {
         int boardSize = 8;
-        player1 = new HumanPlayer("Spiderman \uD83D\uDD77️");
+        UpdateUser();
+        player1 = new HumanPlayer(user.getEmail());
         player2 = new HumanPlayer("Starlight ⚡️");
         currentPlayer = player1;
 
@@ -100,6 +109,12 @@ public class Game {
         }
 
 
+    }
+
+    private void UpdateUser()
+    {
+        mAuth = FirebaseAuth.getInstance();
+        user = mAuth.getCurrentUser();
     }
 
 

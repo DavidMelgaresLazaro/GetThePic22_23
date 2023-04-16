@@ -36,9 +36,6 @@ public class GameActivity extends AppCompatActivity {
 
 
         findViewById(R.id.finishbutton).setOnClickListener(view -> {
-            Intent intent = new Intent();
-            setResult(RESULT_OK, intent);
-            // Finish the current activity
             finish();
         });
         findViewById(R.id.restart).setOnClickListener(view -> {
@@ -62,6 +59,12 @@ public class GameActivity extends AppCompatActivity {
         Intent intent = new Intent(GameActivity.this, GameActivity.class);
         startActivity(intent);
         finish();
+    }
+    public void finish()
+    {
+        Intent intent = new Intent();
+        setResult(RESULT_OK, intent);
+        // Finish the current activity
     }
 
 

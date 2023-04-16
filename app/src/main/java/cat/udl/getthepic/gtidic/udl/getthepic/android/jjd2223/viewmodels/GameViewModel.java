@@ -53,6 +53,7 @@ public class GameViewModel extends ViewModel {
         if(myGame.win == true)
         {
             showCards();
+            saveFireBaseDB();
         }
         if(myGame.equivocat == true)
         {
@@ -100,6 +101,8 @@ public class GameViewModel extends ViewModel {
         String missatge = String.format("He guardat el meu joc amb id: %d", g.id );
         System.out.println(missatge);
         dbRoom.close();
+
+
     }
 
     public void updateGameInDB(){
@@ -109,6 +112,12 @@ public class GameViewModel extends ViewModel {
         dbRoom.gameDAO().update(g);
         dbRoom.close();
     }
+
+    public void saveFireBaseDB()
+    {
+
+    }
+
 
 
 

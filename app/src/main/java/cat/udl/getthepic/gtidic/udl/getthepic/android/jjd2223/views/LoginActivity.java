@@ -89,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
             if (currentUser.isEmailVerified()){
                 etPassword.setText("");
                 etEmail.setText("");
-                Intent i = new Intent(this, menu.class);
+                Intent i = new Intent(this, SplashScreen.class);
                 startActivity(i);
             }else{
                 Toast.makeText(LoginActivity.this, R.string.VerifyEmail,

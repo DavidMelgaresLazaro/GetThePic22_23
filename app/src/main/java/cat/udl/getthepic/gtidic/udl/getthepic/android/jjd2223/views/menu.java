@@ -48,7 +48,7 @@ public class menu extends AppCompatActivity {
 
             }
         });
-        findViewById(R.id.laiajuga).setOnClickListener(view -> jugalaia(view));
+        findViewById(R.id.laiajuga).setOnClickListener(view -> jugalaia());
         findViewById(R.id.borrarDB).setOnClickListener(view -> clearDB());
         findViewById(R.id.veureDB).setOnClickListener(view -> getPoints());
         findViewById(R.id.logout).setOnClickListener(v -> logout());
@@ -87,7 +87,7 @@ public class menu extends AppCompatActivity {
 
 
 
-    private void jugalaia(View view)
+    private void jugalaia()
     {
        IAPlayer iaPlayer = new IAPlayer();
        iaPlayer.init(this);

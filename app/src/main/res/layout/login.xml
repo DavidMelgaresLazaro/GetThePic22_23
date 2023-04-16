@@ -36,7 +36,7 @@
         android:id="@+id/etEmailLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
         android:hint="@string/email"
@@ -51,7 +51,7 @@
         android:id="@+id/btLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="@color/material_dynamic_primary70"
         android:text="@string/Login"
         android:textColor="@color/black"
@@ -63,12 +63,12 @@
         android:id="@+id/btLoginToSignUp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="@color/material_dynamic_primary70"
         android:text="@string/SignUp"
         android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/guidelineLoginRight"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guidelineLoginLeft"
         app:layout_constraintTop_toBottomOf="@+id/btFWPass" />
 
@@ -76,7 +76,7 @@
         android:id="@+id/btFWPass"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="@color/material_dynamic_primary70"
         android:text="@string/FWPass"
         android:textColor="@color/black"
@@ -87,8 +87,8 @@
 
     <ImageView
         android:id="@+id/ivLogo"
-        android:layout_width="314dp"
-        android:layout_height="153dp"
+        android:layout_width="310dp"
+        android:layout_height="142dp"
         android:layout_marginTop="52dp"
         app:layout_constraintEnd_toStartOf="@+id/guidelineLoginRight"
         app:layout_constraintHorizontal_bias="1.0"
@@ -107,6 +107,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guidelineLoginRight"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@+id/guidelineLoginLeft"
-        app:layout_constraintTop_toBottomOf="@+id/ivImageLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/ivImageLogin"
+        tools:ignore="UnknownId" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
