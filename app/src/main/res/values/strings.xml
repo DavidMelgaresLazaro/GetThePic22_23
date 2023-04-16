@@ -24,4 +24,9 @@
     <string name="FWPass">FORGOT PASSWORD</string>
     <string name="Submit">SUBMIT</string>
     <string name="ExplanationFWPass">Enter your email adress we\' ll send you a email to reset your password</string>
+    <string name="LastLogin">LastLogin:</string>
+    <string name="UserInfo">UserInfo</string>
+    <string name="Menu">Menu</string>
+    <string name="LastPoints">LastPoints</string>
+    <string name="WR">World Record</string>
 </resources>
