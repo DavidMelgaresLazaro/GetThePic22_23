@@ -1,16 +1,27 @@
 package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.viewmodels;
 
 
+import static android.content.ContentValues.TAG;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
+import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import androidx.room.Room;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
 
@@ -21,6 +32,9 @@ import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.levels;
 public class GameViewModel extends ViewModel {
     private MutableLiveData<Game> game = new MutableLiveData<>();
     private MutableLiveData<Integer> d = new MutableLiveData<>();
+
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
 
 
@@ -53,13 +67,13 @@ public class GameViewModel extends ViewModel {
         if(myGame.win == true)
         {
             showCards();
-            saveFireBaseDB();
         }
         if(myGame.equivocat == true)
         {
             showCards();
         }
         updateGameInDB();
+        saveFireBaseDB();
     }
 
 
@@ -115,7 +129,17 @@ public class GameViewModel extends ViewModel {
 
     public void saveFireBaseDB()
     {
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+            DocumentReference usuarioRef = db.collection("usuarios").document(currentUser.getUid());
 
+            usuarioRef.update("points", game.getValue().getCurrentPlayer().getPoints())
+                    .addOnSuccessListener(aVoid -> Log.d(TAG, "Valor de lastLogin actualizado correctamente"))
+                    .addOnFailureListener(e -> Log.e(TAG, "Error al actualizar el valor de lastLogin", e));
+            usuarioRef.update("last_level", game.getValue().getCurrentPlayer().getLAST_LEVEL())
+                    .addOnSuccessListener(aVoid -> Log.d(TAG, "Valor de lastLogin actualizado correctamente"))
+                    .addOnFailureListener(e -> Log.e(TAG, "Error al actualizar el valor de lastLogin", e));
+        }
     }
 
 

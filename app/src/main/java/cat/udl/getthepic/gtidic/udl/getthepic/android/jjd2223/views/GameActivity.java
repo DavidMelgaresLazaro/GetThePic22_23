@@ -36,8 +36,18 @@ public class GameActivity extends AppCompatActivity {
 
 
         findViewById(R.id.finishbutton).setOnClickListener(view -> {
+            // Define a return Key Value
+            Intent intent = new Intent();
+
+            // Put the data to return into the extra
+
+            // Set the activity's result to RESULT_OK
+            setResult(RESULT_OK, intent);
+
+            // Finish the current activity
             finish();
         });
+
         findViewById(R.id.restart).setOnClickListener(view -> {
             restart();
         });
@@ -59,12 +69,6 @@ public class GameActivity extends AppCompatActivity {
         Intent intent = new Intent(GameActivity.this, GameActivity.class);
         startActivity(intent);
         finish();
-    }
-    public void finish()
-    {
-        Intent intent = new Intent();
-        setResult(RESULT_OK, intent);
-        // Finish the current activity
     }
 
 

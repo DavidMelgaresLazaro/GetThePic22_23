@@ -7,6 +7,7 @@ import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +16,12 @@ import androidx.room.Room;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
 
@@ -25,28 +32,30 @@ import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Player.IAPl
 public class menu extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    Button about,start;
+    private FirebaseFirestore FBdb = FirebaseFirestore.getInstance();
+    Button about,start,userinfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         about = findViewById(R.id.button2);
         start = findViewById(R.id.buttonstart);
+        userinfo = findViewById(R.id.userinfo);
 
-        about.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent( menu.this , About.class);
-                startActivity(intent);
+        about.setOnClickListener(view -> {
+            Intent intent = new Intent( menu.this , About.class);
+            startActivity(intent);
 
-            }
         });
-        start.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent intent = new Intent(menu.this, GameActivity.class);
-                startActivity(intent);
+        start.setOnClickListener(view -> {
+            Intent intent = new Intent(menu.this, GameActivity.class);
+            startActivity(intent);
 
-            }
+        });
+        userinfo.setOnClickListener(view -> {
+            Intent intent = new Intent(menu.this, UserInfo.class);
+            startActivity(intent);
+
         });
         findViewById(R.id.laiajuga).setOnClickListener(view -> jugalaia());
         findViewById(R.id.borrarDB).setOnClickListener(view -> clearDB());
@@ -93,4 +102,5 @@ public class menu extends AppCompatActivity {
        iaPlayer.init(this);
        iaPlayer.jugar();
     }
+
 }

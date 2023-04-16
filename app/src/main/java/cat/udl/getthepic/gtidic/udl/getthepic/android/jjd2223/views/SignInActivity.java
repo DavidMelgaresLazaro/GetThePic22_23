@@ -1,5 +1,7 @@
 package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views;
 
+
+
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
@@ -12,6 +14,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
 
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.helpers.ActivityHelper;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.helpers.AppCompatActivityPlus;
