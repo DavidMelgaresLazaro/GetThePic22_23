@@ -66,6 +66,9 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
+    /***
+     * Login agafa les dades introduides per l'usuari (correu i contrasenya) per a tal de crearlo
+     */
     private void login() {
         String email = etEmail.getText().toString();
         String password = etPassword.getText().toString();
@@ -93,6 +96,9 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
 
+    /***
+     * Reload es un métode que s'executa cada vegada per a assegurar-nos que l'usuari es vàlid,i te el correu verificat
+     */
     private void reload(){
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null) {
@@ -108,9 +114,18 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
     }
+
+    /***
+     * Li passem un usuari de tipus FireBase per a tal que el pugui afegir a firebase
+     * @param user
+     */
     private void crearUsuarioFirestore(FirebaseUser user) {
         DocumentReference userRef = db.collection("usuarios").document(user.getUid());
-
+        /***
+         *  Crea una referencia de la DB de usuaris ("usuarios").
+         *  Mitjançant "task" mira si aquest ja existeix, en cas que si actualitza el seu last login i en cas que no
+         *  el crea.
+         */
         userRef.get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 DocumentSnapshot document = task.getResult();

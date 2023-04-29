@@ -38,6 +38,8 @@ public class UserInfo extends AppCompatActivity {
     TextView lastlogin;
     TextView maxGlobal;
 
+    TextView jugadormax;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,8 @@ public class UserInfo extends AppCompatActivity {
         lastlogin = findViewById(R.id.lastlogin);
         lastpoints = findViewById(R.id.lastpoints);
         maxGlobal = findViewById(R.id.maxglobal);
+        jugadormax = findViewById(R.id.maxglobaluser);
+
         lastlogin.setText(GlobalInfo.getInstance().getLastLogin().toString());
 
         displayUserPoints();
@@ -61,6 +65,9 @@ public class UserInfo extends AppCompatActivity {
         finish();
     }
 
+    /***
+     * DisplayUserPoints agafa els punts que ha fet l'usuari
+     */
     private void displayUserPoints() {
         if (currentUser != null) {
             DocumentReference usuarioRef = db.collection("usuarios").document(currentUser.getUid());
@@ -84,7 +91,12 @@ public class UserInfo extends AppCompatActivity {
         }
     }
 
-        private void displayWorldRecord()
+
+    /***
+     * DisplayWorldRecord fa una query dins la referencia de la "taula" d'usuaris per a tal de veure quin
+     * es el que te més punts i introdueix a la vista els punts i qui els ha fets
+     */
+    private void displayWorldRecord()
         {
             //Hem decidit que sigui Last Points en vers de PR ja que de moment no te sentit dins el context de la
             //nostra aplicació. Aquesta conta punts per els nivells passats.
@@ -96,6 +108,7 @@ public class UserInfo extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             maxGlobal.setText(document.get("points").toString());
+                            jugadormax.setText(document.get("correo").toString());
                             Log.d(TAG, "El máximo de puntos es: " + document.get("puntos"));
                             // Aquí puedes hacer lo que quieras con el máximo de puntos
                         }

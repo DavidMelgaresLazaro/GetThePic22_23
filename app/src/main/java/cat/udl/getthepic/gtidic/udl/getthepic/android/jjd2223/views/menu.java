@@ -51,6 +51,10 @@ public class menu extends AppCompatActivity {
         printuser(user);
 
     }
+
+    /***
+     * A la instància de Firebase fa un log out de l'usuari i acaba la activitat de menu per a tal que vagi al login
+     */
     private void logout() {
         mAuth.signOut();
         finish();
@@ -96,6 +100,11 @@ public class menu extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+    /***
+     * De la instància de l'¡usuari actual, imprimim per Toast els paràmetres que ens interesen
+     * @param user
+     */
     private void printuser(FirebaseUser user)
     {
         if(user != null) {

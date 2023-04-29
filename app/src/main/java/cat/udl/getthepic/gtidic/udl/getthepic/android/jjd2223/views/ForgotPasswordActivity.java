@@ -20,10 +20,14 @@ import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
 
 public class ForgotPasswordActivity extends AppCompatActivity {
 
-
+    /**
+     * Cream les nostres variables:
+     * userEmail: l'usuari introdueix el seu mail per poder recuperar la contrasenya
+     * send: És el botó que l'usuari pitjarà per a enviar el correu
+     * firebaseAuth: variable on guardarem la instància de Firebase per a utilitzar els serveis de Firebase
+     */
     EditText userEmail;
-    Button userPass;
-
+    Button send;
     FirebaseAuth firebaseAuth;
 
 
@@ -34,17 +38,22 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         setContentView(R.layout.activity_forgot_password);
 
         userEmail = findViewById(R.id.etEmailFWPass);
-        userPass = findViewById(R.id.btFWSubmit);
-
+        send = findViewById(R.id.btFWSubmit);
+        //Recuparem la instància
         firebaseAuth = FirebaseAuth.getInstance();
 
-        userPass.setOnClickListener(view -> sendPasswordRecover());
+        send.setOnClickListener(view -> sendPasswordRecover());
 
 
     }
 
     private void sendPasswordRecover()
     {
+        /**
+         *Desde la instància firebaseAuth, utilitzarem la seva funció sendPasswordResetEmail per a tal de enviar
+         * un correu de recuperació al mail que ha introduit l'usuari al TextView userEmail. En cas que "task
+         * sigui satisfactori fara un Toast del resultat.
+         */
         firebaseAuth.sendPasswordResetEmail(userEmail.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

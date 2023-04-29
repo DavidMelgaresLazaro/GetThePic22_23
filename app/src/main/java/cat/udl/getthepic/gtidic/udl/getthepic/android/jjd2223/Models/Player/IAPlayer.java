@@ -10,6 +10,7 @@ import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Board;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Game;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Piece;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.levels;
+import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.helpers.GlobalInfo;
 
 public class IAPlayer extends Player{
 
@@ -34,25 +35,24 @@ public class IAPlayer extends Player{
         Random random = new Random();
         String actual = "";
         Piece j;
-        while(!actual.equals(levels.GetLevel(game.getCurrentPlayer().LAST_LEVEL)))
-        {
-            actual = "";
-            for(int i = 0; i < 5 ; i++)
-            {
-               j = game.board.getPiece(random.nextInt(8));
-               if(j.girada)
-               {
-                   while(j.girada){
-                       j = game.board.getPiece(random.nextInt(8));
-                   }
-               }
-               actual = actual + j.getValue();
+        for(int f = 0; f < levels.levels.length; f++) {
+            while (!actual.equals(levels.GetLevel(f))) {
+                actual = "";
+                for (int i = 0; i < 5; i++) {
+                    j = game.board.getPiece(random.nextInt(8));
+                    if (j.girada) {
+                        while (j.girada) {
+                            j = game.board.getPiece(random.nextInt(8));
+                        }
+                    }
+                    actual = actual + j.getValue();
+                }
+                System.out.println(actual);
             }
-            System.out.println(actual);
+            System.out.println("Resposta es = " + actual);
+            String s = "La paraula del nivell  " + game.getCurrentPlayer().LAST_LEVEL + "  és  :" + actual;
+            Toast.makeText(context, s, Toast.LENGTH_SHORT).show();
         }
-        System.out.println("Resposta es = " + actual);
-        String s = "La paraula del nivell  " + game.getCurrentPlayer().LAST_LEVEL + "  és  :" + actual;
-        Toast.makeText(context, s, Toast.LENGTH_SHORT).show();
     }
 
     public void setContext(Context context)
