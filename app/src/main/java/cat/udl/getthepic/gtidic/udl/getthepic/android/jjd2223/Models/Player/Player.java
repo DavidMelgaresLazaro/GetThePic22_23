@@ -1,7 +1,5 @@
 package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Player;
 
-import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.GlobalInfo;
-
 public abstract class Player {
     protected int points = 0;
 

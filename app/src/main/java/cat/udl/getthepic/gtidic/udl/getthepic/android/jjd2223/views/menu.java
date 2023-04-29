@@ -33,30 +33,14 @@ public class menu extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseFirestore FBdb = FirebaseFirestore.getInstance();
-    Button about,start,userinfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        about = findViewById(R.id.button2);
-        start = findViewById(R.id.buttonstart);
-        userinfo = findViewById(R.id.userinfo);
 
-        about.setOnClickListener(view -> {
-            Intent intent = new Intent( menu.this , About.class);
-            startActivity(intent);
-
-        });
-        start.setOnClickListener(view -> {
-            Intent intent = new Intent(menu.this, GameActivity.class);
-            startActivity(intent);
-
-        });
-        userinfo.setOnClickListener(view -> {
-            Intent intent = new Intent(menu.this, UserInfo.class);
-            startActivity(intent);
-
-        });
+        findViewById(R.id.button2).setOnClickListener(view -> aboutpage());
+        findViewById(R.id.buttonstart).setOnClickListener(view -> StartGame());
+        findViewById(R.id.userinfo).setOnClickListener(view -> userinfo());
         findViewById(R.id.laiajuga).setOnClickListener(view -> jugalaia());
         findViewById(R.id.borrarDB).setOnClickListener(view -> clearDB());
         findViewById(R.id.veureDB).setOnClickListener(view -> getPoints());
@@ -64,12 +48,7 @@ public class menu extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
-        if(user != null) {
-            String name = user.getDisplayName();
-            String email = user.getEmail();
-            Uri photoUrl = user.getPhotoUrl();
-            Toast.makeText(this, "Hola Usuari " + email, Toast.LENGTH_SHORT).show();
-        }
+        printuser(user);
 
     }
     private void logout() {
@@ -92,10 +71,6 @@ public class menu extends AppCompatActivity {
         System.out.println(missatge);
         dbRoom.close();
     }
-
-
-
-
     private void jugalaia()
     {
        IAPlayer iaPlayer = new IAPlayer();
@@ -103,4 +78,31 @@ public class menu extends AppCompatActivity {
        iaPlayer.jugar();
     }
 
+    private void aboutpage()
+    {
+        Intent intent = new Intent( menu.this , About.class);
+        startActivity(intent);
+    }
+
+    private void userinfo()
+    {
+        Intent intent = new Intent(menu.this, UserInfo.class);
+        startActivity(intent);
+    }
+
+    private void StartGame()
+    {
+        Intent intent = new Intent(menu.this, GameActivity.class);
+        startActivity(intent);
+
+    }
+    private void printuser(FirebaseUser user)
+    {
+        if(user != null) {
+            String name = user.getDisplayName();
+            String email = user.getEmail();
+            Uri photoUrl = user.getPhotoUrl();
+            Toast.makeText(this, "Hola Usuari " + email, Toast.LENGTH_SHORT).show();
+        }
+    }
 }

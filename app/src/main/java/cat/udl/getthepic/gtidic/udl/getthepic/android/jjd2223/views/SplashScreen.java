@@ -6,6 +6,7 @@ import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.helpers.GlobalInfo;
 import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
 
 public class SplashScreen extends AppCompatActivity {

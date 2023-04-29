@@ -1,4 +1,4 @@
-package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views;
+package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.helpers;
 
 import java.util.Date;
 

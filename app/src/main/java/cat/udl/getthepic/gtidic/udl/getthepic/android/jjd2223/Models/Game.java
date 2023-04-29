@@ -4,13 +4,10 @@ package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
-import androidx.room.Update;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Player.IAPlayer;
-import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.GlobalInfo;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Player.Player;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Player.HumanPlayer;
 
