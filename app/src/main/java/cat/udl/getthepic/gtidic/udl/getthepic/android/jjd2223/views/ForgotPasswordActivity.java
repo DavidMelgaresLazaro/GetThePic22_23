@@ -36,26 +36,27 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         userEmail = findViewById(R.id.etEmailFWPass);
         userPass = findViewById(R.id.btFWSubmit);
 
-
         firebaseAuth = FirebaseAuth.getInstance();
 
-        userPass.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                firebaseAuth.sendPasswordResetEmail(userEmail.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                            if(task.isSuccessful()){
-                                Toast.makeText(ForgotPasswordActivity.this, "Password send to your email",Toast.LENGTH_LONG).show();
-                            }else{
-                                Toast.makeText(ForgotPasswordActivity.this, task.getException().getMessage(),Toast.LENGTH_LONG).show();
-                            }
-                    }
-                });
-            }
-        });
+        userPass.setOnClickListener(view -> sendPasswordRecover());
 
 
     }
+
+    private void sendPasswordRecover()
+    {
+        firebaseAuth.sendPasswordResetEmail(userEmail.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    Toast.makeText(ForgotPasswordActivity.this, "Password send to your email",Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(ForgotPasswordActivity.this, task.getException().getMessage(),Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
+
+
 
 }
