@@ -45,6 +45,8 @@ public class menu extends AppCompatActivity {
         findViewById(R.id.borrarDB).setOnClickListener(view -> clearDB());
         findViewById(R.id.veureDB).setOnClickListener(view -> getPoints());
         findViewById(R.id.logout).setOnClickListener(v -> logout());
+        findViewById(R.id.btTimeTrialMenu).setOnClickListener(view -> TimeTrial());
+
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
@@ -75,6 +77,12 @@ public class menu extends AppCompatActivity {
         System.out.println(missatge);
         dbRoom.close();
     }
+
+    private void TimeTrial(){
+        Intent intent= new Intent(menu.this, TimeTrial.class);
+        startActivity(intent);
+    }
+
     private void jugalaia()
     {
        IAPlayer iaPlayer = new IAPlayer();

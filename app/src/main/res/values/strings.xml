@@ -29,4 +29,6 @@
     <string name="Menu">Menu</string>
     <string name="LastPoints">LastPoints</string>
     <string name="WR">World Record</string>
+    <string name="TimeTrialMenu">Time Trial</string>
+    <string name="btTimeTrialMenu">Time Trial</string>
 </resources>
