@@ -10,6 +10,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Player.Player;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Player.HumanPlayer;
+import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.helpers.GlobalInfo;
 
 @Entity
 public class Game {
@@ -45,11 +46,13 @@ public class Game {
         int boardSize = 8;
         UpdateUser();
         player1 = new HumanPlayer(user.getEmail());
-        player2 = new HumanPlayer("Starlight ⚡️");
-        currentPlayer = player1;
+        player1.setLAST_LEVEL(GlobalInfo.getInstance().getLast_level());
+        player1.setPoints(GlobalInfo.getInstance().getLast_points());
+        //player2 = new HumanPlayer("Starlight ⚡️");
+        //currentPlayer = player1;
 
         board = new Board(boardSize);
-        board.load(getCurrentPlayer().getLAST_LEVEL());
+        board.load(player1.getLAST_LEVEL());
 
     }
     protected void changeTurn(){
@@ -57,14 +60,17 @@ public class Game {
     }
 
 
-    public Player getCurrentPlayer(){ return currentPlayer; }
+    public Player getCurrentPlayer(){
+        //return currentPlayer;
+        return player1;
+    }
 
     public void cardClicked(int row){
         equivocat = false;
         actual += Character.toString(board.getPiece(row).getValue());
         totalCardsReversed++;
         checkifwin();
-        if(totalCardsReversed == levels.GetLevel(getCurrentPlayer().getLAST_LEVEL()).length())
+        if(totalCardsReversed == levels.GetLevel(player1.getLAST_LEVEL()).length())
         {
             actual = "";
             totalCardsReversed = 0;
@@ -92,17 +98,18 @@ public class Game {
     public void checkifwin()
     {
         win = false;
-        if(actual.equals(levels.GetLevel(getCurrentPlayer().getLAST_LEVEL()))) {
-            getCurrentPlayer().setLAST_LEVEL(getCurrentPlayer().getLAST_LEVEL() + 1);
-            board.load(getCurrentPlayer().getLAST_LEVEL());
+        if(actual.equals(levels.GetLevel(player1.getLAST_LEVEL()))) {
+            player1.setLAST_LEVEL(player1.getLAST_LEVEL() + 1);
+            GlobalInfo.getInstance().setLast_level(player1.getLAST_LEVEL() + 1);
+            board.load(player1.getLAST_LEVEL());
             actual = "";
             totalCardsReversed = 0;
             win = true;
-            getCurrentPlayer().addPoints(POINTS_PER_MATCH);
-            if(getCurrentPlayer().getPoints() > maxPoints)
+            player1.addPoints(POINTS_PER_MATCH);
+            /*if(getCurrentPlayer().getPoints() > maxPoints)
             {
                 maxPoints = getCurrentPlayer().getPoints();
-            }
+            }*/
         }
 
 

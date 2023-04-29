@@ -41,11 +41,7 @@ public class menu extends AppCompatActivity {
         findViewById(R.id.button2).setOnClickListener(view -> aboutpage());
         findViewById(R.id.buttonstart).setOnClickListener(view -> StartGame());
         findViewById(R.id.userinfo).setOnClickListener(view -> userinfo());
-        findViewById(R.id.laiajuga).setOnClickListener(view -> jugalaia());
-        findViewById(R.id.borrarDB).setOnClickListener(view -> clearDB());
-        findViewById(R.id.veureDB).setOnClickListener(view -> getPoints());
         findViewById(R.id.logout).setOnClickListener(v -> logout());
-        findViewById(R.id.btTimeTrialMenu).setOnClickListener(view -> TimeTrial());
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -61,34 +57,12 @@ public class menu extends AppCompatActivity {
         mAuth.signOut();
         finish();
     }
-    private void clearDB() {
-        String dbName = "GTP.db";
-        DatabaseGetThePic dbRoom = Room.databaseBuilder(this.getApplicationContext(), DatabaseGetThePic.class, dbName).allowMainThreadQueries().build();
-        dbRoom.gameDAO().deleteAll();
-        dbRoom.close();
-    }
-
-    private void getPoints() {
-        String dbName = "GTP.db";
-        DatabaseGetThePic dbRoom = Room.databaseBuilder(this.getApplicationContext(), DatabaseGetThePic.class, dbName).allowMainThreadQueries().build();
-        int lastPoints = dbRoom.gameDAO().getLastGamePoints();
-        int maxPoints = dbRoom.gameDAO().getMaxPoints();
-        String missatge = String.format("Max punts: %d. Ultims punts: %d", maxPoints, lastPoints );
-        System.out.println(missatge);
-        dbRoom.close();
-    }
 
     private void TimeTrial(){
-        Intent intent= new Intent(menu.this, TimeTrial.class);
-        startActivity(intent);
+        //Intent intent= new Intent(menu.this, TimeTrial.class);
+        //startActivity(intent);
     }
 
-    private void jugalaia()
-    {
-       IAPlayer iaPlayer = new IAPlayer();
-       iaPlayer.init(this);
-       iaPlayer.jugar();
-    }
 
     private void aboutpage()
     {

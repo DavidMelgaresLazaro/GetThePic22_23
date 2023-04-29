@@ -10,6 +10,7 @@ import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.common.server.converter.StringToIntConverter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -144,6 +145,8 @@ public class LoginActivity extends AppCompatActivity {
                             .addOnFailureListener(e -> Log.e(TAG, "Error al crear el documento de usuario", e));
                 } else {
                     GlobalInfo.getInstance().setLast_login(document.getDate("last_login"));
+                    GlobalInfo.getInstance().setLast_level(document.getLong("last_level").intValue());
+                    GlobalInfo.getInstance().setLast_points(document.getLong("points").intValue());
                     userRef.update("last_login",new Date());
                     Log.d(TAG, "Documento de usuario ya existe para este usuario");
                 }
