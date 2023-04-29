@@ -11,3 +11,8 @@ punts fets aquella partida i el nombre de cartes que han necessitat per a aconse
 3. Link al diagrama en questió de la nostra única taula de moment: https://drive.google.com/file/d/1JbpvIixGVe6FCDvj1e504ljlXHf6nnwZ/view?usp=share_link
 
 4. Link també al que tenim pensat sirà el de Player : https://drive.google.com/file/d/14MRALTPeV0lQziXNBDDG5PZS8HcyH-3G/view?usp=share_link
+
+
+# FIREBASE
+
+1.Hem decidit que en aquesta entrega, almenys així com tenim montat el sistema de puntuació(que tenim plantejat refer o millorar) persistirem , el world record sí, pero en el cas dels punts de l'usuari guardarem els darrers punts. També volem fer en un futur que hi hagi la opció de que es quedi guardat el darrer nivell que ha jugat l'usuari i poder començar desde allà.
