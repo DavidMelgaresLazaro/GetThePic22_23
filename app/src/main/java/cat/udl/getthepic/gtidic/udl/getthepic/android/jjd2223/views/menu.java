@@ -43,6 +43,7 @@ public class menu extends AppCompatActivity {
         findViewById(R.id.userinfo).setOnClickListener(view -> userinfo());
         findViewById(R.id.others).setOnClickListener(v -> others());
         findViewById(R.id.logout).setOnClickListener(v -> logout());
+        findViewById(R.id.Contrarellotge).setOnClickListener(view -> TimeTrial());
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -60,8 +61,8 @@ public class menu extends AppCompatActivity {
     }
 
     private void TimeTrial(){
-        //Intent intent= new Intent(menu.this, TimeTrial.class);
-        //startActivity(intent);
+        Intent intent= new Intent(menu.this, TimeTrial.class);
+        startActivity(intent);
     }
 
 

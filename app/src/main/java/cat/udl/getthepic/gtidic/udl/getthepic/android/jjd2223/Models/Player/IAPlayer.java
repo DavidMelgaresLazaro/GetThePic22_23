@@ -35,7 +35,7 @@ public class IAPlayer extends Player{
         Random random = new Random();
         String actual = "";
         Piece j;
-        for(int f = 0; f < levels.levels.length; f++) {
+        for(int f = 0; f < levels.levelsP.length; f++) {
             while (!actual.equals(levels.GetLevel(f))) {
                 actual = "";
                 for (int i = 0; i < 5; i++) {

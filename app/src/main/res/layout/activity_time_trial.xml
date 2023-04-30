@@ -1,34 +1,253 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.TimeTrial">
-    <ImageView
-        android:id="@+id/fondoAmarillo"
-        android:layout_width="1046dp"
-        android:layout_height="1272dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/baixa__2_" />
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="GTTViewModel"
+            type="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.viewmodels.GTTViewModel" />
+    </data>
 
-    <TextView
-        android:id="@+id/Clock"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="60"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.745"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.114" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.TimeTrial">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="1046dp"
+            android:layout_height="1272dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.466"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/baixa__2_" />
+
+
+        <TextView
+            android:id="@+id/timerTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="00:00"
+            android:text="@{GTTViewModel.timeLeftLiveData}"
+            android:textColor="@android:color/black"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.222" />
+
+        <Button
+            android:id="@+id/button0"
+            android:layout_width="59dp"
+            android:layout_height="51dp"
+            android:enabled="@{GTTViewModel.game.board.getPiece(0).getenabled()}"
+            android:onClick="@{()-> GTTViewModel.cardClicked(0)}"
+            android:text="@{Character.toString(GTTViewModel.game.board.getPiece(0).getValue)}"
+            android:textSize="@{GTTViewModel.game.board.getPiece(0).getGirada() ? 60 : 0}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.838" />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="59dp"
+            android:layout_height="51dp"
+            android:enabled="@{GTTViewModel.game.board.getPiece(1).getenabled()}"
+            android:onClick="@{() -> GTTViewModel.cardClicked(1)}"
+            android:text="@{Character.toString(GTTViewModel.game.board.getPiece(1).getValue)}"
+            android:textSize="@{GTTViewModel.game.board.getPiece(1).getGirada() ? 60 : 0}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.298"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.838" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="59dp"
+            android:layout_height="51dp"
+            android:enabled="@{GTTViewModel.game.board.getPiece(2).getenabled()}"
+            android:onClick="@{() -> GTTViewModel.cardClicked(2)}"
+            android:text="@{Character.toString(GTTViewModel.game.board.getPiece(2).getValue)}"
+            android:textSize="@{GTTViewModel.game.board.getPiece(2).getGirada() ? 60 : 0}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.573"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.838" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="59dp"
+            android:layout_height="51dp"
+            android:enabled="@{GTTViewModel.game.board.getPiece(3).getenabled()}"
+            android:onClick="@{() -> GTTViewModel.cardClicked(3)}"
+            android:text="@{Character.toString(GTTViewModel.game.board.getPiece(3).getValue)}"
+            android:textSize="@{GTTViewModel.game.board.getPiece(3).getGirada() ? 60 : 0}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.869"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.838" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="59dp"
+            android:layout_height="51dp"
+            android:enabled="@{GTTViewModel.game.board.getPiece(4).getenabled()}"
+            android:onClick="@{() -> GTTViewModel.cardClicked(4)}"
+            android:text="@{Character.toString(GTTViewModel.game.board.getPiece(4).getValue)}"
+            android:textSize="@{GTTViewModel.game.board.getPiece(4).getGirada() ? 60 : 0}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.051"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.941" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="59dp"
+            android:layout_height="51dp"
+            android:enabled="@{GTTViewModel.game.board.getPiece(5).getenabled()}"
+            android:onClick="@{() -> GTTViewModel.cardClicked(5)}"
+            android:text="@{Character.toString(GTTViewModel.game.board.getPiece(5).getValue)}"
+            android:textSize="@{GTTViewModel.game.board.getPiece(5).getGirada() ? 60 : 0}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.298"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.941" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="59dp"
+            android:layout_height="51dp"
+            android:enabled="@{GTTViewModel.game.board.getPiece(6).getenabled()}"
+            android:onClick="@{() -> GTTViewModel.cardClicked(6)}"
+            android:text="@{Character.toString(GTTViewModel.game.board.getPiece(6).getValue)}"
+            android:textSize="@{GTTViewModel.game.board.getPiece(6).giradareturn()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.573"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.941" />
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="59dp"
+            android:layout_height="51dp"
+            android:enabled="@{GTTViewModel.game.board.getPiece(7).getenabled()}"
+            android:onClick="@{() -> GTTViewModel.cardClicked(7)}"
+            android:text="@{Character.toString(GTTViewModel.game.board.getPiece(7).getValue)}"
+            android:textSize="@{GTTViewModel.game.board.getPiece(7).giradareturn()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.869"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.941" />
+
+
+        <Button
+            android:id="@+id/finishbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/FinishGame"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.943"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/restart" />
+
+        <TextView
+            android:id="@+id/totalcardsreverser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/totalCardsReversed"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.017"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.022" />
+
+        <TextView
+            android:id="@+id/cardsreversedvalue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(GTTViewModel.game.getTotalCardsReversed())}"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.057"
+            app:layout_constraintStart_toEndOf="@+id/totalcardsreverser"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.022" />
+
+        <Button
+            android:id="@+id/restart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Restart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.949"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.01" />
+
+        <ImageView
+            android:id="@+id/fotojoc"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            app:imageResource="@{GTTViewModel.drawableXaxi}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvCurrentPlayer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/currentPlayer"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/totalcardsreverser" />
+
+
+
+
+        <TextView
+            android:id="@+id/tvCurrentPlayerPoints"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/points"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/fotojoc"
+            app:layout_constraintStart_toStartOf="@+id/fotojoc"
+            app:layout_constraintTop_toBottomOf="@+id/tvCurrentPlayer" />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
