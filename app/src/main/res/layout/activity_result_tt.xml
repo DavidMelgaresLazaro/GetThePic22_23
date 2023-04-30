@@ -22,8 +22,8 @@
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="0dp"
-        android:layout_height="3dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,15 +47,15 @@
         android:id="@+id/pointsTT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="35dp"
         android:textStyle="bold"
+        android:textSize="35dp"
+        tools:text="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.615"
-        tools:text="0" />
+        app:layout_constraintVertical_bias="0.615" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
