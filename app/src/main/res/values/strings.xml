@@ -31,4 +31,5 @@
     <string name="WR">World Record</string>
     <string name="TimeTrialMenu">Time Trial</string>
     <string name="btTimeTrialMenu">Time Trial</string>
+    <string name="others">others</string>
 </resources>

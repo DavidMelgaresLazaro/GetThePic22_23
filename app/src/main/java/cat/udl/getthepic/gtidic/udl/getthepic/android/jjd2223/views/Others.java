@@ -3,6 +3,7 @@ package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.DB.DatabaseGetThePic;
@@ -19,6 +20,7 @@ public class Others extends AppCompatActivity {
         findViewById(R.id.laiajuga).setOnClickListener(view -> jugalaia());
         findViewById(R.id.borrarDB).setOnClickListener(view -> clearDB());
         findViewById(R.id.veureDB).setOnClickListener(view -> getPoints());
+        findViewById(R.id.menureturn).setOnClickListener(view -> menu());
 
     }
 
@@ -43,5 +45,10 @@ public class Others extends AppCompatActivity {
         String missatge = String.format("Max punts: %d. Ultims punts: %d", maxPoints, lastPoints );
         System.out.println(missatge);
         dbRoom.close();
+    }
+    private void menu()
+    {
+        Intent intent = new Intent(this, menu.class);
+        finish();
     }
 }

@@ -42,6 +42,7 @@ public class menu extends AppCompatActivity {
         findViewById(R.id.buttonstart).setOnClickListener(view -> StartGame());
         findViewById(R.id.userinfo).setOnClickListener(view -> userinfo());
         findViewById(R.id.logout).setOnClickListener(v -> logout());
+        findViewById(R.id.others).setOnClickListener(v -> others());
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -81,6 +82,11 @@ public class menu extends AppCompatActivity {
         Intent intent = new Intent(menu.this, GameActivity.class);
         startActivity(intent);
 
+    }
+    private void others()
+    {
+        Intent intent = new Intent(menu.this,Others.class);
+        startActivity(intent);
     }
 
     /***
