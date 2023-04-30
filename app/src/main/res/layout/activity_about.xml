@@ -7,6 +7,20 @@
     tools:context="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.About">
 
     <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="787dp"
+        android:layout_height="1196dp"
+        android:alpha=".2"
+        android:rotation="90"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.422"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.458"
+        app:srcCompat="@drawable/fondoweb" />
+
+    <ImageView
         android:id="@+id/imageView"
         android:layout_width="366dp"
         android:layout_height="235dp"
@@ -36,11 +50,15 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:contentDescription="@string/ABOUT"
         android:text="@string/Description"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.101"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:layout_constraintVertical_bias="0.023" />
@@ -49,6 +67,7 @@
         android:id="@+id/textView3"
         android:layout_width="372dp"
         android:layout_height="86dp"
+        android:layout_marginStart="10dp"
         android:text="@string/NOMS"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
