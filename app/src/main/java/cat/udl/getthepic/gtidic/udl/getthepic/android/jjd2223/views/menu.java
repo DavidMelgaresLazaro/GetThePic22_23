@@ -52,7 +52,7 @@ public class menu extends AppCompatActivity {
     }
 
     /***
-     * A la instància de Firebase fa un log out de l'usuari i acaba la activitat de menu per a tal que vagi al login.
+     * A la instància de Firebase fa un log out de l'usuari i acaba la activitat de menu per a tal que vagi al login
      */
     private void logout() {
         mAuth.signOut();
