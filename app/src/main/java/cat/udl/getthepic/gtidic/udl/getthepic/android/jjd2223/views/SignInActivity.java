@@ -39,6 +39,12 @@ public class SignInActivity extends AppCompatActivityPlus {
         findViewById(R.id.btSignUp).setOnClickListener(v -> signUp());
     }
 
+    /***
+     * El mètode signUp demanarà a l'usuari un email i una contrasenyha per a registar-se.
+     * Llavors mitjançant "task" mirarà si l'operació de afegir-lo a la base de dades ha
+     * anat correctement, en cas que si enviara un email de verificació per a tal que l'usuari
+     * pugui fer LogIn.
+     */
     private void signUp() {
         String email = etEmail.getText().toString();
         String password = etPassword.getText().toString();

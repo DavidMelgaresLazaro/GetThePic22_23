@@ -8,6 +8,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
@@ -30,18 +31,28 @@ import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Game;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.levels;
 
 public class GameViewModel extends ViewModel {
+
+    /***
+     * Inicialització dels MutableLiveDATA
+     */
     private MutableLiveData<Game> game = new MutableLiveData<>();
     private MutableLiveData<Integer> d = new MutableLiveData<>();
 
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
-    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    /***
+     * Inicialització de les instàncies de persistència
+     */
+
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
 
 
     private Context context;
 
 
-
+    /***
+     * Init del GameViewModel
+     */
     public GameViewModel(){
         Game internalGame = new Game();
         internalGame.init();
@@ -59,6 +70,11 @@ public class GameViewModel extends ViewModel {
         return d;
     }
 
+    /***
+     * el cardClicked fa un set al objecte Game sobre quina carta s`ha pitjada per a tal que aquest el pugui
+     * intepretar. A part va actualizant el drawable del joc i guardant dins les bases de dades el progrés
+     * @param row
+     */
     public void cardClicked(int row){
         Game myGame = game.getValue();
         myGame.cardClicked(row);
@@ -67,19 +83,21 @@ public class GameViewModel extends ViewModel {
         if(myGame.win == true)
         {
             showCards();
+            Toast.makeText(context,"Molt bé,! Seguent Nivell", Toast.LENGTH_SHORT).show();
         }
         if(myGame.equivocat == true)
         {
             showCards();
+            Toast.makeText(context, "T'has equivocat, torna a intentar-ho", Toast.LENGTH_SHORT).show();
         }
         updateGameInDB();
         saveFireBaseDB();
     }
 
 
-
-
-
+    /***
+     * Els mètodes showCards i hideCards bàsicament tenen la unció de destapar i tapar les cartes segons el joc
+     */
     private void showCards()
     {
         Game mygame = game.getValue();
@@ -141,6 +159,7 @@ public class GameViewModel extends ViewModel {
                     .addOnFailureListener(e -> Log.e(TAG, "Error al actualizar el valor de lastLogin", e));
         }
     }
+    //commit
 
 
 

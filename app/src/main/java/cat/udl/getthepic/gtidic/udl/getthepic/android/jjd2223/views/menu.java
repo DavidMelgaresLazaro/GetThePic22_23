@@ -41,42 +41,28 @@ public class menu extends AppCompatActivity {
         findViewById(R.id.button2).setOnClickListener(view -> aboutpage());
         findViewById(R.id.buttonstart).setOnClickListener(view -> StartGame());
         findViewById(R.id.userinfo).setOnClickListener(view -> userinfo());
-        findViewById(R.id.laiajuga).setOnClickListener(view -> jugalaia());
-        findViewById(R.id.borrarDB).setOnClickListener(view -> clearDB());
-        findViewById(R.id.veureDB).setOnClickListener(view -> getPoints());
-        findViewById(R.id.logout).setOnClickListener(v -> logout());
+        findViewById(R.id.others).setOnClickListener(v -> others());
+
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
         printuser(user);
 
     }
+
+    /***
+     * A la instància de Firebase fa un log out de l'usuari i acaba la activitat de menu per a tal que vagi al login
+     */
     private void logout() {
         mAuth.signOut();
         finish();
     }
-    private void clearDB() {
-        String dbName = "GTP.db";
-        DatabaseGetThePic dbRoom = Room.databaseBuilder(this.getApplicationContext(), DatabaseGetThePic.class, dbName).allowMainThreadQueries().build();
-        dbRoom.gameDAO().deleteAll();
-        dbRoom.close();
+
+    private void TimeTrial(){
+        //Intent intent= new Intent(menu.this, TimeTrial.class);
+        //startActivity(intent);
     }
 
-    private void getPoints() {
-        String dbName = "GTP.db";
-        DatabaseGetThePic dbRoom = Room.databaseBuilder(this.getApplicationContext(), DatabaseGetThePic.class, dbName).allowMainThreadQueries().build();
-        int lastPoints = dbRoom.gameDAO().getLastGamePoints();
-        int maxPoints = dbRoom.gameDAO().getMaxPoints();
-        String missatge = String.format("Max punts: %d. Ultims punts: %d", maxPoints, lastPoints );
-        System.out.println(missatge);
-        dbRoom.close();
-    }
-    private void jugalaia()
-    {
-       IAPlayer iaPlayer = new IAPlayer();
-       iaPlayer.init(this);
-       iaPlayer.jugar();
-    }
 
     private void aboutpage()
     {
@@ -96,6 +82,16 @@ public class menu extends AppCompatActivity {
         startActivity(intent);
 
     }
+    private void others()
+    {
+        Intent intent = new Intent(menu.this,Others.class);
+        startActivity(intent);
+    }
+
+    /***
+     * De la instància de l'¡usuari actual, imprimim per Toast els paràmetres que ens interesen
+     * @param user
+     */
     private void printuser(FirebaseUser user)
     {
         if(user != null) {

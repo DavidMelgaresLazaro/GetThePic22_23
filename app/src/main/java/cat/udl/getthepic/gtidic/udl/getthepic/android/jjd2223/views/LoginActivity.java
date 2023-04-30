@@ -10,6 +10,7 @@ import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.common.server.converter.StringToIntConverter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -66,6 +67,9 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
+    /***
+     * Login agafa les dades introduides per l'usuari (correu i contrasenya) per a tal de crearlo
+     */
     private void login() {
         String email = etEmail.getText().toString();
         String password = etPassword.getText().toString();
@@ -93,6 +97,9 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
 
+    /***
+     * Reload es un métode que s'executa cada vegada per a assegurar-nos que l'usuari es vàlid,i te el correu verificat
+     */
     private void reload(){
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null) {
@@ -108,9 +115,18 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
     }
+
+    /***
+     * Li passem un usuari de tipus FireBase per a tal que el pugui afegir a firebase
+     * @param user
+     */
     private void crearUsuarioFirestore(FirebaseUser user) {
         DocumentReference userRef = db.collection("usuarios").document(user.getUid());
-
+        /***
+         *  Crea una referencia de la DB de usuaris ("usuarios").
+         *  Mitjançant "task" mira si aquest ja existeix, en cas que si actualitza el seu last login i en cas que no
+         *  el crea.
+         */
         userRef.get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 DocumentSnapshot document = task.getResult();
@@ -129,6 +145,8 @@ public class LoginActivity extends AppCompatActivity {
                             .addOnFailureListener(e -> Log.e(TAG, "Error al crear el documento de usuario", e));
                 } else {
                     GlobalInfo.getInstance().setLast_login(document.getDate("last_login"));
+                    GlobalInfo.getInstance().setLast_level(document.getLong("last_level").intValue());
+                    GlobalInfo.getInstance().setLast_points(document.getLong("points").intValue());
                     userRef.update("last_login",new Date());
                     Log.d(TAG, "Documento de usuario ya existe para este usuario");
                 }

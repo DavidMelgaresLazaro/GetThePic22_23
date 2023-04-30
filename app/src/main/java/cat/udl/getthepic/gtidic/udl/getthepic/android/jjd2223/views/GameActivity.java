@@ -17,6 +17,9 @@ import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.databinding.Gami
 
 public class GameActivity extends AppCompatActivity {
 
+    /**
+     * La variable game representa el ViewModel
+     */
     GameViewModel game;
 
 
@@ -26,8 +29,9 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.gaming);
 
 
-
-
+        /***
+         * Inicialitzem el DataBinding
+         */
         game = new ViewModelProvider(this).get(GameViewModel.class);
         GamingBinding binding = DataBindingUtil.setContentView(this, R.layout.gaming);
         binding.setGameViewModel(game);
@@ -35,30 +39,24 @@ public class GameActivity extends AppCompatActivity {
 
 
         findViewById(R.id.finishbutton).setOnClickListener(view -> finishgameactivity());
-
         findViewById(R.id.restart).setOnClickListener(view -> restart());
 
-
-        game.getGame().observe(this, game -> {
-            if(game.win == true)
-            {
-                Toast.makeText(this,"Molt bé,! Seguent Nivell", Toast.LENGTH_SHORT).show();
-            }
-            if(game.equivocat == true)
-            {
-                Toast.makeText(this, "T'has equivocat, torna a intentar-ho", Toast.LENGTH_SHORT).show();
-            }
-        });
         game.setContext(getApplicationContext());
         game.saveGameIntoDB();
     }
 
+    /***
+     * Al pitjar restart, començem l'activitat de nou
+     */
     private void restart() {
         Intent intent = new Intent(GameActivity.this, GameActivity.class);
         startActivity(intent);
         finish();
     }
 
+    /***
+     * Al pitjar finish, ens durà a la activitat de menu i sortira de jugar
+     */
     private void finishgameactivity()
     {
         // Define a return Key Value
