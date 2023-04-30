@@ -139,6 +139,7 @@ public class LoginActivity extends AppCompatActivity {
                     newUser.put("points", 0);
                     newUser.put("last_level", 0);
                     GlobalInfo.getInstance().setLast_login(document.getDate("last_login"));
+                    GlobalInfo.getInstance().setLast_level(0);
 
                     userRef.set(newUser)
                             .addOnSuccessListener(aVoid -> Log.d(TAG, "Documento de usuario creado correctamente"))
