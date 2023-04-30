@@ -41,7 +41,6 @@ public class menu extends AppCompatActivity {
         findViewById(R.id.button2).setOnClickListener(view -> aboutpage());
         findViewById(R.id.buttonstart).setOnClickListener(view -> StartGame());
         findViewById(R.id.userinfo).setOnClickListener(view -> userinfo());
-        findViewById(R.id.logout).setOnClickListener(v -> logout());
         findViewById(R.id.others).setOnClickListener(v -> others());
 
 
