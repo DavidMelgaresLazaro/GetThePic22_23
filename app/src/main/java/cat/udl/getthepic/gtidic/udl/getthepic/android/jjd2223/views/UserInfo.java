@@ -33,7 +33,6 @@ public class UserInfo extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
-    FirebaseAuth mAuth = FirebaseAuth.getInstance();
     CollectionReference usuariosRef = db.collection("usuarios");
     String LastPoints;
     TextView lastpoints;
@@ -59,8 +58,6 @@ public class UserInfo extends AppCompatActivity {
         displayWorldRecord();
 
         findViewById(R.id.menubutton).setOnClickListener(v ->returnmenu());
-        findViewById(R.id.logout).setOnClickListener(v -> logout());
-
     }
     private void returnmenu()
     {
@@ -121,10 +118,4 @@ public class UserInfo extends AppCompatActivity {
                 }
             });
         }
-    private void logout() {
-        mAuth.signOut();
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
-        finish();
-    }
 }

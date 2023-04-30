@@ -42,6 +42,7 @@ public class menu extends AppCompatActivity {
         findViewById(R.id.buttonstart).setOnClickListener(view -> StartGame());
         findViewById(R.id.userinfo).setOnClickListener(view -> userinfo());
         findViewById(R.id.others).setOnClickListener(v -> others());
+        findViewById(R.id.logout).setOnClickListener(v -> logout());
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -51,7 +52,7 @@ public class menu extends AppCompatActivity {
     }
 
     /***
-     * A la instància de Firebase fa un log out de l'usuari i acaba la activitat de menu per a tal que vagi al login
+     * A la instància de Firebase fa un log out de l'usuari i acaba la activitat de menu per a tal que vagi al login.
      */
     private void logout() {
         mAuth.signOut();
