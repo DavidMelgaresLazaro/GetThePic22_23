@@ -1,29 +1,19 @@
 package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.viewmodels;
 
 
-import static android.content.ContentValues.TAG;
 
 import android.app.Activity;
-import android.app.Application;
-import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
 import android.os.CountDownTimer;
 import android.os.Handler;
-import android.util.Log;
-import android.view.Menu;
-import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.google.common.eventbus.EventBus;
-import com.google.common.eventbus.Subscribe;
+
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Arrays;
@@ -31,11 +21,8 @@ import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.GTimeTrial;
-
-import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Game;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.levels;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.ResultTT;
-import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.menu;
 
 public class GTTViewModel extends ViewModel {
 

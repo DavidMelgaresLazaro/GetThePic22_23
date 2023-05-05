@@ -145,13 +145,12 @@
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            tools:layout_editor_absoluteX="197dp"
-                            tools:layout_editor_absoluteY="508dp">
+                            android:orientation="vertical">
                                 <Button
                                     android:id="@+id/button0"
-                                    android:layout_width="59dp"
-                                    android:layout_height="51dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
                                     android:enabled="@{GameViewModel.game.board.getPiece(0).getenabled()}"
                                     android:onClick="@{()-> GameViewModel.cardClicked(0)}"
                                     android:text="@{Character.toString(GameViewModel.game.board.getPiece(0).getValue)}"
@@ -164,8 +163,9 @@
 
                                 <Button
                                     android:id="@+id/button1"
-                                    android:layout_width="59dp"
-                                    android:layout_height="51dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
                                     android:enabled="@{GameViewModel.game.board.getPiece(1).getenabled()}"
                                     android:onClick="@{() -> GameViewModel.cardClicked(1)}"
                                     android:text="@{Character.toString(GameViewModel.game.board.getPiece(1).getValue)}"
@@ -181,13 +181,12 @@
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            tools:layout_editor_absoluteX="197dp"
-                            tools:layout_editor_absoluteY="508dp">
+                            android:orientation="vertical">
                                 <Button
                                     android:id="@+id/button2"
-                                    android:layout_width="59dp"
-                                    android:layout_height="51dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
                                     android:enabled="@{GameViewModel.game.board.getPiece(2).getenabled()}"
                                     android:onClick="@{() -> GameViewModel.cardClicked(2)}"
                                     android:text="@{Character.toString(GameViewModel.game.board.getPiece(2).getValue)}"
@@ -200,8 +199,9 @@
 
                                 <Button
                                     android:id="@+id/button3"
-                                    android:layout_width="59dp"
-                                    android:layout_height="51dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
                                     android:enabled="@{GameViewModel.game.board.getPiece(3).getenabled()}"
                                     android:onClick="@{() -> GameViewModel.cardClicked(3)}"
                                     android:text="@{Character.toString(GameViewModel.game.board.getPiece(3).getValue)}"
@@ -216,13 +216,12 @@
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            tools:layout_editor_absoluteX="197dp"
-                            tools:layout_editor_absoluteY="508dp">
+                            android:orientation="vertical">
                                 <Button
                                     android:id="@+id/button4"
-                                    android:layout_width="59dp"
-                                    android:layout_height="51dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
                                     android:enabled="@{GameViewModel.game.board.getPiece(4).getenabled()}"
                                     android:onClick="@{() -> GameViewModel.cardClicked(4)}"
                                     android:text="@{Character.toString(GameViewModel.game.board.getPiece(4).getValue)}"
@@ -235,8 +234,9 @@
 
                                 <Button
                                     android:id="@+id/button5"
-                                    android:layout_width="59dp"
-                                    android:layout_height="51dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
                                     android:enabled="@{GameViewModel.game.board.getPiece(5).getenabled()}"
                                     android:onClick="@{() -> GameViewModel.cardClicked(5)}"
                                     android:text="@{Character.toString(GameViewModel.game.board.getPiece(5).getValue)}"
@@ -251,13 +251,12 @@
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            tools:layout_editor_absoluteX="197dp"
-                            tools:layout_editor_absoluteY="508dp">
+                            android:orientation="vertical">
                                 <Button
                                     android:id="@+id/button6"
-                                    android:layout_width="59dp"
-                                    android:layout_height="51dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
                                     android:enabled="@{GameViewModel.game.board.getPiece(6).getenabled()}"
                                     android:onClick="@{() -> GameViewModel.cardClicked(6)}"
                                     android:text="@{Character.toString(GameViewModel.game.board.getPiece(6).getValue)}"
@@ -269,8 +268,9 @@
                                     app:layout_constraintTop_toTopOf="parent" />
                                 <Button
                                     android:id="@+id/button7"
-                                    android:layout_width="59dp"
-                                    android:layout_height="51dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
                                     android:enabled="@{GameViewModel.game.board.getPiece(7).getenabled()}"
                                     android:onClick="@{() -> GameViewModel.cardClicked(7)}"
                                     android:text="@{Character.toString(GameViewModel.game.board.getPiece(7).getValue)}"

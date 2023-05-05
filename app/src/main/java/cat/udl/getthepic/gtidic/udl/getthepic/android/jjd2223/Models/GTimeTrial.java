@@ -1,12 +1,6 @@
 package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models;
 
 
-import static android.content.ContentValues.TAG;
-
-import android.os.CountDownTimer;
-import android.text.TextUtils;
-import android.util.Log;
-
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
@@ -14,14 +8,9 @@ import androidx.room.PrimaryKey;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import java.util.Arrays;
-import java.util.Locale;
-import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Player.Player;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Player.HumanPlayer;
-import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.helpers.GlobalInfo;
 
 @Entity
 public class GTimeTrial {
