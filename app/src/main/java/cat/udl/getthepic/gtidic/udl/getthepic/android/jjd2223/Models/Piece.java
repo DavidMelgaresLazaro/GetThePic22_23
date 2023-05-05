@@ -1,6 +1,10 @@
 package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models;
 
 
+import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.levels;
+import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
+
+
 public class Piece {
 
     /***
@@ -23,14 +27,6 @@ public class Piece {
         return value;
     }
 
-    public boolean giradareturn1()
-    {
-        if(girada == true)
-        {
-            return true;
-        }
-        return false;
-    }
     public int giradareturn()
     {
         if(girada == true)
@@ -53,6 +49,15 @@ public class Piece {
     public boolean getenabled()
     {
         return this.enabled;
+    }
+
+    public Integer getCartaDrawable()
+    {
+        if(!girada) {
+            return R.drawable.cartagirada;
+        }
+        return levels.getCardDrawable(value);
+
     }
 }
 

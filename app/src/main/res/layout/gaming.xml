@@ -54,26 +54,17 @@
                     app:layout_constraintVertical_bias="0.01" />
 
                 <ImageView
-                    android:id="@+id/imageView7"
+                    android:id="@+id/marco"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="359dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.419"
-                    app:srcCompat="@drawable/marco"
-                    tools:layout_editor_absoluteX="-5dp" />
-
-                <ImageView
-                    android:id="@+id/fotojoc"
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    app:imageResource="@{GameViewModel.drawableXaxi}"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageView7"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.445"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/imageView7"
-                    app:layout_constraintVertical_bias="0.589" />
+                    app:srcCompat="@drawable/marco" />
 
                 <!--
                 <TextView
@@ -111,6 +102,18 @@
                     -->
 
 
+                <ImageView
+                    android:id="@+id/fotojoc"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    app:imageResource="@{GameViewModel.drawableXaxi}"
+                    app:layout_constraintBottom_toBottomOf="@+id/marco"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.497"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/marco"
+                    app:layout_constraintVertical_bias="0.685" />
+
                 <TextView
                     android:id="@+id/tvCurrentPlayerPoints"
                     android:layout_width="wrap_content"
@@ -136,154 +139,104 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="56dp"
                     android:orientation="horizontal"
+                    android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/fotojoc">
+                    app:layout_constraintTop_toBottomOf="@+id/marco">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
                             android:orientation="vertical">
-                                <Button
-                                    android:id="@+id/button0"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:enabled="@{GameViewModel.game.board.getPiece(0).getenabled()}"
-                                    android:onClick="@{()-> GameViewModel.cardClicked(0)}"
-                                    android:text="@{Character.toString(GameViewModel.game.board.getPiece(0).getValue)}"
-                                    android:textSize="@{GameViewModel.game.board.getPiece(0).getGirada() ? 60 : 0}"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintHorizontal_bias="0.05"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
 
-                                <Button
-                                    android:id="@+id/button1"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:enabled="@{GameViewModel.game.board.getPiece(1).getenabled()}"
-                                    android:onClick="@{() -> GameViewModel.cardClicked(1)}"
-                                    android:text="@{Character.toString(GameViewModel.game.board.getPiece(1).getValue)}"
-                                    android:textSize="@{GameViewModel.game.board.getPiece(1).getGirada() ? 60 : 0}"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintHorizontal_bias="0.298"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+                                <ImageView
+                                    android:id="@+id/imageView0"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="100dp"
+                                    android:imageResource="@{GameViewModel.game.board.getPiece(0).cartaDrawable}"
+                                    android:onClick="@{()-> GameViewModel.cardClicked(0)}" />
+
+                                <ImageView
+                                    android:id="@+id/imageView1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="100dp"
+                                    android:imageResource="@{GameViewModel.game.board.getPiece(1).cartaDrawable}"
+                                    android:onClick="@{()-> GameViewModel.cardClicked(1)}" />
 
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
                             android:orientation="vertical">
-                                <Button
-                                    android:id="@+id/button2"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:enabled="@{GameViewModel.game.board.getPiece(2).getenabled()}"
-                                    android:onClick="@{() -> GameViewModel.cardClicked(2)}"
-                                    android:text="@{Character.toString(GameViewModel.game.board.getPiece(2).getValue)}"
-                                    android:textSize="@{GameViewModel.game.board.getPiece(2).getGirada() ? 60 : 0}"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintHorizontal_bias="0.573"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
 
-                                <Button
-                                    android:id="@+id/button3"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:enabled="@{GameViewModel.game.board.getPiece(3).getenabled()}"
-                                    android:onClick="@{() -> GameViewModel.cardClicked(3)}"
-                                    android:text="@{Character.toString(GameViewModel.game.board.getPiece(3).getValue)}"
-                                    android:textSize="@{GameViewModel.game.board.getPiece(3).getGirada() ? 60 : 0}"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintHorizontal_bias="0.869"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+                                <ImageView
+                                    android:id="@+id/imageView2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="100dp"
+                                    android:imageResource="@{GameViewModel.game.board.getPiece(2).cartaDrawable}"
+                                    android:onClick="@{()-> GameViewModel.cardClicked(2)}" />
+
+                                <ImageView
+                                    android:id="@+id/imageView3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="100dp"
+                                    android:imageResource="@{GameViewModel.game.board.getPiece(3).cartaDrawable}"
+                                    android:onClick="@{()-> GameViewModel.cardClicked(3)}" />
+
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
                             android:orientation="vertical">
-                                <Button
-                                    android:id="@+id/button4"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:enabled="@{GameViewModel.game.board.getPiece(4).getenabled()}"
-                                    android:onClick="@{() -> GameViewModel.cardClicked(4)}"
-                                    android:text="@{Character.toString(GameViewModel.game.board.getPiece(4).getValue)}"
-                                    android:textSize="@{GameViewModel.game.board.getPiece(4).getGirada() ? 60 : 0}"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintHorizontal_bias="0.051"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
 
-                                <Button
-                                    android:id="@+id/button5"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:enabled="@{GameViewModel.game.board.getPiece(5).getenabled()}"
-                                    android:onClick="@{() -> GameViewModel.cardClicked(5)}"
-                                    android:text="@{Character.toString(GameViewModel.game.board.getPiece(5).getValue)}"
-                                    android:textSize="@{GameViewModel.game.board.getPiece(5).getGirada() ? 60 : 0}"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintHorizontal_bias="0.298"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+                                <ImageView
+                                    android:id="@+id/imageView4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="100dp"
+                                    android:imageResource="@{GameViewModel.game.board.getPiece(4).cartaDrawable}"
+                                    android:onClick="@{()-> GameViewModel.cardClicked(4)}" />
+
+                                <ImageView
+                                    android:id="@+id/imageView5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="100dp"
+                                    android:imageResource="@{GameViewModel.game.board.getPiece(5).cartaDrawable}"
+                                    android:onClick="@{()-> GameViewModel.cardClicked(5)}" />
+
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
                             android:orientation="vertical">
-                                <Button
-                                    android:id="@+id/button6"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:enabled="@{GameViewModel.game.board.getPiece(6).getenabled()}"
-                                    android:onClick="@{() -> GameViewModel.cardClicked(6)}"
-                                    android:text="@{Character.toString(GameViewModel.game.board.getPiece(6).getValue)}"
-                                    android:textSize="@{GameViewModel.game.board.getPiece(6).giradareturn()}"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintHorizontal_bias="0.573"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
-                                <Button
-                                    android:id="@+id/button7"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:enabled="@{GameViewModel.game.board.getPiece(7).getenabled()}"
-                                    android:onClick="@{() -> GameViewModel.cardClicked(7)}"
-                                    android:text="@{Character.toString(GameViewModel.game.board.getPiece(7).getValue)}"
-                                    android:textSize="@{GameViewModel.game.board.getPiece(7).giradareturn()}"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintHorizontal_bias="0.869"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent"/>
-                        </LinearLayout>
 
+                                <ImageView
+                                    android:id="@+id/imageView66"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="100dp"
+                                    android:imageResource="@{GameViewModel.game.board.getPiece(6).cartaDrawable}"
+                                    android:onClick="@{()-> GameViewModel.cardClicked(6)}" />
+
+                                <ImageView
+                                    android:id="@+id/imageView77"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="100dp"
+                                    android:imageResource="@{GameViewModel.game.board.getPiece(7).cartaDrawable}"
+                                    android:onClick="@{()-> GameViewModel.cardClicked(7)}" />
+                        </LinearLayout>
                 </LinearLayout>
-
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

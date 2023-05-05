@@ -30,6 +30,7 @@ public class GameViewModel extends ViewModel {
      */
     private MutableLiveData<Game> game = new MutableLiveData<>();
     private MutableLiveData<Integer> d = new MutableLiveData<>();
+    private MutableLiveData<Integer> carta1 = new MutableLiveData<>();
 
     /***
      * Inicialització de les instàncies de persistència
@@ -62,6 +63,9 @@ public class GameViewModel extends ViewModel {
     public LiveData<Integer> getDrawableXaxi(){
         return d;
     }
+    public LiveData<Integer> getcarta1(){
+        return carta1;
+    }
 
     /***
      * el cardClicked fa un set al objecte Game sobre quina carta s`ha pitjada per a tal que aquest el pugui
@@ -77,6 +81,7 @@ public class GameViewModel extends ViewModel {
         {
             showCards();
             Toast.makeText(context,"Molt bé,! Seguent Nivell", Toast.LENGTH_SHORT).show();
+            saveFireBaseDB();
         }
         if(myGame.equivocat == true)
         {
@@ -84,7 +89,6 @@ public class GameViewModel extends ViewModel {
             Toast.makeText(context, "T'has equivocat, torna a intentar-ho", Toast.LENGTH_SHORT).show();
         }
         updateGameInDB();
-        saveFireBaseDB();
     }
 
 
