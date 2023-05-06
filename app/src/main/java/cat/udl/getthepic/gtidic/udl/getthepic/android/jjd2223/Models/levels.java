@@ -9,8 +9,8 @@ import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
 
 public class levels {
     private static int randomIndex = -2;
-    public static String[] levelsP = {"COTXE","CAMISA","ESCOLA"};
-    public static Integer[] imagesresources = {R.drawable.nissan,R.drawable.camiseta,R.drawable.escola};
+    public static String[] levelsP = {"COTXE","CAMISA","ESCOLA","LLIBRE","CADIRA","COIXI","EDIFICI","FABRICA","FAROLA","MOBIL","PANTALLA","RAMELL","PARET","BALCO","PESES","ESCOMBRA","RODES","GUITARRA"};
+    public static Integer[] imagesresources = {R.drawable.nissan,R.drawable.camiseta,R.drawable.escola,R.drawable.llibre,R.drawable.cadira,R.drawable.coixi,R.drawable.edifici,R.drawable.fabrica,R.drawable.farola,R.drawable.iphone,R.drawable.pantalla,R.drawable.ramell,R.drawable.paret,R.drawable.balco,R.drawable.peses,R.drawable.escombra,R.drawable.rodes,R.drawable.guitarra};
 
     private static Map<Character, Integer> CardDictionary = new HashMap<Character, Integer>() {{
         put('a', R.drawable.a);

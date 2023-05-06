@@ -50,6 +50,7 @@ public class menu extends AppCompatActivity {
         FirebaseUser user = mAuth.getCurrentUser();
         printuser(user);
 
+
     }
 
     /***

@@ -161,14 +161,16 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="100dp"
                                     android:imageResource="@{GameViewModel.game.board.getPiece(0).cartaDrawable}"
-                                    android:onClick="@{()-> GameViewModel.cardClicked(0)}" />
+                                    android:onClick="@{()-> GameViewModel.cardClicked(0)}"
+                                    android:enabled="@{GameViewModel.game.board.getPiece(0).getenabled()}"/>
 
                                 <ImageView
                                     android:id="@+id/imageView1"
                                     android:layout_width="match_parent"
                                     android:layout_height="100dp"
                                     android:imageResource="@{GameViewModel.game.board.getPiece(1).cartaDrawable}"
-                                    android:onClick="@{()-> GameViewModel.cardClicked(1)}" />
+                                    android:onClick="@{()-> GameViewModel.cardClicked(1)}"
+                                    android:enabled="@{GameViewModel.game.board.getPiece(1).getenabled()}"/>
 
                         </LinearLayout>
 
@@ -183,14 +185,16 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="100dp"
                                     android:imageResource="@{GameViewModel.game.board.getPiece(2).cartaDrawable}"
-                                    android:onClick="@{()-> GameViewModel.cardClicked(2)}" />
+                                    android:onClick="@{()-> GameViewModel.cardClicked(2)}"
+                                    android:enabled="@{GameViewModel.game.board.getPiece(2).getenabled()}"/>
 
                                 <ImageView
                                     android:id="@+id/imageView3"
                                     android:layout_width="match_parent"
                                     android:layout_height="100dp"
                                     android:imageResource="@{GameViewModel.game.board.getPiece(3).cartaDrawable}"
-                                    android:onClick="@{()-> GameViewModel.cardClicked(3)}" />
+                                    android:onClick="@{()-> GameViewModel.cardClicked(3)}"
+                                    android:enabled="@{GameViewModel.game.board.getPiece(3).getenabled()}"/>
 
                         </LinearLayout>
 
@@ -205,14 +209,16 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="100dp"
                                     android:imageResource="@{GameViewModel.game.board.getPiece(4).cartaDrawable}"
-                                    android:onClick="@{()-> GameViewModel.cardClicked(4)}" />
+                                    android:onClick="@{()-> GameViewModel.cardClicked(4)}"
+                                    android:enabled="@{GameViewModel.game.board.getPiece(4).getenabled()}"/>
 
                                 <ImageView
                                     android:id="@+id/imageView5"
                                     android:layout_width="match_parent"
                                     android:layout_height="100dp"
                                     android:imageResource="@{GameViewModel.game.board.getPiece(5).cartaDrawable}"
-                                    android:onClick="@{()-> GameViewModel.cardClicked(5)}" />
+                                    android:onClick="@{()-> GameViewModel.cardClicked(5)}"
+                                    android:enabled="@{GameViewModel.game.board.getPiece(5).getenabled()}"/>
 
                         </LinearLayout>
 
@@ -227,14 +233,16 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="100dp"
                                     android:imageResource="@{GameViewModel.game.board.getPiece(6).cartaDrawable}"
-                                    android:onClick="@{()-> GameViewModel.cardClicked(6)}" />
+                                    android:onClick="@{()-> GameViewModel.cardClicked(6)}"
+                                    android:enabled="@{GameViewModel.game.board.getPiece(6).getenabled()}"/>
 
                                 <ImageView
                                     android:id="@+id/imageView77"
                                     android:layout_width="match_parent"
                                     android:layout_height="100dp"
                                     android:imageResource="@{GameViewModel.game.board.getPiece(7).cartaDrawable}"
-                                    android:onClick="@{()-> GameViewModel.cardClicked(7)}" />
+                                    android:onClick="@{()-> GameViewModel.cardClicked(7)}"
+                                    android:enabled="@{GameViewModel.game.board.getPiece(7).getenabled()}"/>
                         </LinearLayout>
                 </LinearLayout>
 

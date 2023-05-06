@@ -104,7 +104,7 @@ public class GameViewModel extends ViewModel {
             mygame.board.getPiece(i).setenabled(false);
         }
         game.setValue(mygame);
-        new Handler().postDelayed(() -> hideCards(),4000);
+        new Handler().postDelayed(() -> hideCards(),6000);
     }
     private void hideCards() {
         Game mygame = game.getValue();
@@ -149,10 +149,10 @@ public class GameViewModel extends ViewModel {
             DocumentReference usuarioRef = db.collection("usuarios").document(currentUser.getUid());
 
             usuarioRef.update("points", game.getValue().getCurrentPlayer().getPoints())
-                    .addOnSuccessListener(aVoid -> Log.d(TAG, "Valor de lastLogin actualizado correctamente"))
+                    .addOnSuccessListener(aVoid -> Log.d(TAG, "Valor de points actualizado correctamente"))
                     .addOnFailureListener(e -> Log.e(TAG, "Error al actualizar el valor de lastLogin", e));
             usuarioRef.update("last_level", game.getValue().getCurrentPlayer().getLAST_LEVEL())
-                    .addOnSuccessListener(aVoid -> Log.d(TAG, "Valor de lastLogin actualizado correctamente"))
+                    .addOnSuccessListener(aVoid -> Log.d(TAG, "Valor de lastlevel actualizado correctamente"))
                     .addOnFailureListener(e -> Log.e(TAG, "Error al actualizar el valor de lastLogin", e));
         }
     }

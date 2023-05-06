@@ -39,44 +39,38 @@ public class SignInActivity extends AppCompatActivityPlus {
         findViewById(R.id.btSignUp).setOnClickListener(v -> signUp());
     }
 
-    /***
-     * El mètode signUp demanarà a l'usuari un email i una contrasenyha per a registar-se.
-     * Llavors mitjançant "task" mirarà si l'operació de afegir-lo a la base de dades ha
-     * anat correctement, en cas que si enviara un email de verificació per a tal que l'usuari
-     * pugui fer LogIn.
-     */
     private void signUp() {
         String email = etEmail.getText().toString();
         String password = etPassword.getText().toString();
 
         ActivityHelper.hideKeyboard(this);
 
-        if (email.equals("") || password.equals("")){
-            Toast.makeText(SignInActivity.this, "Email o password no valid",
-                    Toast.LENGTH_SHORT).show();
-        }else{
-            mAuth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                // Sign in success, update UI with the signed-in user's information
-                                Log.d(myClassTag, "createUserWithEmail:success");
-                                FirebaseUser user = mAuth.getCurrentUser();
-                                user.sendEmailVerification();
-                                mAuth.signOut();
-                                Toast.makeText(SignInActivity.this, R.string.VerifyEmail,
-                                        Toast.LENGTH_SHORT).show();
-                                finish();
-                            } else {
-                                // If sign in fails, display a message to the user.
-                                Log.w(myClassTag, "createUserWithEmail:failure", task.getException());
-                                Toast.makeText(SignInActivity.this, "He tingut un problema enviant-te l'email, ho sento tio.",
-                                        Toast.LENGTH_SHORT).show();
-                                finish();
-                            }
-                        }
-                    });
+        if (email.trim().isEmpty() || password.trim().isEmpty()){
+            Toast.makeText(this, "Email o contrasenya incorrectes", Toast.LENGTH_SHORT).show();
+            return;
         }
+
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(myClassTag, "createUserWithEmail:success");
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            user.sendEmailVerification();
+                            mAuth.signOut();
+                            Toast.makeText(SignInActivity.this, R.string.VerifyEmail,
+                                    Toast.LENGTH_SHORT).show();
+                            finish();
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(myClassTag, "createUserWithEmail:failure", task.getException());
+                            Toast.makeText(SignInActivity.this, "He tingut un problema enviant-te l'email, ho sento tio.",
+                                    Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+                    }
+                });
     }
 }

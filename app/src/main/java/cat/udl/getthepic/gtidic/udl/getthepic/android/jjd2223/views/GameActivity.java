@@ -43,6 +43,13 @@ public class GameActivity extends AppCompatActivity {
 
         game.setContext(getApplicationContext());
         game.saveGameIntoDB();
+
+        game.getGame().observe(this, game -> {
+            if(game.jocacabat == true)
+            {
+                jocacabat();
+            }
+        });
     }
 
     /***
@@ -68,6 +75,13 @@ public class GameActivity extends AppCompatActivity {
         setResult(RESULT_OK, intent);
 
         // Finish the current activity
+        finish();
+    }
+
+    private void jocacabat()
+    {
+        Intent intent = new Intent(this,FinishActivity.class);
+        startActivity(intent);
         finish();
     }
 

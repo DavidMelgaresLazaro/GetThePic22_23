@@ -1,7 +1,6 @@
 package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models;
 
 
-import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.levels;
 import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
 
 

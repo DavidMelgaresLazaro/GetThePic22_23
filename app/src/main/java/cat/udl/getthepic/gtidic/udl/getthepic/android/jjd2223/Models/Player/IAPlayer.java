@@ -1,16 +1,13 @@
 package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Player;
 
 import android.content.Context;
-import android.os.Handler;
 import android.widget.Toast;
 
 import java.util.Random;
 
-import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Board;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Game;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Piece;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.levels;
-import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.helpers.GlobalInfo;
 
 public class IAPlayer extends Player{
 
