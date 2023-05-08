@@ -32,4 +32,6 @@
     <string name="TimeTrialMenu">Time Trial</string>
     <string name="btTimeTrialMenu">Time Trial</string>
     <string name="others">others</string>
+    <string name="NivellsTT">Nivells Resolts:</string>
+    <string name="myIntName">myIntName</string>
 </resources>

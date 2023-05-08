@@ -20,10 +20,13 @@ public class ResultTT extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result_tt);
 
+        String last_level = getIntent().getStringExtra("last_level");
+        System.out.println(last_level);
+
 
         findViewById(R.id.MenuPrincipalResultTT).setOnClickListener(v -> MenuPrincipal());
         TextView maxLevels = findViewById(R.id.pointsTT);
-        maxLevels.setText(String.valueOf(gTimeTrial.getLevelsTotal()));
+        maxLevels.setText(last_level);
 
 
     }
