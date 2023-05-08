@@ -44,6 +44,7 @@ public class menu extends AppCompatActivity {
         findViewById(R.id.others).setOnClickListener(v -> others());
         findViewById(R.id.logout).setOnClickListener(v -> logout());
         findViewById(R.id.Contrarellotge).setOnClickListener(view -> TimeTrial());
+        findViewById(R.id.multijugador).setOnClickListener(view -> multijugador());
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -88,6 +89,12 @@ public class menu extends AppCompatActivity {
     private void others()
     {
         Intent intent = new Intent(menu.this,Others.class);
+        startActivity(intent);
+    }
+
+    private void multijugador()
+    {
+        Intent intent = new Intent(menu.this, Multiplayer.class);
         startActivity(intent);
     }
 
