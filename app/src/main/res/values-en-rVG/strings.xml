@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GetThePic</string>
+    <string name="LOGO">LOGO</string>
+    <string name="STARTGAME">Start!</string>
+    <string name="ABOUT">About us</string>
+    <string name="Description">Application developed by:</string>
+    <string name="NOMS">David Melgares and Joan Jaume Moll</string>
+    <string name="MENUPAGE">MENUPAGE</string>
+    <string name="totalCardsReversed">totalCardsReversed</string>
+    <string name="Restart">Restart</string>
+    <string name="FinishGame">FinishGame</string>
+    <string name="fondo1" />
+    <string name="currentPlayer">Current Player:</string>
+    <string name="points">Points:</string>
+    <string name="IAPLAYER">IAplayer</string>
+    <string name="BorrarDB">DeleteDB</string>
+    <string name="VeureDB">SeeDB</string>
+    <string name="logout">LogOut</string>
+    <string name="email">Email</string>
+    <string name="Password">Password</string>
+    <string name="Login">Login</string>
+    <string name="SignUp">SignUp</string>
+    <string name="VerifyEmail">Verify your email</string>
+    <string name="FWPass">FORGOT PASSWORD</string>
+    <string name="Submit">SUBMIT</string>
+    <string name="ExplanationFWPass">Enter your email adress we\' ll send you a email to reset your password</string>
+    <string name="LastLogin">LastLogin:</string>
+    <string name="UserInfo">UserInfo</string>
+    <string name="Menu">Menu</string>
+    <string name="LastPoints">LastPoints</string>
+    <string name="WR">World Record</string>
+    <string name="TimeTrialMenu">Time Trial</string>
+    <string name="btTimeTrialMenu">Time Trial</string>
+    <string name="others">others</string>
+    <string name="NivellsTT">Levels Solved:</string>
+    <string name="myIntName">myIntName</string>
+</resources>
