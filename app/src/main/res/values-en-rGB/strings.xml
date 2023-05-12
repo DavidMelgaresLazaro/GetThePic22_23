@@ -40,5 +40,14 @@
     <string name="EmailSignIncorrec">"I had a problem sending you the email, sorry bro."</string>
     <string name="LoginIncorrec">"Authentication failed."</string>
     <string name="EmailPassIncorrec">"Invalid login. Please check that the email and password are correct.</string>
+    <string name="ChooseOption">Choose!</string>
+    <string name="Desc">Choose whether you want to connect to an existing game, or create a new one.</string>
+    <string name="WorldRecord">World Record:</string>
+    <string name="WRTT">Time Trial World Record:</string>
+    <string name="WRTTuser"> Wr username:</string>
+    <string name="WRTTuserInfo">Username WR TT:</string>
+    <string name="Account">Account</string>
+    <string name="Connect">Connect</string>
+    <string name="Create">Create</string>
 
 </resources>
