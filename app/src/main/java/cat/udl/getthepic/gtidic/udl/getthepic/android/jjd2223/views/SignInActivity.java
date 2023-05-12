@@ -46,7 +46,7 @@ public class SignInActivity extends AppCompatActivityPlus {
         ActivityHelper.hideKeyboard(this);
 
         if (email.trim().isEmpty() || password.trim().isEmpty()){
-            Toast.makeText(this, "Email o contrasenya incorrectes", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.SignIncorrec, Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -66,7 +66,7 @@ public class SignInActivity extends AppCompatActivityPlus {
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(myClassTag, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(SignInActivity.this, "He tingut un problema enviant-te l'email, ho sento tio.",
+                            Toast.makeText(SignInActivity.this, R.string.EmailSignIncorrec,
                                     Toast.LENGTH_SHORT).show();
                             finish();
                         }

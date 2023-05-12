@@ -35,4 +35,10 @@
     <string name="others">Mas opciones</string>
     <string name="NivellsTT">Niveles Resueltos:</string>
     <string name="myIntName">myIntName</string>
+    <string name="ToastSendFW">"Contraseña enviada al correo"</string>
+    <string name="SignIncorrec">"Email o contrasenya incorrectas"</string>
+    <string name="EmailSignIncorrec">"He tenido un problema enviándote el email, lo siento tío."</string>
+    <string name="LoginIncorrec">"Auntentificación fallida."</string>
+    <string name="EmailPassIncorrec">"Inicio de sesión no válido. Mira el correo y la contraseña que sean correctos."</string>
+
 </resources>

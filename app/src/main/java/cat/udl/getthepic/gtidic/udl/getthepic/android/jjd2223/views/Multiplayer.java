@@ -7,10 +7,6 @@ import androidx.lifecycle.ViewModelProvider;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.FirebaseFirestore;
-
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Game;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.MultiplayerGame;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.viewmodels.MultiplayerViewModel;
@@ -21,7 +17,6 @@ import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.generated.callba
 public class Multiplayer extends AppCompatActivity {
 
     private MultiplayerViewModel multiplayer;
-
 
 
     @Override

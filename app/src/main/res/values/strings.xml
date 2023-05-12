@@ -36,4 +36,12 @@
     <string name="myIntName">myIntName</string>
     <string name="Connect">Connect</string>
     <string name="Create">Create</string>
+    <string name="ToastSendFW">"Contrasenya enviada al correu"</string>
+    <string name="SignIncorrec">"Email o contrasenya incorrectes"</string>
+    <string name="EmailSignIncorrec">"He tingut un problema enviant-te l'email, ho sento tio."</string>
+    <string name="LoginIncorrec">"Ha fallat l'auntentificació."</string>
+    <string name="EmailPassIncorrec">"Inici de sessió no valid. Mira el correu i la contrasenya que siguin correctes."</string>
+
+
+
 </resources>
