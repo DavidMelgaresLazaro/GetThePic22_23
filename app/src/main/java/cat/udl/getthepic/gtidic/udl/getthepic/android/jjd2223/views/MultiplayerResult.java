@@ -14,8 +14,7 @@ public class MultiplayerResult extends AppCompatActivity {
     private int Points,PointsOponent;
     private String selfName, nomOponent;
     private boolean oponent;
-    private TextView resultat = findViewById(R.id.resultat);
-    private Button menu = findViewById(R.id.menubuttonretornar);
+    private TextView resultat;
 
 
 
@@ -24,35 +23,38 @@ public class MultiplayerResult extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_multiplayer_result);
 
-        menu.setOnClickListener(v -> retornarmenu());
+
+        findViewById(R.id.menubuttonretornar).setOnClickListener(v -> retornarmenu());
+        resultat = findViewById(R.id.resultat);
 
 
         Points = getIntent().getIntExtra("points",0);
         PointsOponent = getIntent().getIntExtra("pointsOponent",0);
-        selfName = getIntent().getStringExtra("selfName");
         nomOponent = getIntent().getStringExtra("nomOponent");
         oponent = getIntent().getBooleanExtra("oponent",false);
+
 
 
         if(Points == PointsOponent)
         {
             //Empate
             resultat.setText("Heu empatat!");
-        }
-        if(oponent)
-        {
-            if(PointsOponent >Points)
-            {
-                resultat.setText("Has guanyat!");
-            }else {
-                resultat.setText("Has perdut!");
-            }
         }else {
-            if(Points > PointsOponent)
+            if(oponent)
             {
-                resultat.setText("Has guanyat!");
+                if(PointsOponent >Points)
+                {
+                    resultat.setText("Has guanyat!");
+                }else {
+                    resultat.setText("Has perdut!");
+                }
             }else {
-                resultat.setText("Has perdut!");
+                if(Points > PointsOponent)
+                {
+                    resultat.setText("Has guanyat!");
+                }else {
+                    resultat.setText("Has perdut!");
+                }
             }
         }
 

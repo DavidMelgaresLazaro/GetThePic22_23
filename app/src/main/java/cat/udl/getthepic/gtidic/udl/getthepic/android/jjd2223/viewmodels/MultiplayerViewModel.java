@@ -78,8 +78,6 @@ public class MultiplayerViewModel extends ViewModel {
         MultiplayerGame internalGame = new MultiplayerGame();
         internalGame.init();
         multiplayergame.setValue(internalGame);
-        showCards();
-        d.setValue(levels.Getimage(internalGame.nivell));
 
     }
 
@@ -142,9 +140,9 @@ public class MultiplayerViewModel extends ViewModel {
         }
         multiplayergame.setValue(mygame);
     }
-    /*
 
-    private void startTimer()
+
+    private void startTimerOponent()
     {
         new CountDownTimer(30000, 1000) {
             public void onTick(long millisUntilFinished) {
@@ -156,7 +154,9 @@ public class MultiplayerViewModel extends ViewModel {
                 // Código que se ejecuta cuando la cuenta atrás ha terminado
             }
         }.start();
-    }*/
+        showCards();
+        d.setValue(levels.Getimage(multiplayergame.getValue().nivell));
+    }
 
     private void startTimer() {
         DatabaseReference games = GlobalInfo.getInstance().getFirebaseGames();
@@ -178,6 +178,8 @@ public class MultiplayerViewModel extends ViewModel {
                                     // Code that executes when the countdown finishes
                                 }
                             }.start();
+                            showCards();
+                            d.setValue(levels.Getimage(multiplayergame.getValue().nivell));
                         }
 
                     }
@@ -250,7 +252,7 @@ public class MultiplayerViewModel extends ViewModel {
         myFirebaseDBReference.child("oponentName").setValue(FirebaseAuth.getInstance().getCurrentUser().getEmail());
 
         enableFirebaseDBv2Oponent();
-        startTimer();
+        startTimerOponent();
     }
 
     private void updateFirebaseDBv2() {
