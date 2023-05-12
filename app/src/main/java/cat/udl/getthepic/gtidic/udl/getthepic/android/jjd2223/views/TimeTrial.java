@@ -85,8 +85,12 @@ public class TimeTrial extends AppCompatActivity {
      */
     private void finishgameactivity()
     {
+        System.out.println("ha de ser:" + game.getGame().getValue().getLevelsTotal());
+
         // Define un objeto Intent para la actividad de destino
         Intent intent = new Intent(this, ResultTT.class);
+
+        intent.putExtra("last_level", String.valueOf(game.getGame().getValue().getLevelsTotal()));
 
         // Inicia la actividad de destino
         startActivity(intent);

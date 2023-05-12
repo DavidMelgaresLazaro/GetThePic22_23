@@ -44,11 +44,6 @@ public class GTimeTrial {
 
 
 
-
-
-
-
-
     public void init() {
         int boardSize = 8;
         UpdateUser();
@@ -60,24 +55,7 @@ public class GTimeTrial {
 
         board.load(levels.GetRandomLevel());
 
-
-
-
-
-
-
-
-
     }
-
-
-
-
-
-
-
-
-
 
     public void cardClicked(int row){
         equivocat = false;
@@ -115,9 +93,6 @@ public class GTimeTrial {
     }
 
 
-
-
-
     public void checkifwin() {
         win = false;
 
@@ -133,10 +108,13 @@ public class GTimeTrial {
 
             win = true;
 
-            player1.addPoints(POINTS_PER_MATCH);
+            player1.addPoints(levelsTotal);
         }
     }
-
+    public Player getCurrentPlayer(){
+        //return currentPlayer;
+        return player1;
+    }
 
 
 

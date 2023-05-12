@@ -163,31 +163,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/restart" />
 
-        <TextView
-            android:id="@+id/totalcardsreverser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/totalCardsReversed"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.017"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.022" />
 
-        <TextView
-            android:id="@+id/cardsreversedvalue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{String.valueOf(GTTViewModel.game.getTotalCardsReversed())}"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.057"
-            app:layout_constraintStart_toEndOf="@+id/totalcardsreverser"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.022" />
+
+
 
         <Button
             android:id="@+id/restart"
@@ -227,32 +205,32 @@
             app:layout_constraintTop_toTopOf="@+id/marco"
             app:layout_constraintVertical_bias="0.685" />
 
+
         <TextView
             android:id="@+id/tvCurrentPlayer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/currentPlayer"
+            android:text="@string/NivellsTT"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.022"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/totalcardsreverser" />
-
-
-
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.022" />
 
         <TextView
-            android:id="@+id/tvCurrentPlayerPoints"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/points"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/fotojoc"
-            app:layout_constraintStart_toStartOf="@+id/fotojoc"
-            app:layout_constraintTop_toBottomOf="@+id/tvCurrentPlayer" />
-
-
+            android:id="@+id/tvCurrentPlayerPointsValue"
+            android:layout_width="30dp"
+            android:layout_height="27dp"
+            android:text="@{String.valueOf(GTTViewModel.game.levelsTotal)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/tvCurrentPlayer"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.022"
+            tools:text="0" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
