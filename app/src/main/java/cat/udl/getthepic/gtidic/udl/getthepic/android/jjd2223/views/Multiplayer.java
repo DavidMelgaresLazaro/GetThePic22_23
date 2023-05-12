@@ -7,10 +7,12 @@ import androidx.lifecycle.ViewModelProvider;
 import android.content.Intent;
 import android.os.Bundle;
 
+import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Game;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.MultiplayerGame;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.viewmodels.MultiplayerViewModel;
 import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
 import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.databinding.MultiplayerBinding;
+import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.generated.callback.OnClickListener;
 
 public class Multiplayer extends AppCompatActivity {
 
@@ -32,20 +34,6 @@ public class Multiplayer extends AppCompatActivity {
         binding.setLifecycleOwner(this);
 
 
-        multiplayer.getTime().observe(this, Time -> {
-            if(Time == 0)
-            {
-                int selfPoints = multiplayer.getMultiplayerGame().getValue().maxPoints;
-                int oponentPoints = multiplayer.getMultiplayerGame().getValue().maxPointsOponent;
-                String selfName = multiplayer.selfName;
-                String oponentName = multiplayer.getMultiplayerGame().getValue().oponentName;
-                boolean oponent = multiplayer.oponent;
-
-
-                jocAcabat(selfPoints,oponentPoints,selfName,oponentName,oponent);
-
-            }
-        });
 
         if (extra != null){
             boolean multiplayerType = extra.getBoolean("TIPO");
@@ -54,17 +42,26 @@ public class Multiplayer extends AppCompatActivity {
         }
         findViewById(R.id.finishbutton).setOnClickListener(view -> finishgameactivity());
 
+        multiplayer.getTime().observe(this, Time -> {
+            if(Time == 0)
+            {
+                jocAcabat();
+
+            }
+        });
+
 
     }
 
-    private void jocAcabat(int Points,int PointsOponent,String selfName,String nomOponent,Boolean oponent)
+
+    private void jocAcabat()
     {
         Intent intent =  new Intent(this,MultiplayerResult.class);
-        intent.putExtra("points",Points);
-        intent.putExtra("pointsOponent",PointsOponent);
-        intent.putExtra("nomOponent",nomOponent);
-        intent.putExtra("selfName",selfName);
-        intent.putExtra("oponent",oponent);
+        intent.putExtra("points",multiplayer.getMultiplayerGame().getValue().maxPoints);
+        intent.putExtra("pointsOponent",multiplayer.getMultiplayerGame().getValue().maxPointsOponent);
+        intent.putExtra("nomOponent",multiplayer.getMultiplayerGame().getValue().oponentName);
+        intent.putExtra("selfName",multiplayer.getMultiplayerGame().getValue().maxPointsOponent);
+        intent.putExtra("oponent",multiplayer.oponent);
         startActivity(intent);
         finish();
     }
