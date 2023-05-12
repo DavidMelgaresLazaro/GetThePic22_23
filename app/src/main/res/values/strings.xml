@@ -34,8 +34,8 @@
     <string name="others">Mes opcions</string>
     <string name="NivellsTT">Nivells Resolts:</string>
     <string name="myIntName">myIntName</string>
-    <string name="Connect">Connect</string>
-    <string name="Create">Create</string>
+    <string name="Connect">Conectat</string>
+    <string name="Create">Crear</string>
     <string name="ToastSendFW">"Contrasenya enviada al correu"</string>
     <string name="SignIncorrec">"Email o contrasenya incorrectes"</string>
     <string name="EmailSignIncorrec">"He tingut un problema enviant-te l'email, ho sento tio."</string>
@@ -45,8 +45,9 @@
     <string name="Desc">Escull si et vols conectar a un joc existent, o en vols crear un de nou</string>
     <string name="WorldRecord">Record Mundial:</string>
     <string name="WRTT">Record Mundial Time Trial:</string>
-    <string name="WRTTuser" />
+    <string name="WRTTuser"> Nom Usuari WR: </string>
     <string name="WRTTuserInfo">Usuari Record TT:</string>
+    <string name="Account">COMPTE</string>
 
 
 </resources>

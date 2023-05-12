@@ -40,5 +40,14 @@
     <string name="EmailSignIncorrec">"He tenido un problema enviándote el email, lo siento tío."</string>
     <string name="LoginIncorrec">"Auntentificación fallida."</string>
     <string name="EmailPassIncorrec">"Inicio de sesión no válido. Mira el correo y la contraseña que sean correctos."</string>
+    <string name="ChooseOption">Escoge!</string>
+    <string name="Desc">Escoge si quieres conectarte a un juego existente, o quieres crear uno nuevo</string>
+    <string name="WorldRecord">Record Mundial:</string>
+    <string name="WRTT">Record Mundial Time Trial:</string>
+    <string name="WRTTuser"> Nombre de Usuario WR: </string>
+    <string name="WRTTuserInfo">Usuario Record TT:</string>
+    <string name="Account">CUENTA</string>
+    <string name="Connect">Conectate</string>
+    <string name="Create">Crear</string>
 
 </resources>
