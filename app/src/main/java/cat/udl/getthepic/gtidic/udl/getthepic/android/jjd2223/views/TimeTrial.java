@@ -29,9 +29,7 @@ public class TimeTrial extends AppCompatActivity {
      * La variable game representa el ViewModel
      */
     GTTViewModel game;
-    private TextView timerTextView;
-    private MutableLiveData<Long> countdownLiveData = new MutableLiveData<>();
-    GTimeTrial countdown;
+
 
 
     @Override
@@ -55,8 +53,13 @@ public class TimeTrial extends AppCompatActivity {
         game.setContext(getApplicationContext());
 
 
-        // Inicia el temporizador
-        GTTViewModel.startTimer();
+        game.getTime().observe(this, Time -> {
+            if(Time == 0)
+            {
+                finishgameactivity();
+
+            }
+        });
 
 
 
@@ -85,22 +88,21 @@ public class TimeTrial extends AppCompatActivity {
      */
     private void finishgameactivity()
     {
-        System.out.println("ha de ser:" + game.getGame().getValue().getLevelsTotal());
+
 
         // Define un objeto Intent para la actividad de destino
         Intent intent = new Intent(this, ResultTT.class);
-
-        intent.putExtra("last_level", String.valueOf(game.getGame().getValue().getLevelsTotal()));
+        System.out.println(String.valueOf(game.getGame().getValue().getLevelsTotal()));
+        intent.putExtra("Levels_TT", game.getGame().getValue().getLevelsTotal());
 
         // Inicia la actividad de destino
         startActivity(intent);
+
 
         // Finaliza la actividad actual
         finish();
 
     }
-
-
 
 }
 

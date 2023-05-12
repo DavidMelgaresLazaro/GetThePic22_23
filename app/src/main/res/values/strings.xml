@@ -43,6 +43,10 @@
     <string name="EmailPassIncorrec">"Inici de sessió no valid. Mira el correu i la contrasenya que siguin correctes."</string>
     <string name="ChooseOption">Escull!</string>
     <string name="Desc">Escull si et vols conectar a un joc existent, o en vols crear un de nou</string>
+    <string name="WorldRecord">Record Mundial:</string>
+    <string name="WRTT">Record Mundial Time Trial:</string>
+    <string name="WRTTuser" />
+    <string name="WRTTuserInfo">Usuari Record TT:</string>
 
 
 </resources>

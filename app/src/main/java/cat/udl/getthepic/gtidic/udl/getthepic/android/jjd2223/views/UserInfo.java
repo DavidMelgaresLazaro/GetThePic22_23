@@ -56,6 +56,7 @@ public class UserInfo extends AppCompatActivity {
 
         displayUserPoints();
         displayWorldRecord();
+        displayWorldRecordTT();
 
         findViewById(R.id.menubutton).setOnClickListener(v ->returnmenu());
     }
@@ -118,4 +119,27 @@ public class UserInfo extends AppCompatActivity {
                 }
             });
         }
+
+    private void displayWorldRecordTT()
+    {
+        //Hem decidit que sigui Last Points en vers de PR ja que de moment no te sentit dins el context de la
+        //nostra aplicació. Aquesta conta punts per els nivells passats.
+
+        Query query = usuariosRef.orderBy("LevelsTT", Query.Direction.DESCENDING).limit(1);
+        query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        maxGlobal.setText(document.get("LevelsTT").toString());
+                        jugadormax.setText(document.get("correo").toString());
+                        Log.d(TAG, "El máximo de puntos es: " + document.get("LevelsTT"));
+                        // Aquí puedes hacer lo que quieras con el máximo de puntos
+                    }
+                } else {
+                    Log.e(TAG, "Error al obtener el máximo de puntos", task.getException());
+                }
+            }
+        });
+    }
 }

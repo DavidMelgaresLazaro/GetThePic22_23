@@ -31,34 +31,13 @@ public class ResultTT extends AppCompatActivity {
         findViewById(R.id.MenuPrincipalResultTT).setOnClickListener(v -> MenuPrincipal());
 
 
-
-
-        ResultadoTT();
         Intent intent = getIntent();
-        puntuacionTotal = intent.getIntExtra("puntuacioTotal", 0);
+        puntuacionTotal = intent.getIntExtra("Levels_TT",0);
         TextView textViewPuntuacion = findViewById(R.id.pointsTT);
         textViewPuntuacion.setText(String.valueOf(puntuacionTotal));
 
     }
 
-
-    public void ResultadoTT() {
-
-
-        // Crea un intent para iniciar la segunda actividad (ResultTT)
-        Intent intent = new Intent(this, ResultTT.class);
-
-        // Obtiene la puntuación total llamando al método getLevelsTotal()
-        int puntuacion = gTimeTrial.getLevelsTotal();
-
-        // Agrega la puntuación como un extra al intent con la clave "puntuacionTotal"
-        intent.putExtra("puntuacioTotal", puntuacion);
-
-        // Inicia la segunda actividad utilizando el contexto proporcionado
-        startActivity(intent);
-        finish();
-
-    }
 
 
     private void MenuPrincipal() {
