@@ -94,7 +94,7 @@ public class menu extends AppCompatActivity {
 
     private void multijugador()
     {
-        Intent intent = new Intent(menu.this, Multiplayer.class);
+        Intent intent = new Intent(menu.this, MulitplayerConnect.class);
         startActivity(intent);
     }
 

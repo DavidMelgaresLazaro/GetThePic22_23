@@ -34,4 +34,6 @@
     <string name="others">Mes opcions</string>
     <string name="NivellsTT">Nivells Resolts:</string>
     <string name="myIntName">myIntName</string>
+    <string name="Connect">Connect</string>
+    <string name="Create">Create</string>
 </resources>

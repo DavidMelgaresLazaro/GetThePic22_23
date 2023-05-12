@@ -122,17 +122,17 @@
                     android:id="@+id/imageView0"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:imageResource="@{MultiplayerViewModel.game.board.getPiece(0).cartaDrawable}"
+                    android:imageResource="@{MultiplayerViewModel.multiplayerGame.board.getPiece(0).cartaDrawable}"
                     android:onClick="@{()-> MultiplayerViewModel.cardClicked(0)}"
-                    android:enabled="@{MultiplayerViewModel.game.board.getPiece(0).getenabled()}"/>
+                    android:enabled="@{MultiplayerViewModel.multiplayerGame.board.getPiece(0).getenabled()}"/>
 
                 <ImageView
                     android:id="@+id/imageView1"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:imageResource="@{MultiplayerViewModel.game.board.getPiece(1).cartaDrawable}"
+                    android:imageResource="@{MultiplayerViewModel.multiplayerGame.board.getPiece(1).cartaDrawable}"
                     android:onClick="@{()-> MultiplayerViewModel.cardClicked(1)}"
-                    android:enabled="@{MultiplayerViewModel.game.board.getPiece(1).getenabled()}"/>
+                    android:enabled="@{MultiplayerViewModel.multiplayerGame.board.getPiece(1).getenabled()}"/>
 
             </LinearLayout>
 
@@ -146,17 +146,17 @@
                     android:id="@+id/imageView2"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:imageResource="@{MultiplayerViewModel.game.board.getPiece(2).cartaDrawable}"
+                    android:imageResource="@{MultiplayerViewModel.multiplayerGame.board.getPiece(2).cartaDrawable}"
                     android:onClick="@{()-> MultiplayerViewModel.cardClicked(2)}"
-                    android:enabled="@{MultiplayerViewModel.game.board.getPiece(2).getenabled()}"/>
+                    android:enabled="@{MultiplayerViewModel.multiplayerGame.board.getPiece(2).getenabled()}"/>
 
                 <ImageView
                     android:id="@+id/imageView3"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:imageResource="@{MultiplayerViewModel.game.board.getPiece(3).cartaDrawable}"
+                    android:imageResource="@{MultiplayerViewModel.multiplayerGame.board.getPiece(3).cartaDrawable}"
                     android:onClick="@{()-> MultiplayerViewModel.cardClicked(3)}"
-                    android:enabled="@{MultiplayerViewModel.game.board.getPiece(3).getenabled()}"/>
+                    android:enabled="@{MultiplayerViewModel.multiplayerGame.board.getPiece(3).getenabled()}"/>
 
             </LinearLayout>
 
@@ -170,17 +170,17 @@
                     android:id="@+id/imageView4"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:imageResource="@{MultiplayerViewModel.game.board.getPiece(4).cartaDrawable}"
+                    android:imageResource="@{MultiplayerViewModel.multiplayerGame.board.getPiece(4).cartaDrawable}"
                     android:onClick="@{()-> MultiplayerViewModel.cardClicked(4)}"
-                    android:enabled="@{MultiplayerViewModel.game.board.getPiece(4).getenabled()}"/>
+                    android:enabled="@{MultiplayerViewModel.multiplayerGame.board.getPiece(4).getenabled()}"/>
 
                 <ImageView
                     android:id="@+id/imageView5"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:imageResource="@{MultiplayerViewModel.game.board.getPiece(5).cartaDrawable}"
+                    android:imageResource="@{MultiplayerViewModel.multiplayerGame.board.getPiece(5).cartaDrawable}"
                     android:onClick="@{()-> MultiplayerViewModel.cardClicked(5)}"
-                    android:enabled="@{MultiplayerViewModel.game.board.getPiece(5).getenabled()}"/>
+                    android:enabled="@{MultiplayerViewModel.multiplayerGame.board.getPiece(5).getenabled()}"/>
 
             </LinearLayout>
 
@@ -194,17 +194,17 @@
                     android:id="@+id/imageView66"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:imageResource="@{MultiplayerViewModel.game.board.getPiece(6).cartaDrawable}"
+                    android:imageResource="@{MultiplayerViewModel.multiplayerGame.board.getPiece(6).cartaDrawable}"
                     android:onClick="@{()-> MultiplayerViewModel.cardClicked(6)}"
-                    android:enabled="@{MultiplayerViewModel.game.board.getPiece(6).getenabled()}"/>
+                    android:enabled="@{MultiplayerViewModel.multiplayerGame.board.getPiece(6).getenabled()}"/>
 
                 <ImageView
                     android:id="@+id/imageView77"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:imageResource="@{MultiplayerViewModel.game.board.getPiece(7).cartaDrawable}"
+                    android:imageResource="@{MultiplayerViewModel.multiplayerGame.board.getPiece(7).cartaDrawable}"
                     android:onClick="@{()-> MultiplayerViewModel.cardClicked(7)}"
-                    android:enabled="@{MultiplayerViewModel.game.board.getPiece(7).getenabled()}"/>
+                    android:enabled="@{MultiplayerViewModel.multiplayerGame.board.getPiece(7).getenabled()}"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -214,10 +214,30 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="@{MultiplayerViewModel.time}"
+            android:text="@{MultiplayerViewModel.time.toString()}"
             android:textSize="30sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@{MultiplayerViewModel.multiplayerGame.oponentName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@{MultiplayerViewModel.selfName}"
+            app:layout_constraintEnd_toEndOf="@+id/textView7"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

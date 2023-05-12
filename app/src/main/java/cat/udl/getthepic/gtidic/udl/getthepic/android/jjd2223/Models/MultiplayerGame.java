@@ -16,6 +16,9 @@ public class MultiplayerGame {
     public int totalCardsReversed = 0;
     public int POINTS_PER_MATCH = 10;
     public int maxPoints = 0;
+    public int maxPointsOponent = 0;
+
+    public String oponentName = "";
 
     private String actual = "";
 

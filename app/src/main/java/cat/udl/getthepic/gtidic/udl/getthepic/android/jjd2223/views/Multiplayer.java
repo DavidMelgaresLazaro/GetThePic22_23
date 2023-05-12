@@ -7,6 +7,10 @@ import androidx.lifecycle.ViewModelProvider;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Game;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.MultiplayerGame;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.viewmodels.MultiplayerViewModel;
@@ -17,6 +21,7 @@ import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.generated.callba
 public class Multiplayer extends AppCompatActivity {
 
     private MultiplayerViewModel multiplayer;
+
 
 
     @Override
@@ -36,17 +41,17 @@ public class Multiplayer extends AppCompatActivity {
 
 
         multiplayer.getTime().observe(this, Time -> {
-            if(Integer.parseInt(Time) == 0)
+            if(Time == 0)
             {
-                jocAcabat(multiplayer.getGame().getValue().maxPoints);
+                jocAcabat(multiplayer.getMultiplayerGame().getValue().maxPoints);
 
             }
         });
 
         if (extra != null){
-            int multiplayerType = extra.getInt(MultiplayerGame.MULTIPLAYER_KEY);
-            if (multiplayerType == MultiplayerGame.MULTIPLAYER_TYPE_CREATE) multiplayer.multiplayerCreate();
-            if (multiplayerType == MultiplayerGame.MULTIPLAYER_TYPE_CONNECT) multiplayer.multiplayerConnect(extra.getString(MultiplayerGame.MULTIPLAYER_GAME_KEY));
+            boolean multiplayerType = extra.getBoolean("TIPO");
+            if (multiplayerType == true) multiplayer.multiplayerCreate();
+            if (multiplayerType == false) multiplayer.multiplayerConnect(extra.getString(MultiplayerGame.MULTIPLAYER_GAME_KEY));
         }
 
 
