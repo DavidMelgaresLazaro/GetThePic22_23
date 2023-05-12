@@ -12,43 +12,49 @@
         android:theme="@style/Theme.GetThePic"
         tools:targetApi="31">
         <activity
-            android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.Multiplayer"
+            android:name=".MultiplayerSelector"
             android:exported="false" />
         <activity
-            android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.FinishActivity"
+            android:name=".Multiplayer"
             android:exported="false" />
         <activity
-            android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.ResultTT"
+            android:name=".MultiplayerResult"
             android:exported="false" />
         <activity
-            android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.Others"
+            android:name=".FinishActivity"
             android:exported="false" />
         <activity
-            android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.TimeTrial"
+            android:name=".ResultTT"
             android:exported="false" />
         <activity
-            android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.UserInfo"
+            android:name=".Others"
             android:exported="false" />
         <activity
-            android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.SignInActivity"
+            android:name=".TimeTrial"
             android:exported="false" />
         <activity
-            android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.SplashScreen"
+            android:name=".UserInfo"
             android:exported="false" />
         <activity
-            android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.About"
+            android:name=".SignInActivity"
             android:exported="false" />
         <activity
-            android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.menu"
+            android:name=".SplashScreen"
             android:exported="false" />
         <activity
-            android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.GameActivity"
+            android:name=".About"
             android:exported="false" />
         <activity
-            android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.ForgotPasswordActivity"
+            android:name=".menu"
             android:exported="false" />
         <activity
-            android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.LoginActivity"
+            android:name=".GameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -74,6 +74,12 @@ public class levels {
     {
         return CardDictionary.get(Character.toLowerCase(c));
     }
+
+    public static int ReturnRandomLevel()
+    {
+        Random rand = new Random();
+        return rand.nextInt(levelsP.length - 1);
+    }
 }
 
 

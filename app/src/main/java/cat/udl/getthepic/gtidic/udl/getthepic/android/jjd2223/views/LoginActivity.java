@@ -138,7 +138,7 @@ public class LoginActivity extends AppCompatActivity {
                     newUser.put("last_login", new Date());
                     newUser.put("points", 0);
                     newUser.put("last_level", 0);
-                    GlobalInfo.getInstance().setLast_login(document.getDate("last_login"));
+                    GlobalInfo.getInstance().setLast_login(new Date());
                     GlobalInfo.getInstance().setLast_level(0);
 
                     userRef.set(newUser)

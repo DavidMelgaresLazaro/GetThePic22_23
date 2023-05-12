@@ -79,5 +79,5 @@ dependencies {
 
     //Firebase database
 
-
+    implementation 'com.google.firebase:firebase-database'
 }
