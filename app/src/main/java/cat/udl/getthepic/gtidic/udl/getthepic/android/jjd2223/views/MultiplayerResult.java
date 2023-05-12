@@ -18,7 +18,6 @@ public class MultiplayerResult extends AppCompatActivity {
     private Button menu = findViewById(R.id.menubuttonretornar);
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,9 +54,6 @@ public class MultiplayerResult extends AppCompatActivity {
                 resultat.setText("Has perdut!");
             }
         }
-
-
-
     }
     private void retornarmenu()
     {

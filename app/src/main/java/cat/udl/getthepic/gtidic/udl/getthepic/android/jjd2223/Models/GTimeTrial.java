@@ -1,9 +1,6 @@
 package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models;
 
 
-import android.content.Context;
-import android.content.Intent;
-
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
@@ -14,7 +11,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Player.Player;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Player.HumanPlayer;
-import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.ResultTT;
+
 
 @Entity
 public class GTimeTrial {
@@ -79,26 +76,10 @@ public class GTimeTrial {
         board.getPiece(row).setGirada(true);
     }
 
-    public int getTotalCardsReversed()
-    {
-        return totalCardsReversed;
-    }
-    public int getPOINTS_PER_MATCH()
-    {
-        return POINTS_PER_MATCH;
-    }
-    public int getMaxPoints()
-    {
-        return maxPoints;
-    }
     public int getLevelsTotal()
     {
         return levelsTotal;
     }
-
-
-
-
 
 
     public void checkifwin() {
@@ -119,20 +100,12 @@ public class GTimeTrial {
             player1.addPoints(levelsTotal);
         }
     }
-    public Player getCurrentPlayer(){
-        //return currentPlayer;
-        return player1;
-    }
-
-
 
     private void UpdateUser()
     {
         mAuth1 = FirebaseAuth.getInstance();
         user = mAuth1.getCurrentUser();
     }
-
-
 
 }
 

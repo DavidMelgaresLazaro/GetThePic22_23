@@ -156,9 +156,5 @@ public class GameViewModel extends ViewModel {
                     .addOnFailureListener(e -> Log.e(TAG, "Error al actualizar el valor de lastLogin", e));
         }
     }
-    //commit
-
-
-
 
 }

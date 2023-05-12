@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Game;
-import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.MultiplayerGame;
 import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
 
 public class MulitplayerConnect extends AppCompatActivity {
