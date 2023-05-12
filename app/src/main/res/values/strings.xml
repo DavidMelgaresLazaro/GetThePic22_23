@@ -34,4 +34,12 @@
     <string name="others">Mes opcions</string>
     <string name="NivellsTT">Nivells Resolts:</string>
     <string name="myIntName">myIntName</string>
+    <string name="ToastSendFW">"Contrasenya enviada al correu"</string>
+    <string name="SignIncorrec">"Email o contrasenya incorrectes"</string>
+    <string name="EmailSignIncorrec">"He tingut un problema enviant-te l'email, ho sento tio."</string>
+    <string name="LoginIncorrec">"Ha fallat l'auntentificació."</string>
+    <string name="EmailPassIncorrec">"Inici de sessió no valid. Mira el correu i la contrasenya que siguin correctes."</string>
+
+
+
 </resources>

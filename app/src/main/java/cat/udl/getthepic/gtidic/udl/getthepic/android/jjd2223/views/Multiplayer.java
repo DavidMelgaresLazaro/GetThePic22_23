@@ -1,18 +1,16 @@
 package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views;
 
+import android.content.Intent;
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.content.Intent;
-import android.os.Bundle;
-
-import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Game;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.MultiplayerGame;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.viewmodels.MultiplayerViewModel;
 import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
 import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.databinding.MultiplayerBinding;
-import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.generated.callback.OnClickListener;
 
 public class Multiplayer extends AppCompatActivity {
 

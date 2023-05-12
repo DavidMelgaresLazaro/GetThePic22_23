@@ -35,4 +35,9 @@
     <string name="others">others</string>
     <string name="NivellsTT">Levels Solved:</string>
     <string name="myIntName">myIntName</string>
+    <string name="ToastSendFW">"Password send to your email"</string>
+    <string name="SignIncorrec">"Email or password incorrect"</string>
+    <string name="EmailSignIncorrec">"I had a problem sending you the email, sorry bro."</string>
+    <string name="LoginIncorrec">"Authentication failed."</string>
+    <string name="EmailPassIncorrec">"Invalid login. Please check that the email and password are correct.</string>
 </resources>
