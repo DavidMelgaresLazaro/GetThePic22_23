@@ -42,6 +42,7 @@ public class MultiplayerViewModel extends ViewModel {
      * Inicialització dels MutableLiveDATA
      */
     public int segundosRestantes;
+    public boolean oponent = false;
     public String selfName;
     public String oponentName;
     private FirebaseAuth mAuth;
@@ -103,6 +104,11 @@ public class MultiplayerViewModel extends ViewModel {
         d.setValue(levels.Getimage(multiplayergame.getValue().nivell));
         if(myGame.win == true)
         {
+            if(oponent = true) {
+                updateFirebaseDBv2Oponent();
+            }else {
+                updateFirebaseDBv2();
+            }
             showCards();
         }
         if(myGame.equivocat == true)
@@ -202,15 +208,15 @@ public class MultiplayerViewModel extends ViewModel {
      */
     public void multiplayerConnect(String gameKey) {
         DatabaseReference games = GlobalInfo.getInstance().getFirebaseGames();
-
 //        setting my config
+        myMultiplayerPlayerType = MultiplayerGame.MULTIPLAYER_TYPE_CONNECT;
         myFirebaseDBReference = games.child(gameKey);
+        oponent = true;
 
         myFirebaseDBReference.child("status").setValue(MultiplayerGame.MULTIPLAYER_STATUS_MATCHED);
-        // TODO millora: idealment hauriem d'agafar el turn del Firebase
-        //multiplayergame.getValue().setCurrentPlayerMultiplayer(MultiplayerGame.MULTIPLAYER_TYPE_CREATE);
+        myFirebaseDBReference.child("oponentName").setValue(FirebaseAuth.getInstance().getCurrentUser().getEmail());
 
-        enableFirebaseDBv2();
+        enableFirebaseDBv2Oponent();
     }
 
     private void updateFirebaseDBv2() {
@@ -219,6 +225,33 @@ public class MultiplayerViewModel extends ViewModel {
             myFirebaseDBReference.child("selfPoints").setValue(g.maxPoints);
         }
 
+    }
+    private void updateFirebaseDBv2Oponent() {
+        if (myFirebaseDBReference != null){
+            MultiplayerGame g = multiplayergame.getValue();
+            myFirebaseDBReference.child("selfPoints").setValue(g.maxPoints);
+        }
+
+    }
+
+    private void enableFirebaseDBv2Oponent() {
+        myFirebaseDBReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NotNull DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                int selfPoints = dataSnapshot.child("selfPoints").getValue(Integer.class);
+                String selfName = dataSnapshot.child("selfName").getValue(String.class);
+                MultiplayerGame g = multiplayergame.getValue();
+                g.oponentName = selfName;
+                g.maxPointsOponent = selfPoints;
+                multiplayergame.setValue(g);
+            }
+            @Override
+            public void onCancelled(@NotNull DatabaseError error) { // Failed to read value
+                Log.w(myClassTag, "Failed to read value.", error.toException());
+            }
+        });
     }
 
 

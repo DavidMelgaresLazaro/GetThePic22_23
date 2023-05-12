@@ -41,7 +41,8 @@
     <string name="EmailSignIncorrec">"He tingut un problema enviant-te l'email, ho sento tio."</string>
     <string name="LoginIncorrec">"Ha fallat l'auntentificació."</string>
     <string name="EmailPassIncorrec">"Inici de sessió no valid. Mira el correu i la contrasenya que siguin correctes."</string>
-
+    <string name="ChooseOption">Escull!</string>
+    <string name="Desc">Escull si et vols conectar a un joc existent, o en vols crear un de nou</string>
 
 
 </resources>

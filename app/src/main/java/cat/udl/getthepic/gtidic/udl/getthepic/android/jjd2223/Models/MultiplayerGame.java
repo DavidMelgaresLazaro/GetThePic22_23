@@ -33,7 +33,6 @@ public class MultiplayerGame {
 
     public static final int MULTIPLAYER_STATUS_PENDING = 1;
     public static final int MULTIPLAYER_STATUS_MATCHED = 2;
-    public static final int MULTIPLAYER_TYPE_CREATE = 1;
     public static final int MULTIPLAYER_TYPE_CONNECT = 2;
 
     public static final String MULTIPLAYER_KEY = "multiplayer-key";

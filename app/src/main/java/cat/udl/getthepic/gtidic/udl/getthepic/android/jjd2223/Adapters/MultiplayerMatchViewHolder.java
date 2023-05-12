@@ -1,5 +1,7 @@
 package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Adapters;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
@@ -31,12 +33,12 @@ class MultiplayerMatchViewHolder extends RecyclerView.ViewHolder{
         String firebaseKey = username.getText().toString();
 
         Activity fake = (Activity)itemView.getContext();
-        Intent i = new Intent(fake, GameActivity.class);
+        Intent i = new Intent(fake, Multiplayer.class);
         i.putExtra(MultiplayerGame.MULTIPLAYER_KEY, MultiplayerGame.MULTIPLAYER_TYPE_CONNECT);
         i.putExtra(MultiplayerGame.MULTIPLAYER_GAME_KEY, firebaseKey);
         fake.startActivity(i);
 
-//        startActivity(i);
+        //startActivity();
     }
 
     public void render(MultiplayerMatch mm) {

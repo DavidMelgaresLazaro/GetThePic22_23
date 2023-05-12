@@ -32,13 +32,13 @@ public class MultiplayerGameSelector extends AppCompatActivityPlus {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_multiplayer_game_selector);
 
-//        getFirstGameAvailable();
+        //getFirstGameAvailable();
         initRecylerView();
     }
 
     private void initRecylerView() {
         MultiplayerMatchesProvider provider = new MultiplayerMatchesProvider();
-        cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Adapters.MultiplayerMatchesAdapter adapter =  new cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Adapters.MultiplayerMatchesAdapter(provider.getLaMevaLlista());
+        MultiplayerMatchesAdapter adapter =  new MultiplayerMatchesAdapter(provider.getLaMevaLlista());
         provider.setAdapter(adapter);
         provider.getFromFirebase();
 
@@ -55,6 +55,7 @@ public class MultiplayerGameSelector extends AppCompatActivityPlus {
     public void getFirstGameAvailable(){
         DatabaseReference myFirebaseDBGames = GlobalInfo.getInstance().getFirebaseGames();
         Query q = myFirebaseDBGames.orderByChild("status").equalTo(MultiplayerGame.MULTIPLAYER_STATUS_PENDING).limitToFirst(1);
+        System.out.println(q);
         q.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -76,7 +77,7 @@ public class MultiplayerGameSelector extends AppCompatActivityPlus {
     }
 
     private void jumpToGame(String firebaseKey){
-        Intent i = new Intent(this, GameActivity.class);
+        Intent i = new Intent(this, Multiplayer.class);
         i.putExtra(MultiplayerGame.MULTIPLAYER_KEY, MultiplayerGame.MULTIPLAYER_TYPE_CONNECT);
         i.putExtra(MultiplayerGame.MULTIPLAYER_GAME_KEY, firebaseKey);
         startActivity(i);
