@@ -44,6 +44,8 @@ public class MultiplayerViewModel extends ViewModel {
     public int segundosRestantes;
     public boolean oponent = false;
     public String selfName;
+
+    private String gameKeyy;
     public String oponentName;
     private FirebaseAuth mAuth;
 
@@ -78,7 +80,6 @@ public class MultiplayerViewModel extends ViewModel {
         multiplayergame.setValue(internalGame);
         showCards();
         d.setValue(levels.Getimage(internalGame.nivell));
-        startTimer();
 
     }
 
@@ -141,7 +142,7 @@ public class MultiplayerViewModel extends ViewModel {
         }
         multiplayergame.setValue(mygame);
     }
-
+    /*
 
     private void startTimer()
     {
@@ -155,6 +156,37 @@ public class MultiplayerViewModel extends ViewModel {
                 // Código que se ejecuta cuando la cuenta atrás ha terminado
             }
         }.start();
+    }*/
+
+    private void startTimer() {
+        DatabaseReference games = GlobalInfo.getInstance().getFirebaseGames();
+        myRef = games.child(gameKeyy);
+
+
+                myRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NotNull DataSnapshot dataSnapshot) {
+                        int state = dataSnapshot.child("status").getValue(Integer.class);
+                        if (state == MultiplayerGame.MULTIPLAYER_STATUS_MATCHED) {
+                            new CountDownTimer(30000, 1000) {
+                                public void onTick(long millisUntilFinished) {
+                                    segundosRestantes = (int) millisUntilFinished / 1000;
+                                    Time.setValue(segundosRestantes);
+                                }
+
+                                public void onFinish() {
+                                    // Code that executes when the countdown finishes
+                                }
+                            }.start();
+                        }
+
+                    }
+                    @Override
+                    public void onCancelled(@NotNull DatabaseError error) { // Failed to read value
+                        Log.w(myClassTag, "Failed to read value.", error.toException());
+                    }
+                });
+
     }
 
     private void enableFirebaseDBv2() {
@@ -165,7 +197,6 @@ public class MultiplayerViewModel extends ViewModel {
                 // whenever data at this location is updated.
                 int oponentPoints = dataSnapshot.child("oponentPoints").getValue(Integer.class);
                 String oponentName = dataSnapshot.child("oponentName").getValue(String.class);
-                System.out.println(oponentName);
                 MultiplayerGame g = multiplayergame.getValue();
                 g.oponentName = oponentName;
                 g.maxPointsOponent = oponentPoints;
@@ -186,6 +217,7 @@ public class MultiplayerViewModel extends ViewModel {
     public void multiplayerCreate() {
         DatabaseReference myFirebaseDBGames = GlobalInfo.getInstance().getFirebaseGames();
         String key = myFirebaseDBGames.push().getKey();
+        this.gameKeyy = key;
         String selfName = this.selfName;
         oponentName = "X";
         myFirebaseDBReference = myFirebaseDBGames.child(key);
@@ -201,6 +233,7 @@ public class MultiplayerViewModel extends ViewModel {
 
         enableFirebaseDBv2();
         updateFirebaseDBv2();
+        startTimer();
     }
 
     /**
@@ -217,6 +250,7 @@ public class MultiplayerViewModel extends ViewModel {
         myFirebaseDBReference.child("oponentName").setValue(FirebaseAuth.getInstance().getCurrentUser().getEmail());
 
         enableFirebaseDBv2Oponent();
+        startTimer();
     }
 
     private void updateFirebaseDBv2() {
