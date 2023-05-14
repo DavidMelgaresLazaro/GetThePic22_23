@@ -2,7 +2,7 @@ package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -43,6 +43,13 @@ public class GameActivity extends AppCompatActivity {
 
         game.setContext(getApplicationContext());
         game.saveGameIntoDB();
+
+        game.getGame().observe(this, game -> {
+            if(game.jocacabat == true)
+            {
+                jocacabat();
+            }
+        });
     }
 
     /***
@@ -71,7 +78,12 @@ public class GameActivity extends AppCompatActivity {
         finish();
     }
 
-
+    private void jocacabat()
+    {
+        Intent intent = new Intent(this,FinishActivity.class);
+        startActivity(intent);
+        finish();
+    }
 
 }
 

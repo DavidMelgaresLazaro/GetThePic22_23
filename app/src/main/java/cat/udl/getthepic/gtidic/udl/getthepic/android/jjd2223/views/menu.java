@@ -3,31 +3,17 @@ package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
-
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
 
-
-import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.DB.DatabaseGetThePic;
-import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Player.IAPlayer;
 
 public class menu extends AppCompatActivity {
 
@@ -44,11 +30,13 @@ public class menu extends AppCompatActivity {
         findViewById(R.id.others).setOnClickListener(v -> others());
         findViewById(R.id.logout).setOnClickListener(v -> logout());
         findViewById(R.id.Contrarellotge).setOnClickListener(view -> TimeTrial());
+        findViewById(R.id.multijugador).setOnClickListener(view -> multijugador());
 
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
         printuser(user);
+
 
     }
 
@@ -87,6 +75,12 @@ public class menu extends AppCompatActivity {
     private void others()
     {
         Intent intent = new Intent(menu.this,Others.class);
+        startActivity(intent);
+    }
+
+    private void multijugador()
+    {
+        Intent intent = new Intent(menu.this, MulitplayerConnect.class);
         startActivity(intent);
     }
 

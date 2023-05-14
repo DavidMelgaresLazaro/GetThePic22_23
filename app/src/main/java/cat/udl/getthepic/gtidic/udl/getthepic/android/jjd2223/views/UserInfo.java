@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -38,6 +37,8 @@ public class UserInfo extends AppCompatActivity {
     TextView lastpoints;
     TextView lastlogin;
     TextView maxGlobal;
+    TextView maxGlobalTT;
+    TextView jugadormaxTT;
 
     TextView jugadormax;
 
@@ -51,11 +52,14 @@ public class UserInfo extends AppCompatActivity {
         lastpoints = findViewById(R.id.lastpoints);
         maxGlobal = findViewById(R.id.maxglobal);
         jugadormax = findViewById(R.id.maxglobaluser);
+        maxGlobalTT = findViewById(R.id.maxglobalTT);
+        jugadormaxTT = findViewById(R.id.maxglobaluserTT);
 
         lastlogin.setText(GlobalInfo.getInstance().getLastLogin().toString());
 
         displayUserPoints();
         displayWorldRecord();
+        displayWorldRecordTT();
 
         findViewById(R.id.menubutton).setOnClickListener(v ->returnmenu());
     }
@@ -118,4 +122,27 @@ public class UserInfo extends AppCompatActivity {
                 }
             });
         }
+
+    private void displayWorldRecordTT()
+    {
+        //Hem decidit que sigui Last Points en vers de PR ja que de moment no te sentit dins el context de la
+        //nostra aplicació. Aquesta conta punts per els nivells passats.
+
+        Query query = usuariosRef.orderBy("Levels_TT", Query.Direction.DESCENDING).limit(1);
+        query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        maxGlobalTT.setText(document.get("Levels_TT").toString());
+                        jugadormaxTT.setText(document.get("correo").toString());
+                        Log.d(TAG, "El máximo de puntos es: " + document.get("LevelsTT"));
+                        // Aquí puedes hacer lo que quieras con el máximo de puntos
+                    }
+                } else {
+                    Log.e(TAG, "Error al obtener el máximo de puntos", task.getException());
+                }
+            }
+        });
+    }
 }

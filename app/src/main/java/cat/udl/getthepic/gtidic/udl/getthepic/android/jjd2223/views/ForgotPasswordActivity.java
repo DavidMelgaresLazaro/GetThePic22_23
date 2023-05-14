@@ -5,12 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -58,7 +55,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
-                    Toast.makeText(ForgotPasswordActivity.this, "Password send to your email",Toast.LENGTH_LONG).show();
+                    Toast.makeText(ForgotPasswordActivity.this, R.string.ToastSendFW,Toast.LENGTH_LONG).show();
                 }else{
                     Toast.makeText(ForgotPasswordActivity.this, task.getException().getMessage(),Toast.LENGTH_LONG).show();
                 }
