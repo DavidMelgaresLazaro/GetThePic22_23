@@ -1,16 +1,6 @@
 package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models;
 
 
-import androidx.room.Ignore;
-import androidx.room.PrimaryKey;
-
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-
-import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Player.Player;
-import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Player.HumanPlayer;
-import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.helpers.GlobalInfo;
-
 public class MultiplayerGame {
 
     public int totalCardsReversed = 0;
@@ -49,8 +39,6 @@ public class MultiplayerGame {
 
     }
 
-
-
     public void cardClicked(int row){
         equivocat = false;
         actual += Character.toString(board.getPiece(row).getValue());
@@ -66,8 +54,6 @@ public class MultiplayerGame {
         board.getPiece(row).setGirada(true);
     }
 
-
-
     public void checkifwin()
     {
         win = false;
@@ -82,7 +68,5 @@ public class MultiplayerGame {
 
 
     }
-
-
 
 }

@@ -1,7 +1,6 @@
 package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views;
 
 
-
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;

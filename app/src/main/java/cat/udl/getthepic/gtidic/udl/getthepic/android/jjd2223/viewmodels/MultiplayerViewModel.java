@@ -15,7 +15,6 @@ import androidx.lifecycle.ViewModel;
 
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,13 +22,11 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.nio.charset.StandardCharsets;
-import java.util.Date;
+
 import java.util.HashMap;
 import java.util.Map;
 
-import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Board;
-import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Game;
+
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.MultiplayerGame;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.levels;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.helpers.GlobalInfo;
@@ -287,8 +284,4 @@ public class MultiplayerViewModel extends ViewModel {
             }
         });
     }
-
-
-
-
 }

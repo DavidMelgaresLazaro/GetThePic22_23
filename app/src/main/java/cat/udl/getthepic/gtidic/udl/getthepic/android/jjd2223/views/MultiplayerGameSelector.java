@@ -15,14 +15,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Game;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.MultiplayerGame;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.helpers.AppCompatActivityPlus;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.providers.MultiplayerMatchesProvider;
 
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.helpers.GlobalInfo;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Adapters.MultiplayerMatchesAdapter;
-import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.providers.MultiplayerMatchesProvider;
 import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
 
 public class MultiplayerGameSelector extends AppCompatActivityPlus {
