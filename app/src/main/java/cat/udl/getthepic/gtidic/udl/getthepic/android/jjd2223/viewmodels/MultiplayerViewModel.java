@@ -161,9 +161,7 @@ public class MultiplayerViewModel extends ViewModel {
     private void startTimer() {
         DatabaseReference games = GlobalInfo.getInstance().getFirebaseGames();
         myRef = games.child(gameKeyy);
-
-
-                myRef.addValueEventListener(new ValueEventListener() {
+        myRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NotNull DataSnapshot dataSnapshot) {
                         int state = dataSnapshot.child("status").getValue(Integer.class);
@@ -265,7 +263,7 @@ public class MultiplayerViewModel extends ViewModel {
     private void updateFirebaseDBv2Oponent() {
         if (myFirebaseDBReference != null){
             MultiplayerGame g = multiplayergame.getValue();
-            myFirebaseDBReference.child("selfPoints").setValue(g.maxPoints);
+            myFirebaseDBReference.child("oponentPoints").setValue(g.maxPoints);
         }
 
     }
