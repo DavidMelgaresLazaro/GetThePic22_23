@@ -14,7 +14,7 @@ public class MultiplayerResult extends AppCompatActivity {
     private int Points,PointsOponent;
     private String selfName, nomOponent;
     private boolean oponent;
-    private TextView resultat;
+    private TextView resultat,Jugador,Oponent;
 
 
 
