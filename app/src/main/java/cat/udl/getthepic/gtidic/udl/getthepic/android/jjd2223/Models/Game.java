@@ -40,6 +40,8 @@ public class Game {
     private FirebaseAuth mAuth;
     @Ignore
     private FirebaseUser user;
+    @Ignore
+    public boolean jocacabat;
 
     public void init()
     {
@@ -110,6 +112,11 @@ public class Game {
             {
                 maxPoints = getCurrentPlayer().getPoints();
             }*/
+
+            if(levels.imagesresources.length == player1.getLAST_LEVEL())
+            {
+                jocacabat = true;
+            }
         }
 
 

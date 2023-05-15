@@ -12,6 +12,21 @@
         android:theme="@style/Theme.GetThePic"
         tools:targetApi="31">
         <activity
+            android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.MulitplayerConnect"
+            android:exported="false" />
+        <activity
+            android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.MultiplayerGameSelector"
+            android:exported="false" />
+        <activity
+            android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.Multiplayer"
+            android:exported="false" />
+        <activity
+            android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.MultiplayerResult"
+            android:exported="false" />
+        <activity
+            android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.FinishActivity"
+            android:exported="false" />
+        <activity
             android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.ResultTT"
             android:exported="false" />
         <activity

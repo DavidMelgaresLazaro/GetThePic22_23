@@ -3,6 +3,8 @@ package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.viewmodels;
 
 import static android.content.ContentValues.TAG;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.app.Activity;
 import android.app.Application;
 import android.app.IntentService;
@@ -12,6 +14,7 @@ import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,12 +22,16 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 import java.util.Arrays;
 import java.util.Locale;
@@ -39,6 +46,7 @@ import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.menu;
 
 public class GTTViewModel extends ViewModel {
 
+
     private static CountDownTimer countDownTimer;
 
 
@@ -49,12 +57,19 @@ public class GTTViewModel extends ViewModel {
     private MutableLiveData<GTimeTrial> game = new MutableLiveData<>();
     private MutableLiveData<Integer> d = new MutableLiveData<>();
 
+    private MutableLiveData<Integer> Time = new MutableLiveData<>();
+
     /***
      * Inicialització de les instàncies de persistència
      */
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private FirebaseAuth mAuth1 = FirebaseAuth.getInstance();
+
+
+    public int lastLevel = 0;
+
+    public int segundosRestantes;
 
 
 
@@ -69,19 +84,11 @@ public class GTTViewModel extends ViewModel {
         internalGame.init();
         game.setValue(internalGame);
         showCards();
-
-
         d.setValue(levels.Getimage(Arrays.asList(levels.levelsP).indexOf(levels.GetRandomLevelStr())));
+        startTimer();
 
 
     }
-
-
-
-
-
-
-
 
     public LiveData<GTimeTrial> getGame()
     {
@@ -90,6 +97,8 @@ public class GTTViewModel extends ViewModel {
     public LiveData<Integer> getDrawableXaxi(){
         return d;
     }
+
+    public LiveData<Integer> getTime(){return Time;}
 
     /***
      * Propiedad LiveData de tipo String en tu ViewModel que representará el tiempo restante.
@@ -117,6 +126,7 @@ public class GTTViewModel extends ViewModel {
         {
 
             showCards();
+            lastLevel = myGame.getLevelsTotal();
             d.setValue(levels.Getimage(Arrays.asList(levels.levelsP).indexOf(levels.GetRandomLevelStr())));
 
 
@@ -128,7 +138,8 @@ public class GTTViewModel extends ViewModel {
 
         }
 
-        //saveFireBaseDB();
+
+        saveFireBaseDB();
     }
 
 
@@ -162,30 +173,16 @@ public class GTTViewModel extends ViewModel {
 
 
 
-    public static void startTimer() {
-        countDownTimer = new CountDownTimer(60000, 1000) {
-            @Override
+    private void startTimer()
+    {
+        new CountDownTimer(30000, 1000) {
             public void onTick(long millisUntilFinished) {
-                long minutes = TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished);
-                long seconds = TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
-                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished));
-
-                String timeLeftString = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
-
-                timeLeftLiveData.postValue(timeLeftString);
+                segundosRestantes = (int) millisUntilFinished / 1000;
+                Time.setValue(segundosRestantes);
             }
 
-            @Override
             public void onFinish() {
-                timeLeftLiveData.postValue("00:00");
-                Intent intent = new Intent(context, ResultTT.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent);
-
-                // Cierra la actividad actual
-                if (context instanceof Activity) {
-                    ((Activity) context).finish();
-                }
+                // Código que se ejecuta cuando la cuenta atrás ha terminado
             }
         }.start();
     }
@@ -198,25 +195,34 @@ public class GTTViewModel extends ViewModel {
     }
 
 
-/*
-    public void saveFireBaseDB()
-    {
+    public interface FirebaseSaveCallback {
+        void onSaveComplete(int levelsTotal);
+    }
+
+
+    public void saveFirebaseDB(FirebaseSaveCallback callback) {
+        // Tu código para guardar en Firebase Firestore
+
+        // Después de guardar en Firebase, obtén el valor de levelsTotal y llama a la interfaz de devolución de llamada
+        int levelsTotal = game.getValue().getLevelsTotal();
+        callback.onSaveComplete(levelsTotal);
+    }
+
+
+    public void saveFireBaseDB() {
         FirebaseUser currentUser = mAuth1.getCurrentUser();
         if (currentUser != null) {
             DocumentReference usuarioRefTT = db.collection("usuarios").document(currentUser.getUid());
 
-            usuarioRefTT.update("points", game.getValue().getCurrentPlayer().getPoints())
-                    .addOnSuccessListener(aVoid -> Log.d(TAG, "Valor de lastLogin actualizado correctamente"))
-                    .addOnFailureListener(e -> Log.e(TAG, "Error al actualizar el valor de lastLogin", e));
+            usuarioRefTT.update("Levels_TT", game.getValue().getLevelsTotal())
+                    .addOnSuccessListener(aVoid -> {
+                        Log.d(TAG, "Last_level correct");
+
+
+                    })
+                    .addOnFailureListener(e -> Log.e(TAG, "Last_level incorrect", e));
         }
-    }*/
 
 
-
-
-
+    }
 }
-
-
-
-

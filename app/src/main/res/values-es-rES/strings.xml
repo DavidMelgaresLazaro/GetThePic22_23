@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GetThePic</string>
+    <string name="LOGO">LOGO</string>
+    <string name="STARTGAME">Comienza!</string>
+    <string name="ABOUT">Sobre Nosotros</string>
+    <string name="Description">Aplicación desenvolupada por:</string>
+    <string name="NOMS">David Melgares y Joan Jaume Moll</string>
+    <string name="MENUPAGE">MENUPAGE</string>
+    <string name="totalCardsReversed">Cartas Giradas</string>
+    <string name="Restart">Vuelve a comenzar</string>
+    <string name="FinishGame">Me rindo</string>
+    <string name="fondo1" />
+    <string name="currentPlayer">Jugador actual:</string>
+    <string name="points">Puntos:</string>
+    <string name="IAPLAYER">IAplayer</string>
+    <string name="BorrarDB">BorrarDB</string>
+    <string name="VeureDB">VerDB</string>
+    <string name="logout">LogOut</string>
+    <string name="email">Email</string>
+    <string name="Password">Contraseña</string>
+    <string name="Login">Login</string>
+    <string name="SignUp">SignUp</string>
+    <string name="VerifyEmail">Verifica tu Email</string>
+    <string name="FWPass">RECUPERAR CONTRASEÑA</string>
+    <string name="Submit">ENVIAR</string>
+    <string name="ExplanationFWPass">Introduzca su dirección de correo electrónico y le enviaremos un correo electrónico para restablecer su contraseña</string>
+    <string name="LastLogin">Ultima conexión:</string>
+    <string name="UserInfo">InfoUsuari</string>
+    <string name="Menu">Menú</string>
+    <string name="LastPoints">Ultimos puntos</string>
+    <string name="WR">Record mundial</string>
+    <string name="TimeTrialMenu">Time Trial</string>
+    <string name="btTimeTrialMenu">Time Trial</string>
+    <string name="others">Mas opciones</string>
+    <string name="NivellsTT">Niveles Resueltos:</string>
+    <string name="myIntName">myIntName</string>
+    <string name="ToastSendFW">"Contraseña enviada al correo"</string>
+    <string name="SignIncorrec">"Email o contrasenya incorrectas"</string>
+    <string name="EmailSignIncorrec">"He tenido un problema enviándote el email, lo siento tío."</string>
+    <string name="LoginIncorrec">"Auntentificación fallida."</string>
+    <string name="EmailPassIncorrec">"Inicio de sesión no válido. Mira el correo y la contraseña que sean correctos."</string>
+    <string name="ChooseOption">Escoge!</string>
+    <string name="Desc">Escoge si quieres conectarte a un juego existente, o quieres crear uno nuevo</string>
+    <string name="WorldRecord">Record Mundial:</string>
+    <string name="WRTT">Record Mundial Time Trial:</string>
+    <string name="WRTTuser"> Nombre de Usuario WR: </string>
+    <string name="WRTTuserInfo">Usuario Record TT:</string>
+    <string name="Account">CUENTA</string>
+    <string name="Connect">Conectate</string>
+    <string name="Create">Crear</string>
+
+</resources>

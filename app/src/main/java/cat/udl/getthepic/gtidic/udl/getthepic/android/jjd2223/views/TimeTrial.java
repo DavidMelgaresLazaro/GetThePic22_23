@@ -2,23 +2,12 @@ package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.view.Menu;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
-
-import java.util.Locale;
-
-import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.GTimeTrial;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.viewmodels.GTTViewModel;
-
 
 import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
 import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.databinding.ActivityTimeTrialBinding;
@@ -29,9 +18,7 @@ public class TimeTrial extends AppCompatActivity {
      * La variable game representa el ViewModel
      */
     GTTViewModel game;
-    private TextView timerTextView;
-    private MutableLiveData<Long> countdownLiveData = new MutableLiveData<>();
-    GTimeTrial countdown;
+
 
 
     @Override
@@ -55,19 +42,14 @@ public class TimeTrial extends AppCompatActivity {
         game.setContext(getApplicationContext());
 
 
-        // Inicia el temporizador
-        GTTViewModel.startTimer();
+        game.getTime().observe(this, Time -> {
+            if(Time == 0)
+            {
+                finishgameactivity();
 
-
-
-
+            }
+        });
     }
-
-
-
-
-
-
 
     /***
      * Al pitjar restart, començem l'activitat de nou
@@ -85,8 +67,12 @@ public class TimeTrial extends AppCompatActivity {
      */
     private void finishgameactivity()
     {
+
+
         // Define un objeto Intent para la actividad de destino
         Intent intent = new Intent(this, ResultTT.class);
+        System.out.println(String.valueOf(game.getGame().getValue().getLevelsTotal()));
+        intent.putExtra("Levels_TT", game.getGame().getValue().getLevelsTotal());
 
         // Inicia la actividad de destino
         startActivity(intent);
@@ -95,9 +81,6 @@ public class TimeTrial extends AppCompatActivity {
         finish();
 
     }
-
-
-
 }
 
 

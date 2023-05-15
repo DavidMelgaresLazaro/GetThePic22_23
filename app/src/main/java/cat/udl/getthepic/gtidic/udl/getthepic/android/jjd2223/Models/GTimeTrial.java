@@ -1,12 +1,6 @@
 package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models;
 
 
-import static android.content.ContentValues.TAG;
-
-import android.os.CountDownTimer;
-import android.text.TextUtils;
-import android.util.Log;
-
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
@@ -14,14 +8,10 @@ import androidx.room.PrimaryKey;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import java.util.Arrays;
-import java.util.Locale;
-import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Player.Player;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Player.HumanPlayer;
-import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.helpers.GlobalInfo;
+
 
 @Entity
 public class GTimeTrial {
@@ -55,11 +45,6 @@ public class GTimeTrial {
 
 
 
-
-
-
-
-
     public void init() {
         int boardSize = 8;
         UpdateUser();
@@ -71,24 +56,7 @@ public class GTimeTrial {
 
         board.load(levels.GetRandomLevel());
 
-
-
-
-
-
-
-
-
     }
-
-
-
-
-
-
-
-
-
 
     public void cardClicked(int row){
         equivocat = false;
@@ -108,25 +76,10 @@ public class GTimeTrial {
         board.getPiece(row).setGirada(true);
     }
 
-    public int getTotalCardsReversed()
-    {
-        return totalCardsReversed;
-    }
-    public int getPOINTS_PER_MATCH()
-    {
-        return POINTS_PER_MATCH;
-    }
-    public int getMaxPoints()
-    {
-        return maxPoints;
-    }
     public int getLevelsTotal()
     {
         return levelsTotal;
     }
-
-
-
 
 
     public void checkifwin() {
@@ -144,20 +97,15 @@ public class GTimeTrial {
 
             win = true;
 
-            player1.addPoints(POINTS_PER_MATCH);
+            player1.addPoints(levelsTotal);
         }
     }
-
-
-
 
     private void UpdateUser()
     {
         mAuth1 = FirebaseAuth.getInstance();
         user = mAuth1.getCurrentUser();
     }
-
-
 
 }
 

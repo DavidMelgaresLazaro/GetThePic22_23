@@ -10,7 +10,6 @@ import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.common.server.converter.StringToIntConverter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -77,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
         ActivityHelper.hideKeyboard(this);
 
         if (email.trim().isEmpty() || password.trim().isEmpty()){
-            Toast.makeText(this, "loginNoValidEmailPassword", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.EmailPassIncorrec, Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -90,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.w(myClassTag, "signInWithEmail:failure", task.getException());
-                        Toast.makeText(this, "Authentication failed.",
+                        Toast.makeText(this, R.string.LoginIncorrec,
                                 Toast.LENGTH_SHORT).show();
                         etPassword.setText("");
                     }
@@ -138,7 +137,7 @@ public class LoginActivity extends AppCompatActivity {
                     newUser.put("last_login", new Date());
                     newUser.put("points", 0);
                     newUser.put("last_level", 0);
-                    GlobalInfo.getInstance().setLast_login(document.getDate("last_login"));
+                    GlobalInfo.getInstance().setLast_login(new Date());
                     GlobalInfo.getInstance().setLast_level(0);
 
                     userRef.set(newUser)

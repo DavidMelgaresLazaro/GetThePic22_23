@@ -3,28 +3,21 @@ package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.viewmodels;
 
 import static android.content.ContentValues.TAG;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.util.Log;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import androidx.room.Room;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
 
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.DB.DatabaseGetThePic;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Game;
@@ -37,6 +30,7 @@ public class GameViewModel extends ViewModel {
      */
     private MutableLiveData<Game> game = new MutableLiveData<>();
     private MutableLiveData<Integer> d = new MutableLiveData<>();
+    private MutableLiveData<Integer> carta1 = new MutableLiveData<>();
 
     /***
      * Inicialització de les instàncies de persistència
@@ -69,6 +63,9 @@ public class GameViewModel extends ViewModel {
     public LiveData<Integer> getDrawableXaxi(){
         return d;
     }
+    public LiveData<Integer> getcarta1(){
+        return carta1;
+    }
 
     /***
      * el cardClicked fa un set al objecte Game sobre quina carta s`ha pitjada per a tal que aquest el pugui
@@ -84,6 +81,7 @@ public class GameViewModel extends ViewModel {
         {
             showCards();
             Toast.makeText(context,"Molt bé,! Seguent Nivell", Toast.LENGTH_SHORT).show();
+            saveFireBaseDB();
         }
         if(myGame.equivocat == true)
         {
@@ -91,7 +89,6 @@ public class GameViewModel extends ViewModel {
             Toast.makeText(context, "T'has equivocat, torna a intentar-ho", Toast.LENGTH_SHORT).show();
         }
         updateGameInDB();
-        saveFireBaseDB();
     }
 
 
@@ -107,7 +104,7 @@ public class GameViewModel extends ViewModel {
             mygame.board.getPiece(i).setenabled(false);
         }
         game.setValue(mygame);
-        new Handler().postDelayed(() -> hideCards(),4000);
+        new Handler().postDelayed(() -> hideCards(),6000);
     }
     private void hideCards() {
         Game mygame = game.getValue();
@@ -152,16 +149,12 @@ public class GameViewModel extends ViewModel {
             DocumentReference usuarioRef = db.collection("usuarios").document(currentUser.getUid());
 
             usuarioRef.update("points", game.getValue().getCurrentPlayer().getPoints())
-                    .addOnSuccessListener(aVoid -> Log.d(TAG, "Valor de lastLogin actualizado correctamente"))
+                    .addOnSuccessListener(aVoid -> Log.d(TAG, "Valor de points actualizado correctamente"))
                     .addOnFailureListener(e -> Log.e(TAG, "Error al actualizar el valor de lastLogin", e));
             usuarioRef.update("last_level", game.getValue().getCurrentPlayer().getLAST_LEVEL())
-                    .addOnSuccessListener(aVoid -> Log.d(TAG, "Valor de lastLogin actualizado correctamente"))
+                    .addOnSuccessListener(aVoid -> Log.d(TAG, "Valor de lastlevel actualizado correctamente"))
                     .addOnFailureListener(e -> Log.e(TAG, "Error al actualizar el valor de lastLogin", e));
         }
     }
-    //commit
-
-
-
 
 }
