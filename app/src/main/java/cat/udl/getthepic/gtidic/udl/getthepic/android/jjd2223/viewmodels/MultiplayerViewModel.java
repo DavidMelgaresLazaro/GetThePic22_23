@@ -246,6 +246,10 @@ public class MultiplayerViewModel extends ViewModel {
         myFirebaseDBReference.child("status").setValue(MultiplayerGame.MULTIPLAYER_STATUS_MATCHED);
         myFirebaseDBReference.child("oponentName").setValue(FirebaseAuth.getInstance().getCurrentUser().getEmail());
 
+        MultiplayerGame mygame = multiplayergame.getValue();
+        mygame.oponent = true;
+        multiplayergame.setValue(mygame);
+
         enableFirebaseDBv2Oponent();
         startTimerOponent();
     }
@@ -260,7 +264,7 @@ public class MultiplayerViewModel extends ViewModel {
     private void updateFirebaseDBv2Oponent() {
         if (myFirebaseDBReference != null){
             MultiplayerGame g = multiplayergame.getValue();
-            myFirebaseDBReference.child("oponentPoints").setValue(g.maxPoints);
+            myFirebaseDBReference.child("oponentPoints").setValue(g.maxPointsOponent);
         }
 
     }

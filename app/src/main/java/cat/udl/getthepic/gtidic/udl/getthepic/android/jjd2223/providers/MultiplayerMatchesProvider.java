@@ -18,7 +18,7 @@ import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.helpers.GlobalInfo
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.MultiplayerGame;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.MultiplayerMatch;
 
-public class MultiplayerMatchesProvider {
+public class  MultiplayerMatchesProvider {
 
     MultiplayerMatchesAdapter adapter;
     public List<MultiplayerMatch> getLaMevaLlista() {
@@ -28,13 +28,13 @@ public class MultiplayerMatchesProvider {
     List<MultiplayerMatch> laMevaLlista = new ArrayList<>();
 
     public MultiplayerMatchesProvider(){
-        laMevaLlista.add(new MultiplayerMatch("albert"));
+        laMevaLlista.add(new MultiplayerMatch("JJ"));
     }
 
     public void getFromFirebase(){
         DatabaseReference myFirebaseDBGames = GlobalInfo.getInstance().getFirebaseGames();
         Query q = myFirebaseDBGames.orderByChild("status").equalTo(MultiplayerGame.MULTIPLAYER_STATUS_PENDING);
-        q.addListenerForSingleValueEvent(new ValueEventListener() {
+        q.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 refreshData(snapshot);

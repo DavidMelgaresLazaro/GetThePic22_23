@@ -7,12 +7,10 @@ import androidx.lifecycle.ViewModelProvider;
 import android.content.Intent;
 import android.os.Bundle;
 
-import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Game;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.MultiplayerGame;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.viewmodels.MultiplayerViewModel;
 import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
 import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.databinding.MultiplayerBinding;
-import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.generated.callback.OnClickListener;
 
 public class Multiplayer extends AppCompatActivity {
 
@@ -60,7 +58,6 @@ public class Multiplayer extends AppCompatActivity {
         intent.putExtra("points",multiplayer.getMultiplayerGame().getValue().maxPoints);
         intent.putExtra("pointsOponent",multiplayer.getMultiplayerGame().getValue().maxPointsOponent);
         intent.putExtra("nomOponent",multiplayer.getMultiplayerGame().getValue().oponentName);
-        intent.putExtra("selfName",multiplayer.getMultiplayerGame().getValue().maxPointsOponent);
         intent.putExtra("oponent",multiplayer.oponent);
         startActivity(intent);
         finish();
