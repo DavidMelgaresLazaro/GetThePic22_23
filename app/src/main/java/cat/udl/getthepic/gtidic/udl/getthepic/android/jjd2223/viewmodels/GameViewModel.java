@@ -63,9 +63,7 @@ public class GameViewModel extends ViewModel {
     public LiveData<Integer> getDrawableXaxi(){
         return d;
     }
-    public LiveData<Integer> getcarta1(){
-        return carta1;
-    }
+
 
     /***
      * el cardClicked fa un set al objecte Game sobre quina carta s`ha pitjada per a tal que aquest el pugui

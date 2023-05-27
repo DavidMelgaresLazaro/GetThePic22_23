@@ -48,6 +48,7 @@
     <string name="WRTTuser"> Nom Usuari WR: </string>
     <string name="WRTTuserInfo">Usuari Record TT:</string>
     <string name="Account">COMPTE</string>
+    <string name="txtUserInfo">USER INFO</string>
 
 
 </resources>

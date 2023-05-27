@@ -7,6 +7,17 @@
     tools:context="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.Others">
 
 
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/_c6c326026c11aa31a94f442170502c9" />
+
+
     <Button
         android:id="@+id/laiajuga"
         android:layout_width="wrap_content"
@@ -67,5 +78,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
