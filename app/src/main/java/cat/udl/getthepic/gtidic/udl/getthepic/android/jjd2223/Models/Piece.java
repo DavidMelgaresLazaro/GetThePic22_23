@@ -26,21 +26,9 @@ public class Piece {
         return value;
     }
 
-    public int giradareturn()
-    {
-        if(girada == true)
-        {
-            return 60;
-        }
-        return 0;
-    }
 
     public void setGirada(boolean girada) {
         this.girada = girada;
-    }
-    public boolean getGirada()
-    {
-        return this.girada;
     }
     public void setenabled(boolean enabled) {
         this.enabled = enabled;

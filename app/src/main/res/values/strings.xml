@@ -49,6 +49,8 @@
     <string name="WRTTuserInfo">Usuari Record TT:</string>
     <string name="Account">COMPTE</string>
     <string name="txtUserInfo">INFORMACIÓ USUARI</string>
+    <string name="userName">Nom Usuari</string>
+    <string name="Commit">Envia</string>
 
 
 </resources>

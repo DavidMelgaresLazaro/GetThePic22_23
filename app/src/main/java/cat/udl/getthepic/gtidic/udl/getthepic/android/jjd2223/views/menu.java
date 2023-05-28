@@ -27,7 +27,6 @@ public class menu extends AppCompatActivity {
         findViewById(R.id.button2).setOnClickListener(view -> aboutpage());
         findViewById(R.id.buttonstart).setOnClickListener(view -> StartGame());
         findViewById(R.id.userinfo).setOnClickListener(view -> userinfo());
-        findViewById(R.id.others).setOnClickListener(v -> others());
         findViewById(R.id.logout).setOnClickListener(v -> logout());
         findViewById(R.id.Contrarellotge).setOnClickListener(view -> TimeTrial());
         findViewById(R.id.multijugador).setOnClickListener(view -> multijugador());
@@ -71,11 +70,6 @@ public class menu extends AppCompatActivity {
         Intent intent = new Intent(menu.this, GameActivity.class);
         startActivity(intent);
 
-    }
-    private void others()
-    {
-        Intent intent = new Intent(menu.this,Others.class);
-        startActivity(intent);
     }
 
     private void multijugador()

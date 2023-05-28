@@ -19,7 +19,6 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 
-import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.DB.DatabaseGetThePic;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Game;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.levels;
 
@@ -86,7 +85,7 @@ public class GameViewModel extends ViewModel {
             showCards();
             Toast.makeText(context, "T'has equivocat, torna a intentar-ho", Toast.LENGTH_SHORT).show();
         }
-        updateGameInDB();
+
     }
 
 
@@ -118,27 +117,6 @@ public class GameViewModel extends ViewModel {
         this.context = context;
     }
 
-    public void saveGameIntoDB(){
-        String dbName = "GTP.db";
-        DatabaseGetThePic dbRoom = Room.databaseBuilder(context, DatabaseGetThePic.class, dbName).allowMainThreadQueries().build();
-        Game g = game.getValue();
-
-        g.id = dbRoom.gameDAO().insert(g);
-
-        String missatge = String.format("He guardat el meu joc amb id: %d", g.id );
-        System.out.println(missatge);
-        dbRoom.close();
-
-
-    }
-
-    public void updateGameInDB(){
-        String dbName = "GTP.db";
-        DatabaseGetThePic dbRoom = Room.databaseBuilder(context, DatabaseGetThePic.class, dbName).allowMainThreadQueries().build();
-        Game g = game.getValue();
-        dbRoom.gameDAO().update(g);
-        dbRoom.close();
-    }
 
     public void saveFireBaseDB()
     {

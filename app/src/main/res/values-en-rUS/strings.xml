@@ -50,4 +50,6 @@
     <string name="Connect">Connect</string>
     <string name="Create">Create</string>
     <string name="txtUserInfo">USER INFO</string>
+    <string name="userName">Username</string>
+    <string name="Commit">Commit</string>
 </resources>
