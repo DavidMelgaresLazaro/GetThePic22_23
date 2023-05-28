@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Game;
+import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.helpers.MultiplayMatchItemListener;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.GameActivity;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.MultiplayerGame;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.MultiplayerMatch;
@@ -19,18 +20,23 @@ import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
 
 class MultiplayerMatchViewHolder extends RecyclerView.ViewHolder{
 
+    private MultiplayMatchItemListener listener;
     View itemView;
-    TextView username;
-    public MultiplayerMatchViewHolder(@NonNull View itemView) {
+    TextView userName;
+    TextView userEmail;
+    TextView matchKey;
+    public MultiplayerMatchViewHolder(@NonNull View itemView, MultiplayMatchItemListener listener) {
         super(itemView);
         this.itemView = itemView;
-        this.username = itemView.findViewById(R.id.rv_item_username);
-        itemView.findViewById(R.id.item_rv).setOnClickListener(v -> jumpToGame());
+        this.userName = itemView.findViewById(R.id.rv_item_username);
+        this.userEmail = itemView.findViewById(R.id.rv_item_useremail);
+        this.matchKey = itemView.findViewById(R.id.rv_item_matchkey);
+        this.listener = listener;
     }
 
     private void jumpToGame() {
 
-        String firebaseKey = username.getText().toString();
+        String firebaseKey = userName.getText().toString();
 
         Activity fake = (Activity)itemView.getContext();
         Intent i = new Intent(fake, Multiplayer.class);
@@ -42,6 +48,10 @@ class MultiplayerMatchViewHolder extends RecyclerView.ViewHolder{
     }
 
     public void render(MultiplayerMatch mm) {
-        username.setText(mm.getUserCreator());
+        itemView.findViewById(R.id.item_rv).setOnClickListener(v -> listener.onMatchClick(mm));
+
+        userName.setText(mm.getUserName());
+        userEmail.setText(mm.getUserEmail());
+        matchKey.setText(mm.getMatchKey());
     }
 }

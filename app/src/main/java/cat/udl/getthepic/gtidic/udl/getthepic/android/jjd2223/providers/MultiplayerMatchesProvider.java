@@ -21,6 +21,8 @@ import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Multiplayer
 public class MultiplayerMatchesProvider {
 
     MultiplayerMatchesAdapter adapter;
+    private DatabaseReference myFirebaseDBGames;
+    private ValueEventListener listener;
     public List<MultiplayerMatch> getLaMevaLlista() {
         return laMevaLlista;
     }
@@ -28,11 +30,11 @@ public class MultiplayerMatchesProvider {
     List<MultiplayerMatch> laMevaLlista = new ArrayList<>();
 
     public MultiplayerMatchesProvider(){
-        laMevaLlista.add(new MultiplayerMatch("albert"));
+        laMevaLlista.add(new MultiplayerMatch("-asdfasdfas", "JJ", "example@example.cat"));
     }
 
     public void getFromFirebase(){
-        DatabaseReference myFirebaseDBGames = GlobalInfo.getInstance().getFirebaseGames();
+        myFirebaseDBGames = GlobalInfo.getInstance().getFirebaseGames();
         Query q = myFirebaseDBGames.orderByChild("status").equalTo(MultiplayerGame.MULTIPLAYER_STATUS_PENDING);
         q.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -51,7 +53,9 @@ public class MultiplayerMatchesProvider {
         laMevaLlista.clear();
         for (DataSnapshot gameSelected : snapshot.getChildren()){
             String key = gameSelected.getKey();
-            MultiplayerMatch mm = new MultiplayerMatch(key);
+            String userName = gameSelected.child("nombre").getValue(String.class);
+            String userEmail = gameSelected.child("correo").getValue(String.class);
+            MultiplayerMatch mm = new MultiplayerMatch(key, userName, userEmail);
             laMevaLlista.add(mm);
         }
         adapter.notifyItemRangeChanged(0, laMevaLlista.size());
@@ -59,5 +63,9 @@ public class MultiplayerMatchesProvider {
 
     public void setAdapter(MultiplayerMatchesAdapter adapter) {
         this.adapter = adapter;
+    }
+
+    public void detach() {
+        myFirebaseDBGames.removeEventListener(listener);
     }
 }

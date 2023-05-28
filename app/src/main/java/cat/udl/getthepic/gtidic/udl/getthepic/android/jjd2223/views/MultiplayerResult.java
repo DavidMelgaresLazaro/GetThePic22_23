@@ -36,18 +36,23 @@ public class MultiplayerResult extends AppCompatActivity {
         System.out.println("soc" + oponent);
 
 
-        Jugador.setText("Has fet: " + Points + " punts");
-        Oponent.setText("El jugador " + nomOponent + " ha fet " + PointsOponent + " Punts");
-
 
         if(Points == PointsOponent)
         {
             //Empate
             resultat.setText("Heu empatat!");
+            if(oponent) {
+                Jugador.setText("Has fet: " + PointsOponent + " punts");
+                Oponent.setText("El jugador " + nomOponent + " ha fet " + Points + " Punts");
+            }else{
+                Jugador.setText("Has fet: " + Points + " punts");
+                Oponent.setText("El jugador " + nomOponent + " ha fet " + PointsOponent + " Punts");
+            }
         }else {
         if(oponent)
         {
-            System.out.println("El jugador " + nomOponent + " ha fet " + PointsOponent + " Punts");
+            Jugador.setText("Has fet: " + PointsOponent + " punts");
+            Oponent.setText("El jugador " + nomOponent + " ha fet " + Points + " Punts");
             if(PointsOponent > Points)
             {
                 resultat.setText("Has guanyat!");
@@ -55,7 +60,8 @@ public class MultiplayerResult extends AppCompatActivity {
                 resultat.setText("Has perdut!");
             }
         }else{
-            System.out.println("Has fet: " + Points + " punts");
+            Jugador.setText("Has fet: " + Points + " punts");
+            Oponent.setText("El jugador " + nomOponent + " ha fet " + PointsOponent + " Punts");
             if(Points > PointsOponent)
             {
                 resultat.setText("Has guanyat!");

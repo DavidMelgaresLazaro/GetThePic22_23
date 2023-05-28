@@ -30,7 +30,6 @@ import java.util.Map;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.MultiplayerGame;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.levels;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.helpers.GlobalInfo;
-import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.Multiplayer;
 
 
 public class MultiplayerViewModel extends ViewModel {
@@ -71,7 +70,7 @@ public class MultiplayerViewModel extends ViewModel {
      */
     public MultiplayerViewModel(){
 
-        selfName = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+        selfName = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
         MultiplayerGame internalGame = new MultiplayerGame();
         internalGame.init();
         multiplayergame.setValue(internalGame);
@@ -245,6 +244,10 @@ public class MultiplayerViewModel extends ViewModel {
 
         myFirebaseDBReference.child("status").setValue(MultiplayerGame.MULTIPLAYER_STATUS_MATCHED);
         myFirebaseDBReference.child("oponentName").setValue(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+
+        MultiplayerGame mygame = multiplayergame.getValue();
+        mygame.oponent = true;
+        multiplayergame.setValue(mygame);
 
         enableFirebaseDBv2Oponent();
         startTimerOponent();

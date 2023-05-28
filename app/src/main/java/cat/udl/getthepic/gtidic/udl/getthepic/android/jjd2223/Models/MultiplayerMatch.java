@@ -6,6 +6,7 @@ public class MultiplayerMatch {
     }
 
     String userCreator;
+    int status = 1;
 
     public MultiplayerMatch(String user){
         this.userCreator = user;

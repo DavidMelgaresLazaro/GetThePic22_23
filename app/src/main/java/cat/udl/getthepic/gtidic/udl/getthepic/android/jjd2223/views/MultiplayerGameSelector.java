@@ -15,7 +15,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Game;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.MultiplayerGame;
+import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.MultiplayerMatch;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.helpers.AppCompatActivityPlus;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.providers.MultiplayerMatchesProvider;
 
@@ -29,20 +31,22 @@ public class MultiplayerGameSelector extends AppCompatActivityPlus {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_multiplayer_game_selector);
-
-        //getFirstGameAvailable();
         initRecylerView();
     }
 
+    private MultiplayerMatchesProvider provider;
+
     private void initRecylerView() {
-        MultiplayerMatchesProvider provider = new MultiplayerMatchesProvider();
-        MultiplayerMatchesAdapter adapter =  new MultiplayerMatchesAdapter(provider.getLaMevaLlista());
+        provider = new MultiplayerMatchesProvider();
+
+        MultiplayerMatchesAdapter adapter =  new MultiplayerMatchesAdapter(provider.getLaMevaLlista(), multiplayerMatch -> jumpToGamev2(multiplayerMatch));
         provider.setAdapter(adapter);
         provider.getFromFirebase();
 
         RecyclerView rv = findViewById(R.id.rv_matches);
         LinearLayoutManager llm = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         rv.setLayoutManager(llm);
+
         rv.setAdapter(adapter);
 //        pending things to do
     }
@@ -56,6 +60,18 @@ public class MultiplayerGameSelector extends AppCompatActivityPlus {
         Intent i = new Intent(this, Multiplayer.class);
         i.putExtra(MultiplayerGame.MULTIPLAYER_KEY, MultiplayerGame.MULTIPLAYER_TYPE_CONNECT);
         i.putExtra(MultiplayerGame.MULTIPLAYER_GAME_KEY, firebaseKey);
+        startActivity(i);
+    }
+
+    private void jumpToGamev2(MultiplayerMatch multiplayerMatch) {
+        String firebaseKey = multiplayerMatch.getMatchKey();
+        Intent i = new Intent(this.getApplicationContext(), GameActivity.class);
+        i.putExtra(MultiplayerGame.MULTIPLAYER_KEY, MultiplayerGame.MULTIPLAYER_TYPE_CONNECT);
+        i.putExtra(MultiplayerGame.MULTIPLAYER_GAME_KEY, firebaseKey);
+
+        finish();
+        provider.detach();
+
         startActivity(i);
     }
 }

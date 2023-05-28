@@ -53,19 +53,6 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.01" />
 
-                <ImageView
-                    android:id="@+id/marco"
-                    android:layout_width="match_parent"
-                    android:layout_height="359dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.419"
-                    app:srcCompat="@drawable/marco" />
-
                 <!--
                 <TextView
                     android:id="@+id/tvCurrentPlayer"
@@ -103,9 +90,25 @@
 
 
                 <ImageView
+                    android:id="@+id/marco"
+                    android:layout_width="match_parent"
+                    android:layout_height="359dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/finishbutton"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:srcCompat="@drawable/marco" />
+
+                <ImageView
                     android:id="@+id/fotojoc"
                     android:layout_width="200dp"
                     android:layout_height="200dp"
+                    android:layout_marginTop="32dp"
                     app:imageResource="@{GameViewModel.drawableXaxi}"
                     app:layout_constraintBottom_toBottomOf="@+id/marco"
                     app:layout_constraintEnd_toEndOf="parent"

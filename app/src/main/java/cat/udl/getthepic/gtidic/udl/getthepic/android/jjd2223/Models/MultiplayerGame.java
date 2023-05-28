@@ -20,6 +20,8 @@ public class MultiplayerGame {
 
     public int nivell;
 
+    public boolean oponent = false;
+
     public static final int MULTIPLAYER_STATUS_PENDING = 1;
     public static final int MULTIPLAYER_STATUS_MATCHED = 2;
     public static final int MULTIPLAYER_TYPE_CONNECT = 2;
@@ -62,10 +64,14 @@ public class MultiplayerGame {
             actual = "";
             totalCardsReversed = 0;
             win = true;
-            maxPoints = maxPoints + POINTS_PER_MATCH;
+            if(oponent)
+            {
+                maxPointsOponent = maxPointsOponent + POINTS_PER_MATCH;
+            }
+            else{
+                maxPoints = maxPoints + POINTS_PER_MATCH;
+            }
         }
-
-
     }
 
 }
