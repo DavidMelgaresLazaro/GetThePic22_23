@@ -12,7 +12,6 @@ public class MultiplayerGame {
 
     private String actual = "";
 
-
     public Board board;
 
     public boolean win = false;
@@ -22,7 +21,6 @@ public class MultiplayerGame {
     public int nivell;
 
     public boolean oponent = false;
-
 
     public static final int MULTIPLAYER_STATUS_PENDING = 1;
     public static final int MULTIPLAYER_STATUS_MATCHED = 2;
@@ -74,8 +72,6 @@ public class MultiplayerGame {
                 maxPoints = maxPoints + POINTS_PER_MATCH;
             }
         }
-
-
     }
 
 }

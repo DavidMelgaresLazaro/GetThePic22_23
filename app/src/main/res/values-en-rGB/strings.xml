@@ -49,5 +49,12 @@
     <string name="Account">Account</string>
     <string name="Connect">Connect</string>
     <string name="Create">Create</string>
+    <string name="txtUserInfo">USER INFO</string>
+    <string name="userName">Username</string>
+    <string name="Commit">Commit</string>
+    <string name="matchKey">Key: </string>
+    <string name="user">User</string>
+    <string name="pointsResultMulti">points</string>
+    <string name="ChangeUserName">Cambiar Nom d\'usuari:</string>
 
 </resources>

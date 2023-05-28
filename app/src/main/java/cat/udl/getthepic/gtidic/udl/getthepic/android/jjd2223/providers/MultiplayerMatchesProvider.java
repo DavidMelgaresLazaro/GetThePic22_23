@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Adapters.MultiplayerMatchesAdapter;
+import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Game;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.helpers.GlobalInfo;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.MultiplayerGame;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.MultiplayerMatch;
@@ -25,16 +26,21 @@ public class  MultiplayerMatchesProvider {
         return laMevaLlista;
     }
 
+    private ValueEventListener listener;
+    private DatabaseReference myFirebaseDBGames;
+
     List<MultiplayerMatch> laMevaLlista = new ArrayList<>();
 
     public MultiplayerMatchesProvider(){
-        laMevaLlista.add(new MultiplayerMatch("JJ"));
+
+        laMevaLlista.add(new MultiplayerMatch("-asdfasdfas", "JJ", "example@example.cat"));
+
     }
 
     public void getFromFirebase(){
-        DatabaseReference myFirebaseDBGames = GlobalInfo.getInstance().getFirebaseGames();
+        myFirebaseDBGames = GlobalInfo.getInstance().getFirebaseGames();
         Query q = myFirebaseDBGames.orderByChild("status").equalTo(MultiplayerGame.MULTIPLAYER_STATUS_PENDING);
-        q.addValueEventListener(new ValueEventListener() {
+        listener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 refreshData(snapshot);
@@ -44,14 +50,17 @@ public class  MultiplayerMatchesProvider {
             public void onCancelled(@NonNull DatabaseError error) {
                 Log.d("Provider", "Problemes de connexio");
             }
-        });
+        };
+        q.addValueEventListener(listener);
     }
 
     private void refreshData(DataSnapshot snapshot){
         laMevaLlista.clear();
         for (DataSnapshot gameSelected : snapshot.getChildren()){
             String key = gameSelected.getKey();
-            MultiplayerMatch mm = new MultiplayerMatch(key);
+            String userName = gameSelected.child("selfName").getValue(String.class);
+            String userEmail = gameSelected.child("selfEmail").getValue(String.class);
+            MultiplayerMatch mm = new MultiplayerMatch(key, userName, userEmail);
             laMevaLlista.add(mm);
         }
         adapter.notifyItemRangeChanged(0, laMevaLlista.size());
@@ -59,5 +68,11 @@ public class  MultiplayerMatchesProvider {
 
     public void setAdapter(MultiplayerMatchesAdapter adapter) {
         this.adapter = adapter;
+    }
+
+    public void detach() {
+        if (listener != null) {
+            myFirebaseDBGames.removeEventListener(listener);
+        }
     }
 }

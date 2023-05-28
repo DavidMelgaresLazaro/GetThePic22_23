@@ -16,6 +16,8 @@ public class GlobalInfo {
 
     private int last_level;
 
+    private String SelfName;
+
     private static GlobalInfo instance = new GlobalInfo();
 
     public static GlobalInfo getInstance()
@@ -61,5 +63,13 @@ public class GlobalInfo {
         String url = this.getFIREBASE_DB();
         FirebaseDatabase database = FirebaseDatabase.getInstance(url);
         return database.getReference("games");
+    }
+
+    public String getSelfName() {
+        return SelfName;
+    }
+
+    public void setSelfName(String selfName) {
+        SelfName = selfName;
     }
 }

@@ -132,7 +132,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (!document.exists()) {
                     // No existe un documento de usuario para este usuario, crear uno nuevo
                     Map<String, Object> newUser = new HashMap<>();
-                    newUser.put("nombre", user.getDisplayName());
+                    newUser.put("nombre", "user");
                     newUser.put("correo", user.getEmail());
                     newUser.put("last_login", new Date());
                     newUser.put("points", 0);
@@ -147,6 +147,7 @@ public class LoginActivity extends AppCompatActivity {
                     GlobalInfo.getInstance().setLast_login(document.getDate("last_login"));
                     GlobalInfo.getInstance().setLast_level(document.getLong("last_level").intValue());
                     GlobalInfo.getInstance().setLast_points(document.getLong("points").intValue());
+                    GlobalInfo.getInstance().setSelfName(document.getString("nombre"));
                     userRef.update("last_login",new Date());
                     Log.d(TAG, "Documento de usuario ya existe para este usuario");
                 }

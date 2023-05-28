@@ -27,9 +27,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="56dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/logout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5">
@@ -51,7 +50,7 @@
         <ImageView
             android:id="@+id/multijugador"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="182dp"
             app:srcCompat="@drawable/multijugador" />
 
 
@@ -67,15 +66,6 @@
         app:srcCompat="@drawable/titulo" />
 
 
-    <Button
-        android:id="@+id/others"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="@string/others"
-        app:layout_constraintBottom_toBottomOf="@+id/logout"
-        app:layout_constraintStart_toEndOf="@+id/logout"
-        app:layout_constraintTop_toTopOf="@+id/logout" />
 
     <ImageView
         android:id="@+id/userinfo"

@@ -48,6 +48,16 @@
     <string name="WRTTuser"> Nom Usuari WR: </string>
     <string name="WRTTuserInfo">Usuari Record TT:</string>
     <string name="Account">COMPTE</string>
+    <string name="txtUserInfo">USER INFO</string>
+    <string name="userName">Username</string>
+    <string name="Commit">Commit</string>
+    <string name="matchKey">Key: </string>
+    <string name="user">User</string>
+    <string name="vs">VS</string>
+    <string name="pointsResultMulti">punts</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ChangeUserName">Cambiar Nom d\'usuari:</string>
 
 
 </resources>

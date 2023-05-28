@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.TextView;
 
 import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
@@ -30,25 +29,35 @@ public class MultiplayerResult extends AppCompatActivity {
         Oponent = findViewById(R.id.Oponent);
 
 
+
         Points = getIntent().getIntExtra("points",0);
         PointsOponent = getIntent().getIntExtra("pointsOponent",0);
         nomOponent = getIntent().getStringExtra("nomOponent");
         oponent = getIntent().getBooleanExtra("oponent",false);
+        TextView textViewPuntuacion = findViewById(R.id.resultJugador);
+        textViewPuntuacion.setText(String.valueOf(Points));
+        TextView textViewPuntuacionOponent = findViewById(R.id.resultOponent);
+        textViewPuntuacionOponent.setText(String.valueOf(PointsOponent));
         System.out.println("soc" + oponent);
 
-
-        Jugador.setText("Has fet: " + Points + " punts");
-        Oponent.setText("El jugador " + nomOponent + " ha fet " + PointsOponent + " Punts");
 
 
         if(Points == PointsOponent)
         {
             //Empate
             resultat.setText("Heu empatat!");
+            if(oponent) {
+                Jugador.setText("Has fet: " + PointsOponent + " punts");
+                Oponent.setText("El jugador " + nomOponent + " ha fet " + Points + " Punts");
+            }else{
+                Jugador.setText("Has fet: " + Points + " punts");
+                Oponent.setText("El jugador " + nomOponent + " ha fet " + PointsOponent + " Punts");
+            }
         }else {
         if(oponent)
         {
-            System.out.println("El jugador " + nomOponent + " ha fet " + PointsOponent + " Punts");
+            Jugador.setText("Has fet: " + PointsOponent + " punts");
+            Oponent.setText("El jugador " + nomOponent + " ha fet " + Points + " Punts");
             if(PointsOponent > Points)
             {
                 resultat.setText("Has guanyat!");
@@ -56,7 +65,8 @@ public class MultiplayerResult extends AppCompatActivity {
                 resultat.setText("Has perdut!");
             }
         }else{
-            System.out.println("Has fet: " + Points + " punts");
+            Jugador.setText("Has fet: " + Points + " punts");
+            Oponent.setText("El jugador " + nomOponent + " ha fet " + PointsOponent + " Punts");
             if(Points > PointsOponent)
             {
                 resultat.setText("Has guanyat!");

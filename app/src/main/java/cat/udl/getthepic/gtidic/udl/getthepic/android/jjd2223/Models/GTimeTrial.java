@@ -19,19 +19,14 @@ public class GTimeTrial {
     public long id;
 
     public int totalCardsReversed = 0;
-    public int POINTS_PER_MATCH = 10;
     public int Levels = 1;
     public int levelsTotal= 0;
-    public int maxPoints = -1;
     @Ignore
     private String actual = "";
     @Ignore
     private Player player1;
-
     @Ignore
     Player currentPlayer;
-    @Ignore
-    Player winner;
     @Ignore
     public Board board;
     @Ignore

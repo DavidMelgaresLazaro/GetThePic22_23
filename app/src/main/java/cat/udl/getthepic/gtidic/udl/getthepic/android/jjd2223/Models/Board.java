@@ -14,7 +14,13 @@ public class Board {
                 board[i] = new Piece();
         }
     }
-    public boolean isCellEmpty(int row){
+
+    /***
+     * En un futur es podrien utilitzar, per aixo no els borrem.
+
+     */
+
+    /*public boolean isCellEmpty(int row){
 
         return board[row] == null;
     }
@@ -22,7 +28,7 @@ public class Board {
     public boolean isFull(){
 
         return board.length == 8;
-    }
+    }*/
 
     public void load(int level)
     {

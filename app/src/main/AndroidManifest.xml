@@ -30,9 +30,6 @@
             android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.ResultTT"
             android:exported="false" />
         <activity
-            android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.Others"
-            android:exported="false" />
-        <activity
             android:name="cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.TimeTrial"
             android:exported="false" />
         <activity
