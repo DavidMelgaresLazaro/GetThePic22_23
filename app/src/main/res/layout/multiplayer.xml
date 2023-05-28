@@ -13,24 +13,24 @@
         android:layout_height="match_parent"
         tools:context=".Multiplayer">
 
+
         <ImageView
             android:id="@+id/imageView6"
             android:layout_width="1046dp"
             android:layout_height="1272dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.466"
+            app:layout_constraintHorizontal_bias="0.455"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/baixa__2_" />
-
 
         <Button
             android:id="@+id/finishbutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:text="@string/FinishGame"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -225,10 +225,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="@{MultiplayerViewModel.multiplayerGame.oponentName}"
             android:color="#FF0000"
+            android:text="@{MultiplayerViewModel.multiplayerGame.oponentName}"
             app:layout_constraintEnd_toStartOf="@+id/finishbutton"
-            app:layout_constraintHorizontal_bias="0.726"
+            app:layout_constraintHorizontal_bias="0.758"
             app:layout_constraintStart_toEndOf="@+id/textView6"
             app:layout_constraintTop_toBottomOf="@+id/finishbutton" />
 
@@ -236,10 +236,11 @@
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
             android:layout_weight="1"
             android:text="@{MultiplayerViewModel.selfName}"
             app:layout_constraintEnd_toEndOf="@+id/progressBarSELF"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="@+id/progressBarSELF"
             app:layout_constraintTop_toBottomOf="@+id/progressBarSELF" />
 
@@ -261,7 +262,7 @@
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="11dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:progress="@{MultiplayerViewModel.OPONENTPROGRESBAR}"

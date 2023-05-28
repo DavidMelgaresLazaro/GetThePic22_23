@@ -55,6 +55,7 @@
     <string name="matchKey">Clave: </string>
     <string name="user">User</string>
     <string name="pointsResultMulti">puntos</string>
+    <string name="ChangeUserName">Cambiar Nom d\'usuari:</string>
 
 
 </resources>

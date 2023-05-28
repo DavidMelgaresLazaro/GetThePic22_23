@@ -4,33 +4,23 @@ package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.viewmodels;
 
 
 
-import static android.content.ContentValues.TAG;
 
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.Log;
 
 
-import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
+
 
 import org.jetbrains.annotations.NotNull;
 
@@ -120,7 +110,7 @@ public class MultiplayerViewModel extends ViewModel {
         if(myGame.win == true)
         {
             SELFPROGRESBAR.setValue(getSELFPROGRESBAR().getValue() + 10);
-            if(oponent = true) {
+            if(oponent) {
                 updateFirebaseDBv2Oponent();
             }else {
                 updateFirebaseDBv2();
