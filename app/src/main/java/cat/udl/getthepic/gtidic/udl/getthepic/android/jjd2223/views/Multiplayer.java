@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ProgressBar;
 
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Game;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.MultiplayerGame;
@@ -21,34 +22,43 @@ public class Multiplayer extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.multiplayer);
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.multiplayer);
 
-        Bundle extra = getIntent().getExtras();
-
-
-
-        multiplayer = new ViewModelProvider(this).get(MultiplayerViewModel.class);
-        MultiplayerBinding binding = DataBindingUtil.setContentView(this, R.layout.multiplayer);
-        binding.setMultiplayerViewModel(multiplayer);
-        binding.setLifecycleOwner(this);
+            Bundle extra = getIntent().getExtras();
 
 
 
-        if (extra != null){
-            boolean multiplayerType = extra.getBoolean("TIPO");
-            if (multiplayerType == true) multiplayer.multiplayerCreate();
-            if (multiplayerType == false) multiplayer.multiplayerConnect(extra.getString(MultiplayerGame.MULTIPLAYER_GAME_KEY));
-        }
-        findViewById(R.id.finishbutton).setOnClickListener(view -> finishgameactivity());
+            multiplayer = new ViewModelProvider(this).get(MultiplayerViewModel.class);
+            MultiplayerBinding binding = DataBindingUtil.setContentView(this, R.layout.multiplayer);
+            binding.setMultiplayerViewModel(multiplayer);
+            binding.setLifecycleOwner(this);
 
-        multiplayer.getTime().observe(this, Time -> {
-            if(Time == 0)
-            {
-                jocAcabat();
 
+
+            if (extra != null){
+                boolean multiplayerType = extra.getBoolean("TIPO");
+                if (multiplayerType == true) multiplayer.multiplayerCreate();
+                if (multiplayerType == false) multiplayer.multiplayerConnect(extra.getString(MultiplayerGame.MULTIPLAYER_GAME_KEY));
             }
-        });
+            findViewById(R.id.finishbutton).setOnClickListener(view -> finishgameactivity());
+
+            //Progress Bar player
+            ProgressBar progressBarPlayer = findViewById(R.id.progressBarPlayer);
+            progressBarPlayer.setProgress(multiplayer.getMultiplayerGame().getValue().maxPoints);
+
+            //Progress Bar Oponent
+            ProgressBar progressBarOponent = findViewById(R.id.progressBarOponent);
+            progressBarOponent.setProgress(multiplayer.getMultiplayerGame().getValue().maxPointsOponent);
+
+
+            multiplayer.getTime().observe(this, Time -> {
+                if(Time == 0)
+                {
+                    jocAcabat();
+
+                }
+            });
 
 
     }

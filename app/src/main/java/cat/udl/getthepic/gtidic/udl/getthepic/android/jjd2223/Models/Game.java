@@ -19,17 +19,13 @@ public class Game {
 
     public int totalCardsReversed = 0;
     public int POINTS_PER_MATCH = 10;
-    public int maxPoints = -1;
     @Ignore
     private String actual = "";
     @Ignore
     private Player player1;
-    @Ignore
-    private Player player2;
+
     @Ignore
     Player currentPlayer;
-    @Ignore
-    Player winner;
     @Ignore
     public Board board;
     @Ignore
@@ -50,20 +46,16 @@ public class Game {
         player1 = new HumanPlayer(user.getEmail());
         player1.setLAST_LEVEL(GlobalInfo.getInstance().getLast_level());
         player1.setPoints(GlobalInfo.getInstance().getLast_points());
-        //player2 = new HumanPlayer("Starlight ⚡️");
-        //currentPlayer = player1;
+
 
         board = new Board(boardSize);
         board.load(player1.getLAST_LEVEL());
 
     }
-    protected void changeTurn(){
-        currentPlayer = currentPlayer == player1 ? player2 : player1;
-    }
 
 
     public Player getCurrentPlayer(){
-        //return currentPlayer;
+
         return player1;
     }
 
@@ -77,24 +69,12 @@ public class Game {
             actual = "";
             totalCardsReversed = 0;
             equivocat = true;
-            changeTurn();
+
 
         }
         board.getPiece(row).setGirada(true);
     }
 
-    public int getTotalCardsReversed()
-    {
-        return totalCardsReversed;
-    }
-    public int getPOINTS_PER_MATCH()
-    {
-        return POINTS_PER_MATCH;
-    }
-    public int getMaxPoints()
-    {
-        return maxPoints;
-    }
 
 
     public void checkifwin()

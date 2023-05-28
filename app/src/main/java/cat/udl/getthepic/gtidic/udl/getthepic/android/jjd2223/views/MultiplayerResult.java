@@ -29,10 +29,15 @@ public class MultiplayerResult extends AppCompatActivity {
         Oponent = findViewById(R.id.Oponent);
 
 
+
         Points = getIntent().getIntExtra("points",0);
         PointsOponent = getIntent().getIntExtra("pointsOponent",0);
         nomOponent = getIntent().getStringExtra("nomOponent");
         oponent = getIntent().getBooleanExtra("oponent",false);
+        TextView textViewPuntuacion = findViewById(R.id.resultJugador);
+        textViewPuntuacion.setText(String.valueOf(Points));
+        TextView textViewPuntuacionOponent = findViewById(R.id.resultOponent);
+        textViewPuntuacionOponent.setText(String.valueOf(PointsOponent));
         System.out.println("soc" + oponent);
 
 
