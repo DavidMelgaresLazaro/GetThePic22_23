@@ -108,26 +108,17 @@ public class Game {
             totalCardsReversed = 0;
             win = true;
             player1.addPoints(POINTS_PER_MATCH);
-            /*if(getCurrentPlayer().getPoints() > maxPoints)
-            {
-                maxPoints = getCurrentPlayer().getPoints();
-            }*/
 
             if(levels.imagesresources.length == player1.getLAST_LEVEL())
             {
                 jocacabat = true;
             }
         }
-
-
     }
-
     private void UpdateUser()
     {
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
     }
-
-
 
 }

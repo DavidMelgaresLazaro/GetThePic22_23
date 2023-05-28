@@ -69,10 +69,6 @@ public class GTTViewModel extends ViewModel {
 
     public int lastLevel = 0;
 
-    public int segundosRestantes;
-
-
-
     private static Context context;
 
 
@@ -100,14 +96,7 @@ public class GTTViewModel extends ViewModel {
 
     public LiveData<Integer> getTime(){return Time;}
 
-    /***
-     * Propiedad LiveData de tipo String en tu ViewModel que representará el tiempo restante.
-     */
-    private static MutableLiveData<String> timeLeftLiveData = new MutableLiveData<>("00:00");
 
-    public LiveData<String> getTimeLeftLiveData() {
-        return timeLeftLiveData;
-    }
 
     /***
      * el cardClicked fa un set al objecte Game sobre quina carta s`ha pitjada per a tal que aquest el pugui
@@ -129,15 +118,12 @@ public class GTTViewModel extends ViewModel {
             lastLevel = myGame.getLevelsTotal();
             d.setValue(levels.Getimage(Arrays.asList(levels.levelsP).indexOf(levels.GetRandomLevelStr())));
 
-
-
         }
         if(myGame.equivocat == true)
         {
             showCards();
 
         }
-
 
         saveFireBaseDB();
     }
@@ -175,9 +161,11 @@ public class GTTViewModel extends ViewModel {
 
     private void startTimer()
     {
+
         new CountDownTimer(30000, 1000) {
             public void onTick(long millisUntilFinished) {
-                segundosRestantes = (int) millisUntilFinished / 1000;
+
+                int segundosRestantes = (int) millisUntilFinished / 1000;
                 Time.setValue(segundosRestantes);
             }
 

@@ -12,7 +12,6 @@ public class MultiplayerGame {
 
     private String actual = "";
 
-
     public Board board;
 
     public boolean win = false;

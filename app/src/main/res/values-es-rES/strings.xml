@@ -49,5 +49,8 @@
     <string name="Account">CUENTA</string>
     <string name="Connect">Conectate</string>
     <string name="Create">Crear</string>
+    <string name="txtUserInfo">INFORMACIÓN USUARIO</string>
+    <string name="userName">Nombre de Usuario</string>
+    <string name="Commit">Enviar</string>
 
 </resources>

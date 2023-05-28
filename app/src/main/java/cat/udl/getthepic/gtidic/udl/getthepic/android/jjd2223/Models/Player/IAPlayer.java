@@ -11,8 +11,6 @@ import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.levels;
 
 public class IAPlayer extends Player{
 
-    int algorytmType;
-
     Context context;
     Game game;
 
@@ -60,5 +58,4 @@ public class IAPlayer extends Player{
     {
     }
 
-
-    }
+}

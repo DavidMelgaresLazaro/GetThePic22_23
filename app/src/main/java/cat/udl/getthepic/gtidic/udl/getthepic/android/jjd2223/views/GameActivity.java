@@ -42,7 +42,7 @@ public class GameActivity extends AppCompatActivity {
         findViewById(R.id.restart).setOnClickListener(view -> restart());
 
         game.setContext(getApplicationContext());
-        game.saveGameIntoDB();
+
 
         game.getGame().observe(this, game -> {
             if(game.jocacabat == true)

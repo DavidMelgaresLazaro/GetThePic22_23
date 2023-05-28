@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
 
-
 public final class ActivityHelper {
     public static void hideKeyboard(Activity activity){
         // Check if no view has focus:
