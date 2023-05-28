@@ -74,21 +74,4 @@ public class MultiplayerGame {
         }
     }
 
-    public int getSelfProgress()
-    {
-        int progres = 0;
-
-        progres = maxPoints;
-
-        return progres;
-    }
-    public int getOponentProgress()
-    {
-        int progres = 0;
-
-        progres = maxPointsOponent;
-
-        return progres;
-    }
-
 }

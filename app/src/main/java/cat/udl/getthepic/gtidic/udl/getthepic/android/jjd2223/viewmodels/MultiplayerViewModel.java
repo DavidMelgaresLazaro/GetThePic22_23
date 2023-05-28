@@ -68,6 +68,8 @@ public class MultiplayerViewModel extends ViewModel {
 
 
     private MutableLiveData<Integer> Time = new MutableLiveData<>();
+    private MutableLiveData<Integer> SELFPROGRESBAR = new MutableLiveData<>();
+    private MutableLiveData<Integer> OPONENTPROGRESBAR = new MutableLiveData<>();
 
 
     /***
@@ -87,6 +89,9 @@ public class MultiplayerViewModel extends ViewModel {
         internalGame.init();
         multiplayergame.setValue(internalGame);
 
+        SELFPROGRESBAR.setValue(0);
+        OPONENTPROGRESBAR.setValue(0);
+
     }
 
     public LiveData<MultiplayerGame> getMultiplayerGame()
@@ -98,6 +103,9 @@ public class MultiplayerViewModel extends ViewModel {
     }
 
     public LiveData<Integer> getTime(){return Time;}
+
+    public LiveData<Integer> getSELFPROGRESBAR(){return SELFPROGRESBAR;}
+    public LiveData<Integer> getOPONENTPROGRESBAR(){return OPONENTPROGRESBAR;}
 
     /***
      * el cardClicked fa un set al objecte Game sobre quina carta s`ha pitjada per a tal que aquest el pugui
@@ -111,6 +119,7 @@ public class MultiplayerViewModel extends ViewModel {
         d.setValue(levels.Getimage(multiplayergame.getValue().nivell));
         if(myGame.win == true)
         {
+            SELFPROGRESBAR.setValue(getSELFPROGRESBAR().getValue() + 10);
             if(oponent = true) {
                 updateFirebaseDBv2Oponent();
             }else {
@@ -198,27 +207,6 @@ public class MultiplayerViewModel extends ViewModel {
 
     }
 
-    private void enableFirebaseDBv2() {
-        myFirebaseDBReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NotNull DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                int oponentPoints = dataSnapshot.child("oponentPoints").getValue(Integer.class);
-                String oponentName = dataSnapshot.child("oponentName").getValue(String.class);
-                MultiplayerGame g = multiplayergame.getValue();
-                g.oponentName = oponentName;
-                g.maxPointsOponent = oponentPoints;
-                //multiplayergame.setCurrentPlayerMultiplayer(multiplayerTurn);
-                multiplayergame.setValue(g);
-            }
-            @Override
-            public void onCancelled(@NotNull DatabaseError error) { // Failed to read value
-                Log.w(myClassTag, "Failed to read value.", error.toException());
-            }
-        });
-    }
-
 
     /**
      * Crea un game a firebase perquè es connecti algun altre player i l'inicialitza
@@ -290,10 +278,31 @@ public class MultiplayerViewModel extends ViewModel {
                 // whenever data at this location is updated.
                 int selfPoints = dataSnapshot.child("selfPoints").getValue(Integer.class);
                 String selfName = dataSnapshot.child("selfName").getValue(String.class);
-
                 MultiplayerGame g = multiplayergame.getValue();
                 g.maxPointsOponent = selfPoints;
+                OPONENTPROGRESBAR.setValue(selfPoints);
                 g.oponentName = selfName;
+                multiplayergame.setValue(g);
+            }
+            @Override
+            public void onCancelled(@NotNull DatabaseError error) { // Failed to read value
+                Log.w(myClassTag, "Failed to read value.", error.toException());
+            }
+        });
+    }
+    private void enableFirebaseDBv2() {
+        myFirebaseDBReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NotNull DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                int oponentPoints = dataSnapshot.child("oponentPoints").getValue(Integer.class);
+                String oponentName = dataSnapshot.child("oponentName").getValue(String.class);
+                MultiplayerGame g = multiplayergame.getValue();
+                g.oponentName = oponentName;
+                g.maxPointsOponent = oponentPoints;
+                OPONENTPROGRESBAR.setValue(oponentPoints);
+                //multiplayergame.setCurrentPlayerMultiplayer(multiplayerTurn);
                 multiplayergame.setValue(g);
             }
             @Override

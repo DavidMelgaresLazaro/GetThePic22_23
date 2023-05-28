@@ -251,7 +251,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:progress="@{MultiplayerViewModel.multiplayerGame.selfProgress}"
+            android:progress="@{MultiplayerViewModel.SELFPROGRESBAR}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView7" />
@@ -264,7 +264,7 @@
             android:layout_marginStart="11dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:progress="@{MultiplayerViewModel.multiplayerGame.oponentProgress}"
+            android:progress="@{MultiplayerViewModel.OPONENTPROGRESBAR}"
             app:layout_constraintEnd_toEndOf="@+id/progressBarSELF"
             app:layout_constraintHorizontal_bias="0.199"
             app:layout_constraintStart_toStartOf="@+id/progressBarSELF"
