@@ -241,9 +241,6 @@ public class MultiplayerViewModel extends ViewModel {
         mygame.oponent = true;
         multiplayergame.setValue(mygame);
 
-        MultiplayerGame mygame = multiplayergame.getValue();
-        mygame.oponent = true;
-        multiplayergame.setValue(mygame);
 
         enableFirebaseDBv2Oponent();
         startTimerOponent();
