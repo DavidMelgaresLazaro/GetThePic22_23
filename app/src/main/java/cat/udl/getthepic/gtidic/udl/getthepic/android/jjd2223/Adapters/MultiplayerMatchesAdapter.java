@@ -13,13 +13,12 @@ import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Multiplayer
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.helpers.MultiplayMatchItemListener;
 import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
 
-public class MultiplayerMatchesAdapter extends RecyclerView.Adapter<cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Adapters.MultiplayerMatchViewHolder> {
+public class MultiplayerMatchesAdapter extends RecyclerView.Adapter<MultiplayerMatchViewHolder> {
 
     private List<MultiplayerMatch> llista;
-
     private MultiplayMatchItemListener listener;
 
-    public MultiplayerMatchesAdapter(List<MultiplayerMatch> llista,MultiplayMatchItemListener listener){
+    public MultiplayerMatchesAdapter(List<MultiplayerMatch> llista, MultiplayMatchItemListener listener){
         this.llista = llista;
         this.listener = listener;
     }
@@ -29,7 +28,7 @@ public class MultiplayerMatchesAdapter extends RecyclerView.Adapter<cat.udl.gett
     public MultiplayerMatchViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater li = LayoutInflater.from(parent.getContext());
         View v = li.inflate(R.layout.multiplayer_rv_item, parent, false);
-        return new MultiplayerMatchViewHolder(v,listener);
+        return new MultiplayerMatchViewHolder(v, listener);
     }
 
     @Override
