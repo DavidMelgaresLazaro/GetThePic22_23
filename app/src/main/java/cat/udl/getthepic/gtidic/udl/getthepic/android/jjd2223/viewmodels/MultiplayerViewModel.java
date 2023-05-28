@@ -55,7 +55,6 @@ public class MultiplayerViewModel extends ViewModel {
 
     private String gameKeyy;
     public String oponentName,selfEmail;
-    private FirebaseAuth mAuth;
 
     protected String myClassTag = this.getClass().getSimpleName();
 
@@ -82,7 +81,7 @@ public class MultiplayerViewModel extends ViewModel {
      */
     public MultiplayerViewModel(){
 
-        selfName = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
+        selfName = GlobalInfo.getInstance().getSelfName();
         selfEmail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
         MultiplayerGame internalGame = new MultiplayerGame();
         internalGame.init();
@@ -123,6 +122,7 @@ public class MultiplayerViewModel extends ViewModel {
         {
             showCards();
         }
+        System.out.println("oponent:" + multiplayergame.getValue().oponentName + "selfName");
     }
 
 
@@ -227,7 +227,7 @@ public class MultiplayerViewModel extends ViewModel {
         DatabaseReference myFirebaseDBGames = GlobalInfo.getInstance().getFirebaseGames();
         String key = myFirebaseDBGames.push().getKey();
         this.gameKeyy = key;
-        String selfName = this.selfName;
+        String selfName = GlobalInfo.getInstance().getSelfName();
         oponentName = "X";
         myFirebaseDBReference = myFirebaseDBGames.child(key);
 
@@ -235,9 +235,9 @@ public class MultiplayerViewModel extends ViewModel {
         Map<String, Object> data = new HashMap<>();
         data.put("selfPoints", 0);
         data.put("status", MultiplayerGame.MULTIPLAYER_STATUS_PENDING);
-        data.put("selfName", GlobalInfo.getInstance().getSelfName());
+        data.put("selfName", selfName);
         data.put("oponentPoints",0);
-        data.put("oponentName","");
+        data.put("oponentName",oponentName);
         data.put("selfEmail",selfEmail);
         myFirebaseDBReference.setValue(data);
 
@@ -290,9 +290,10 @@ public class MultiplayerViewModel extends ViewModel {
                 // whenever data at this location is updated.
                 int selfPoints = dataSnapshot.child("selfPoints").getValue(Integer.class);
                 String selfName = dataSnapshot.child("selfName").getValue(String.class);
+
                 MultiplayerGame g = multiplayergame.getValue();
-                g.oponentName = selfName;
                 g.maxPointsOponent = selfPoints;
+                g.oponentName = selfName;
                 multiplayergame.setValue(g);
             }
             @Override

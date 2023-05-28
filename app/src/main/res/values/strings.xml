@@ -53,6 +53,7 @@
     <string name="Commit">Commit</string>
     <string name="matchKey">Key: </string>
     <string name="user">User</string>
+    <string name="vs">VS</string>
 
 
 </resources>
