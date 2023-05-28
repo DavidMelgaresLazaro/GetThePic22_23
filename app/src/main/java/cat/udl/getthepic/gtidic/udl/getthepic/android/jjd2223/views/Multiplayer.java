@@ -43,13 +43,6 @@ public class Multiplayer extends AppCompatActivity {
             }
             findViewById(R.id.finishbutton).setOnClickListener(view -> finishgameactivity());
 
-            //Progress Bar player
-            ProgressBar progressBarPlayer = findViewById(R.id.progressBarPlayer);
-            progressBarPlayer.setProgress(multiplayer.getMultiplayerGame().getValue().maxPoints);
-
-            //Progress Bar Oponent
-            ProgressBar progressBarOponent = findViewById(R.id.progressBarOponent);
-            progressBarOponent.setProgress(multiplayer.getMultiplayerGame().getValue().maxPointsOponent);
 
 
             multiplayer.getTime().observe(this, Time -> {

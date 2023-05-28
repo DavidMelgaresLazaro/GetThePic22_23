@@ -118,7 +118,14 @@ public class UserInfo extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             maxGlobal.setText(document.get("points").toString());
-                            jugadormax.setText(document.get("nombre").toString());
+                            if(document.get("nombre") != null)
+                            {
+                                jugadormax.setText(document.get("nombre").toString());
+                            }
+                            else
+                            {
+                                jugadormax.setText("user");
+                            }
                             Log.d(TAG, "El máximo de puntos es: " + document.get("puntos"));
                             // Aquí puedes hacer lo que quieras con el máximo de puntos
                         }
@@ -141,7 +148,14 @@ public class UserInfo extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         maxGlobalTT.setText(document.get("Levels_TT").toString());
-                        jugadormaxTT.setText(document.get("nombre").toString());
+                        if(document.get("nombre")!= null)
+                        {
+                            jugadormaxTT.setText(document.get("nombre").toString());
+                        }
+                        else
+                        {
+                            jugadormaxTT.setText("user");
+                        }
                         Log.d(TAG, "El máximo de puntos es: " + document.get("LevelsTT"));
                         // Aquí puedes hacer lo que quieras con el máximo de puntos
                     }
