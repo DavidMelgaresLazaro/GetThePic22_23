@@ -54,6 +54,7 @@
     <string name="matchKey">Key: </string>
     <string name="user">User</string>
     <string name="vs">VS</string>
+    <string name="pointsResultMulti">punts</string>
 
 
 </resources>
