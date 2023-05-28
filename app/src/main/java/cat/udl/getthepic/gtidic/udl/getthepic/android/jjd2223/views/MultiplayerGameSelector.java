@@ -19,22 +19,23 @@ import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Game;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.MultiplayerGame;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.MultiplayerMatch;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.helpers.AppCompatActivityPlus;
+import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.helpers.GlobalInfo;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.providers.MultiplayerMatchesProvider;
 
-import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.helpers.GlobalInfo;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Adapters.MultiplayerMatchesAdapter;
 import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
 
 public class MultiplayerGameSelector extends AppCompatActivityPlus {
 
+    private MultiplayerMatchesProvider provider;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_multiplayer_game_selector);
+
+//        getFirstGameAvailable();
         initRecylerView();
     }
-
-    private MultiplayerMatchesProvider provider;
 
     private void initRecylerView() {
         provider = new MultiplayerMatchesProvider();
@@ -48,24 +49,11 @@ public class MultiplayerGameSelector extends AppCompatActivityPlus {
         rv.setLayoutManager(llm);
 
         rv.setAdapter(adapter);
-//        pending things to do
-    }
-
-    /**
-     * Connecta (de moment) amb el primer game creat que no hagi estat matchat
-     */
-
-
-    private void jumpToGame(String firebaseKey){
-        Intent i = new Intent(this, Multiplayer.class);
-        i.putExtra(MultiplayerGame.MULTIPLAYER_KEY, MultiplayerGame.MULTIPLAYER_TYPE_CONNECT);
-        i.putExtra(MultiplayerGame.MULTIPLAYER_GAME_KEY, firebaseKey);
-        startActivity(i);
     }
 
     private void jumpToGamev2(MultiplayerMatch multiplayerMatch) {
         String firebaseKey = multiplayerMatch.getMatchKey();
-        Intent i = new Intent(this.getApplicationContext(), GameActivity.class);
+        Intent i = new Intent(this.getApplicationContext(), Multiplayer.class);
         i.putExtra(MultiplayerGame.MULTIPLAYER_KEY, MultiplayerGame.MULTIPLAYER_TYPE_CONNECT);
         i.putExtra(MultiplayerGame.MULTIPLAYER_GAME_KEY, firebaseKey);
 

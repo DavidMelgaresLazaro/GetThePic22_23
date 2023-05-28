@@ -118,7 +118,7 @@ public class UserInfo extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             maxGlobal.setText(document.get("points").toString());
-                            jugadormax.setText(document.get("correo").toString());
+                            jugadormax.setText(document.get("nombre").toString());
                             Log.d(TAG, "El máximo de puntos es: " + document.get("puntos"));
                             // Aquí puedes hacer lo que quieras con el máximo de puntos
                         }
@@ -141,7 +141,7 @@ public class UserInfo extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         maxGlobalTT.setText(document.get("Levels_TT").toString());
-                        jugadormaxTT.setText(document.get("correo").toString());
+                        jugadormaxTT.setText(document.get("nombre").toString());
                         Log.d(TAG, "El máximo de puntos es: " + document.get("LevelsTT"));
                         // Aquí puedes hacer lo que quieras con el máximo de puntos
                     }
@@ -164,6 +164,7 @@ public class UserInfo extends AppCompatActivity {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Toast.makeText(UserInfo.this, "Nom d'suari cambiat", Toast.LENGTH_SHORT).show();
+                            GlobalInfo.getInstance().setSelfName(UserName);
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
