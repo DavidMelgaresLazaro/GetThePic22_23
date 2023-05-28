@@ -22,10 +22,6 @@ public abstract class Player {
         this.LAST_LEVEL = LAST_LEVEL;
     }
 
-    public void cambiarNom(String name)
-    {
-        cambiarNom(name);
-    }
     public void setPoints(int points)
     {
         this.points = points;

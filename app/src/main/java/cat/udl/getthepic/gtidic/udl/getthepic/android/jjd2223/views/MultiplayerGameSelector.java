@@ -50,29 +50,7 @@ public class MultiplayerGameSelector extends AppCompatActivityPlus {
     /**
      * Connecta (de moment) amb el primer game creat que no hagi estat matchat
      */
-    public void getFirstGameAvailable(){
-        DatabaseReference myFirebaseDBGames = GlobalInfo.getInstance().getFirebaseGames();
-        Query q = myFirebaseDBGames.orderByChild("status").equalTo(MultiplayerGame.MULTIPLAYER_STATUS_PENDING).limitToFirst(1);
-        System.out.println(q);
-        q.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot gameSelected : snapshot.getChildren()){
-                    String key = gameSelected.getKey();
-                    jumpToGame(key);
-                    finish();
-                    return;
-                }
-                Toast.makeText(getApplicationContext(), "NoGamesAvailable", Toast.LENGTH_LONG).show();
-                finish();
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.d(myClassTag, "Problemes de connexio");
-            }
-        });
-    }
 
     private void jumpToGame(String firebaseKey){
         Intent i = new Intent(this, Multiplayer.class);

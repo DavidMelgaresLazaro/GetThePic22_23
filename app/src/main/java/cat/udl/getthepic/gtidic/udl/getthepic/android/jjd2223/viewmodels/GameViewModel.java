@@ -30,7 +30,7 @@ public class GameViewModel extends ViewModel {
      */
     private MutableLiveData<Game> game = new MutableLiveData<>();
     private MutableLiveData<Integer> d = new MutableLiveData<>();
-    private MutableLiveData<Integer> carta1 = new MutableLiveData<>();
+
 
     /***
      * Inicialització de les instàncies de persistència
