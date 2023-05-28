@@ -1,6 +1,9 @@
 package cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models;
 
 
+import android.content.Context;
+import android.widget.Toast;
+
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
@@ -11,6 +14,7 @@ import com.google.firebase.auth.FirebaseUser;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Player.Player;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Player.HumanPlayer;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.helpers.GlobalInfo;
+import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.views.ForgotPasswordActivity;
 
 @Entity
 public class Game {
@@ -38,6 +42,9 @@ public class Game {
     private FirebaseUser user;
     @Ignore
     public boolean jocacabat;
+
+    @Ignore
+    private Context context;
 
     public void init()
     {
@@ -74,7 +81,25 @@ public class Game {
         }
         board.getPiece(row).setGirada(true);
     }
+    public void paytowin(){
+        if(getCurrentPlayer().getPoints() >= 100){
+            player1.setLAST_LEVEL(player1.getLAST_LEVEL() + 1);
+            GlobalInfo.getInstance().setLast_level(player1.getLAST_LEVEL() + 1);
+            board.load(player1.getLAST_LEVEL());
+            actual = "";
+            totalCardsReversed = 0;
+            win = true;
+            getCurrentPlayer().comodinPayToWin();
+            if(levels.imagesresources.length == player1.getLAST_LEVEL())
+            {
+                jocacabat = true;
+            }
+        }
+        else{
+            Toast.makeText(context,"No tens 100 punts",Toast.LENGTH_LONG).show();
 
+        }
+    }
 
 
     public void checkifwin()
@@ -99,6 +124,11 @@ public class Game {
     {
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
+    }
+
+    public void setCTX(Context context)
+    {
+        this.context = context;
     }
 
 }

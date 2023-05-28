@@ -49,6 +49,7 @@ public class GameViewModel extends ViewModel {
     public GameViewModel(){
         Game internalGame = new Game();
         internalGame.init();
+        internalGame.setCTX(context);
         game.setValue(internalGame);
         showCards();
         d.setValue(levels.Getimage(game.getValue().getCurrentPlayer().getLAST_LEVEL()));

@@ -41,6 +41,7 @@ public class GameActivity extends AppCompatActivity {
         findViewById(R.id.finishbutton).setOnClickListener(view -> finishgameactivity());
         findViewById(R.id.restart).setOnClickListener(view -> restart());
 
+
         game.setContext(getApplicationContext());
 
 
@@ -50,6 +51,8 @@ public class GameActivity extends AppCompatActivity {
                 jocacabat();
             }
         });
+
+
     }
 
     /***

@@ -26,5 +26,6 @@ public abstract class Player {
     {
         this.points = points;
     }
+    public  void comodinPayToWin(){points = points -100;}
 }
 

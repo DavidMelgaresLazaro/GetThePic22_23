@@ -115,7 +115,7 @@
                     app:layout_constraintHorizontal_bias="0.497"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/marco"
-                    app:layout_constraintVertical_bias="0.685" />
+                    app:layout_constraintVertical_bias="0.653" />
 
                 <TextView
                     android:id="@+id/tvCurrentPlayerPoints"
@@ -248,6 +248,20 @@
                                     android:enabled="@{GameViewModel.game.board.getPiece(7).getenabled()}"/>
                         </LinearLayout>
                 </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/PayToWin"
+                    android:layout_width="61dp"
+                    android:layout_height="54dp"
+                    android:layout_marginBottom="624dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.034"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCurrentPlayerPoints"
+                    app:layout_constraintVertical_bias="1.0"
+                    android:onClick="@{()-> GameViewModel.game.paytowin()}"
+                    app:srcCompat="@drawable/sin_t_tulo_1" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
