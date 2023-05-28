@@ -8,7 +8,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -24,6 +26,8 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.Date;
+
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.helpers.GlobalInfo;
 import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
 
@@ -34,26 +38,26 @@ public class UserInfo extends AppCompatActivity {
 
     CollectionReference usuariosRef = db.collection("usuarios");
     String LastPoints;
-    TextView lastpoints;
-    TextView lastlogin;
-    TextView maxGlobal;
-    TextView maxGlobalTT;
-    TextView jugadormaxTT;
+    TextView lastpoints,lastlogin,maxGlobal,maxGlobalTT,jugadormaxTT,jugadormax;
 
-    TextView jugadormax;
 
+    private FirebaseAuth mAuth;
+    EditText editUserName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_info);
 
+        setContentView(R.layout.activity_user_info);
         lastlogin = findViewById(R.id.lastlogin);
         lastpoints = findViewById(R.id.lastpoints);
         maxGlobal = findViewById(R.id.maxglobal);
         jugadormax = findViewById(R.id.maxglobaluser);
         maxGlobalTT = findViewById(R.id.maxglobalTT);
         jugadormaxTT = findViewById(R.id.maxglobaluserTT);
+
+        editUserName = findViewById(R.id.editUserName);
+
 
         lastlogin.setText(GlobalInfo.getInstance().getLastLogin().toString());
 
@@ -62,10 +66,12 @@ public class UserInfo extends AppCompatActivity {
         displayWorldRecordTT();
 
         findViewById(R.id.menubutton).setOnClickListener(v ->returnmenu());
+        findViewById(R.id.buttonCommit).setOnClickListener(v -> updateUsername());
     }
     private void returnmenu()
     {
-        Intent intent = new Intent(this, menu.class);
+        Intent intent = new Intent(this.getApplicationContext(), menu.class);
+        startActivity(intent);
         finish();
     }
 
@@ -143,6 +149,30 @@ public class UserInfo extends AppCompatActivity {
                     Log.e(TAG, "Error al obtener el máximo de puntos", task.getException());
                 }
             }
+        });
+    }
+    private void updateUsername()
+    {
+        String UserName = editUserName.getText().toString();
+
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        DocumentReference userRef = db.collection("usuarios").document(currentUser.getUid());
+        userRef.get().addOnCompleteListener(task -> {
+            userRef.update("nombre", UserName)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Toast.makeText(UserInfo.this, "Nom d'suari cambiat", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(UserInfo.this, "Hi ha hagut algun error al cambiar el nom!", Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
         });
     }
 }

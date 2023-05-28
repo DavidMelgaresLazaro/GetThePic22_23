@@ -132,7 +132,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (!document.exists()) {
                     // No existe un documento de usuario para este usuario, crear uno nuevo
                     Map<String, Object> newUser = new HashMap<>();
-                    newUser.put("nombre", user.getDisplayName());
+                    newUser.put("nombre", "user");
                     newUser.put("correo", user.getEmail());
                     newUser.put("last_login", new Date());
                     newUser.put("points", 0);

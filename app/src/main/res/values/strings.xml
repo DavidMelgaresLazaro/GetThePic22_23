@@ -48,6 +48,11 @@
     <string name="WRTTuser"> Nom Usuari WR: </string>
     <string name="WRTTuserInfo">Usuari Record TT:</string>
     <string name="Account">COMPTE</string>
+    <string name="user">User:</string>
+    <string name="email2">Email:</string>
+    <string name="matchKey">MatchKey:</string>
+    <string name="UserName">UserName</string>
+    <string name="Commit">Commit</string>
 
 
 </resources>

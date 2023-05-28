@@ -60,7 +60,6 @@ public class Multiplayer extends AppCompatActivity {
         intent.putExtra("points",multiplayer.getMultiplayerGame().getValue().maxPoints);
         intent.putExtra("pointsOponent",multiplayer.getMultiplayerGame().getValue().maxPointsOponent);
         intent.putExtra("nomOponent",multiplayer.getMultiplayerGame().getValue().oponentName);
-        intent.putExtra("selfName",multiplayer.getMultiplayerGame().getValue().maxPointsOponent);
         intent.putExtra("oponent",multiplayer.oponent);
         startActivity(intent);
         finish();
