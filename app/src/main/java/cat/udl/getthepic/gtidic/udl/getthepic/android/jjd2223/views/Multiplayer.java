@@ -10,12 +10,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
 
-import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.Game;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.MultiplayerGame;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.viewmodels.MultiplayerViewModel;
 import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.R;
 import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.databinding.MultiplayerBinding;
-import cat.udl.getthepic.gtidic.udl.getthepic.getthepic.jjd2223.generated.callback.OnClickListener;
 
 public class Multiplayer extends AppCompatActivity {
 

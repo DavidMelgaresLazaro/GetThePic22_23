@@ -19,7 +19,7 @@ import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.helpers.GlobalInfo
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.MultiplayerGame;
 import cat.udl.getthepic.gtidic.udl.getthepic.android.jjd2223.Models.MultiplayerMatch;
 
-public class MultiplayerMatchesProvider {
+public class  MultiplayerMatchesProvider {
 
     MultiplayerMatchesAdapter adapter;
     public List<MultiplayerMatch> getLaMevaLlista() {
@@ -32,7 +32,9 @@ public class MultiplayerMatchesProvider {
     List<MultiplayerMatch> laMevaLlista = new ArrayList<>();
 
     public MultiplayerMatchesProvider(){
+
         laMevaLlista.add(new MultiplayerMatch("-asdfasdfas", "JJ", "example@example.cat"));
+
     }
 
     public void getFromFirebase(){
