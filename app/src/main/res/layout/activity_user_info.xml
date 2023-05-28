@@ -157,7 +157,7 @@
         android:layout_marginTop="66dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/UserName"
+        android:text="@string/UserInfo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
@@ -172,27 +172,7 @@
         app:layout_constraintStart_toStartOf="@+id/editUserName"
         app:layout_constraintTop_toBottomOf="@+id/editUserName" />
 
-    <EditText
-        android:id="@+id/editUserName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="66dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/userName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
-    <Button
-        android:id="@+id/buttonCommit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/Commit"
-        app:layout_constraintEnd_toEndOf="@+id/editUserName"
-        app:layout_constraintStart_toStartOf="@+id/editUserName"
-        app:layout_constraintTop_toBottomOf="@+id/editUserName" />
 
     <TextView
         android:id="@+id/textView11"

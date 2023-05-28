@@ -52,5 +52,7 @@
     <string name="txtUserInfo">INFORMACIÓN USUARIO</string>
     <string name="userName">Nombre de Usuario</string>
     <string name="Commit">Enviar</string>
+    <string name="matchKey">Clave: </string>
+    <string name="user">User</string>
 
 </resources>

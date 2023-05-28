@@ -52,4 +52,6 @@
     <string name="txtUserInfo">USER INFO</string>
     <string name="userName">Username</string>
     <string name="Commit">Commit</string>
+    <string name="matchKey">Key: </string>
+    <string name="user">User</string>
 </resources>
